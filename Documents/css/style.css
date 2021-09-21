@@ -9,6 +9,13 @@ body {
     max-width: 900px;
 }
 
+.sub_text {
+    list-style: none;
+    list-style-position: unset;
+    margin: 16px 0;
+}
+
+
 @media only screen and (max-width: 900px) {
     body {
         margin: auto 10%;
