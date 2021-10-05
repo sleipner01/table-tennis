@@ -21,3 +21,10 @@ body {
         margin: auto 10%;
     }
 }
+
+table, td, th {
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding: 5px;
+}
+
