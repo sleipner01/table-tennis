@@ -140,6 +140,7 @@ h2 {
 }
 
 .split div {
+    width: 50%;
     max-width: calc(50% - 1em);
 }
 
@@ -157,4 +158,25 @@ button {
 
 p {
     margin-bottom: 1em;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid var(--black);
+    width: 100%;
+}
+
+table th {
+    background-color: var(--darkgray);
+    color: var(--white);
+}
+
+table th, table td {
+    padding: .6em;
+    text-align: left;
+    /* border: 1px solid var(--black); */
+}
+
+.num {
+    text-align: right;
 }
