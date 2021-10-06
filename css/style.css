@@ -183,7 +183,7 @@ h2 {
 
 button {
     background-color: var(--red);
-    padding: 1em 2em;
+    padding: .8em 2em;
     border-radius: 0px;
     border: 0px solid var(--darkgray);
     color: var(--white);
