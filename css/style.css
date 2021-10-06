@@ -180,3 +180,7 @@ table th, table td {
 .num {
     text-align: right;
 }
+
+.center {
+    text-align: center;
+}
