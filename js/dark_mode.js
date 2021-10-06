@@ -1,11 +1,11 @@
-whiteMode = []
-darkMode = []
+const whiteMode = []
+const darkMode = []
 
 const toggle = () => {
   return
 }
 
-toggleButton = document.getElementById("darkMode")
+const toggleButton = document.getElementById("darkMode")
 toggleButton.addEventListener("click", toggle())
 
 
