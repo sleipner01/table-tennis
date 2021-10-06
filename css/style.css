@@ -147,6 +147,13 @@ h2 {
     flex-flow: column nowrap;
     justify-content: space-evenly;
     align-content: center;
+
+    background-image: url("../../bordtennis/media/intro-images/man1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: darken;
+    background-color: var(--lightgray);
+    background-position: top;
 }
 
 #gallery h1 {
