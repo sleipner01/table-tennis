@@ -42,6 +42,16 @@ nav a {
 
 nav div {
     padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-flow: row nowrap;
+}
+
+nav div:hover {
+    background-color: var(--white);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 main {
@@ -84,6 +94,7 @@ footer {
     padding: 1em;
     flex-flow: column nowrap;
     background-color: var(--white);
+    justify-content: flex-start;
     /* border: 1px solid black; */
 }
 
