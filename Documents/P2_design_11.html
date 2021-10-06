@@ -98,36 +98,36 @@
         <p>
             Because our client is apart of the larger organization - Ntnui - our homepage will not be too different from theirs. The homepage will be the landing page for those who visit our website. So to intrigue the user and make them browse our website it will follow our base design and not include a lot of text. At the top of the page the user will be greeted with a series of big pictures, which will change in intervals we will choose at a later time (This is something we have to take our time with, to make sure it does not feel to rapid and "stressed").  We will use Javascript to make this work as we want. By scrolling down the page, the user will be met by a call-to-action button to regular training, newest events (matches, social gatherings) and member scoreboard in that order. Lastly we will include an easy to spot button on the bottom of the page that takes the user to the contact page.
         </p>
-        <img src="mockups/index-mockup.png" alt="index-mockup" width="400">
+        <img src="PDFs/mockups/index-mockup.png" alt="index-mockup" width="400">
 
-        <h3>2. Intro.html (Intro to table tennis)</h3>
+        <h3>2. intro-to-table-tennis/index.html (Intro to table tennis)</h3>
         <p>
             This section will focus on giving an introduction to table tennis for new players as well as information regarding tryouts and how to become a member. This page achieves the goal of giving new players tips adn tricks, providing a better understanding of the table tennis rules as well as giving the user easy access to tryouts and member application. The page is meant to educat the users and there will therfore be a lot of text. It will contain a list of tips and tricks, equipment and rulsets in different infoboxes. At the bottom of the page the user will find links to member application and tryouts on the NTNUI Bordtennis facebook site.
         </p>
-        <img src="mockups/intro-mockup.png" alt="intro-mockup" width="400">
+        <img src="PDFs/mockups/intro-mockup.png" alt="intro-mockup" width="400">
 
-        <h3>3. training.html (Regular training)</h3>
+        <h3>3. regular-training/index.html (Regular training)</h3>
         <p>
             This page  will contain any information about upcoming gatherings, trainings, tournaments and events, in a structured way. The goal og this site will be to provide the user with information about future events in the NTNUI table tennis calander. In standard view, the visitor will get a caldendar view of the current month. It will be possible to maneuver between different months to see all planned events.
         </p>
-        <img src="mockups/training-mockup.png" alt="training-mockup" width="400">
+        <img src="PDFs/mockups/training-mockup.png" alt="training-mockup" width="400">
 
-        <h3>4. Social.html (Social gatherings)</h3>
+        <h3>4. social-gatherings/index.html (Social gatherings, events and tournaments)</h3>
         <p>
             In the “social gatherings” site we will include pictures of Previous events/tournaments and excursions, each with their own subsection and caption describing what the events and excursions was all about. The purpose and goal of this site is to show that the organization is a very good social platform to meet new people with a common interest, and that the importance of winning does not overpower the fun aspect of the sport. We will make sure that the design of the website is as simple and user friendly as possible since it will primarily be used as a gallery.
         </p>
-        <img src="mockups/social-gatherings-mockup.png" alt="social-gatherings-mockup" width="400">
+        <img src="PDFs/mockups/social-gatherings-mockup.png" alt="social-gatherings-mockup" width="400">
 
-        <h3>5. Contact.html (Contact us)</h3>
+        <h3>5. contact/index.html (Contact us)</h3>
         <p>
             This site will include the contact information of the coach and group leader and will act as a portal for asking and answering questions that are not answered on the website. There will be a link to the groups facebook page and the sub-page within NTNUI for more information. We will also include an easy-to-access form users can fill out to become a new member of the team.
         </p>
-        <img src="mockups/contact-mockup.png" alt="contact-mockup" width="400">
+        <img src="PDFs/mockups/contact-mockup.png" alt="contact-mockup" width="400">
 
         <br><h2>Minimum Requirements</h2>
         <p>
             The minimum requirements are to make at least four JS scripts.
-            We plan on making six:
+            We plan on making seven:
         </p>
         <h3>1. scoreboard.js (Scoreboard)</h3>
         <p>
@@ -154,13 +154,17 @@
             In the homepage the user will be met with an image. This image should switch to the next
             image in the gallery after a certain amount of time.
         </p>
-        <h3>6. dark_mode.js (Dark mode/Light mode toggle)</h3>
+        <h3>6. gatherings_carousel.js (Carousel for social gatherings page)</h3>
+        <p>
+            In the social gatherings page with events and tournaments we will create a carousel, with an element for each year, where we have information about that year's social events.
+            For this we will need js for the carousel itself, ensuring smooth scrolling, and elements that snap to the center of the page, as well as accordion elements for each evenr per year.
+        </p>
+        <h3>7. dark_mode.js (Dark mode/Light mode toggle)</h3>
         <p>
             There will be a button to toggle between dark and light mode.
         </p>
 
         <br><h2>Plan</h2>
-        <p>To do</p>
         <p>List of files and folders
             <ul>
                 <li>index.html</li>
@@ -169,23 +173,17 @@
                         <li>style.css</li>
                     </ul>
                 </li>
-                <li>scripts/
+                <li>js/
                     <ul>
                         <li>scoreboard.js</li>
                         <li>training_table.js</li>
                         <li>form_validation.js</li>
                         <li>hamburger_navbar.js</li>
                         <li>homepage_gallery.js</li>
+                        <li>gatherings_carousel.js</li>
                         <li>dark_mode.js</li>
                     </ul>
                 </li>
-                <!-- <li>sub-pages
-                    <ul>
-                        <li>about.html</li>
-                        <li>become-member.html</li>
-                        <li>contact.html</li>
-                    </ul>
-                </li> -->
                 <li>intro-to-table-tennis/
                     <ul>
                         <li>index.html</li>
@@ -208,8 +206,32 @@
                 </li>
                 <li>media/
                     <ul>
-                        <li>images</li>
-                        <li>videos</li>
+                        <li>logo.png</li>
+                        <li>home-images
+                            <ul>
+                                <li>Unspecified number of (potentially 5) images for gallery</li>
+                            </ul>
+                        </li>
+                        <li>intro-images
+                            <ul>
+                                <li>equipment.jpg</li>
+                                <li>rules.jpg</li>
+                                <li>beginner.jpg</li>
+                                <li>tryouts.jpg</li>
+                            </ul>
+                        </li>
+                        <li>gathering-images
+                            <ul>
+                                <li>Unspecified number of (at least 5) images for social events</li>
+                            </ul>
+                        </li>
+                        <li>contact-images
+                            <ul>
+                                <li>coach.png</li>
+                                <li>leader.png</li>
+                            </ul>
+                        </li>
+                        <li>(potential videos)</li>
                     </ul>
                 </li>
             </ul>
@@ -262,6 +284,12 @@
                 <td>homepage_gallery.js</td>
                 <td></td>
                 <td>Li</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>gatherings_carousel.js</td>
+                <td></td>
+                <td>Sander og Magnus</td>
                 <td></td>
             </tr>
             <tr>
