@@ -1,31 +1,29 @@
-const lightMode = [
-  {prop: "--red",       value:"#A8000F"},
-  {prop: "--lightgray", value:"#E5E5E5"},
-  {prop: "--darkgray",  value:"#828387"},
-  {prop: "--white",     value:"#FEFEFE"},
-  {prop: "--black",     value:"#010101"},
-]
+const color = (propValue, lightModeValue, darkModeValue) => ({
+  prop:      propValue,
+  lightMode: lightModeValue,
+  darkMode:  darkModeValue
+})
 
-const darkMode = [
-  {prop: "--red",       value:"#A8000F"},
-  {prop: "--lightgray", value:"#E5E5E5"},
-  {prop: "--darkgray",  value:"#828387"},
-  {prop: "--white",     value:"#010101"},
-  {prop: "--black",     value:"#FEFEFE"},
+const colors = [
+  color("--red",       "#A8000F", "#A8000F"),
+  color("--lightgray", "#E5E5E5", "#E5E5E5"),
+  color("--darkgray",  "#828387", "#828387"),
+  color("--white",     "#FEFEFE", "#010101"),
+  color("--black",     "#010101", "#FEFEFE"),
 ]
 
 const root = document.querySelector(":root")
 
-const setColor = color => root
+const setColor = (color, mode) => root
   .style
-  .setProperty(color.prop, color.value)
+  .setProperty(color.prop, color[mode])
 
-const setMode = mode => mode
-  .map(setColor)
+const setColors = mode => colors
+  .map(color => setColor(color, mode))
 
 let isDarkMode = false
 
 const toggleDarkMode = () => {
   isDarkMode = !isDarkMode
-  isDarkMode ? setMode(darkMode) : setMode(lightMode)
+  isDarkMode ? setColors("darkMode") : setColors("lightMode")
 }
