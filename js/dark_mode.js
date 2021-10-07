@@ -4,7 +4,8 @@ const color = (propValue, lightModeValue, darkModeValue) => ({
   darkMode:  darkModeValue
 })
 
-const colors = [
+const colors = [ 
+//color(cssProperty,   lightMode, darkMode),
   color("--red",       "#A8000F", "#A8000F"),
   color("--lightgray", "#E5E5E5", "#E5E5E5"),
   color("--darkgray",  "#828387", "#828387"),
