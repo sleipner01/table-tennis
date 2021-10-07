@@ -22,8 +22,6 @@ const range = (start, end) =>
   start === end ? [start] :
                   [start, ...range(start+1, end)]
 
-const dateTo = (date, format) => date
-
 const dateStrToArr = str => str.split("/",3)
 const dateArrToObj = arr => ({day: arr[0], month: arr[1], year: arr[2]})
 const dateStrToObj = str => dateArrToObj(dateStrToArr(str))
