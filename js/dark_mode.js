@@ -13,7 +13,7 @@ const setColor = (color, mode) => root
   .setProperty(color.property, color[mode]);
 
 const setColors = mode => colors
-  .map(color => setColor(color, mode));
+  .forEach(color => setColor(color, mode));
 
 let isDarkMode = false;
 
