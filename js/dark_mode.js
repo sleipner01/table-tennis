@@ -1,3 +1,6 @@
+//To use:
+//<button onclick="toggleDarkMode()"></button>
+
 const colors = [ 
   {property: "--red",       lightMode: "#A8000F", darkMode: "#A8000F"},
   {property: "--lightgray", lightMode: "#E5E5E5", darkMode: "#E5E5E5"},
