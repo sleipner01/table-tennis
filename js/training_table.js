@@ -1,6 +1,7 @@
 const events = [
   {name: "Training", date: "1/10/2021", color: "green"},
   {name: "Match", date: "3/10/2021", color: "orange"},
+  {name: "Training", date: "3/10/2021", color: "green"},
 ];
 
 const months = year => [
@@ -18,12 +19,37 @@ const isLeapYear = year =>
   year % 4   === 0 ? true  :
                      false;
 
-const range = (start, end) =>
-  start === end ? [start] : [start, ...range(start+1, end)];
-
 const dateStrToArr = str => str.split("/",3);
 const dateArrToObj = arr => ({day: arr[0], month: arr[1], year: arr[2]});
 const dateStrToObj = str => dateArrToObj(dateStrToArr(str));
+const dateObjToStr = obj => obj.day + "/" + obj.month + "/" + obj.year;
 
-let displayedMonth = "/11/2021";
+let displayedMonth = "/10/2021";
 
+const color = date => date.month === dateStrToObj(displayedMonth).month ?
+  "var(--white)" : "var(--lightgray)";
+
+const htmlDay = date => "<div class='calendarDay'>" + date.day + "</div>";
+
+const isEventDate = (Event, dateObj) => Event.date === dateObjToStr(dateObj);
+
+const htmlEvent = Event => 
+  "<div class='calendarEvent' style='background-color:" + Event.color + ";'>" +
+    Event.name +
+  "</div>";
+
+const htmlEvents = dateObj => events
+  .filter(Event => isEventDate(Event, dateObj))
+  .map(htmlEvent)
+  .join("");
+
+const htmlCalendarDay = dateObj =>
+  "<td style='background-color:" + color(dateObj) + ";'>" + 
+    htmlDay(dateObj) +
+    htmlEvents(dateObj) +
+  "</td>";
+
+const renderCalendar = () => {
+  calendar = document.getElementById("calendar");
+  calendar.innerHTML = "<tr>" + htmlCalendarDay(dateStrToObj("3/10/2021")) + "</tr>";
+}
