@@ -29,7 +29,7 @@ let displayedMonth = "/10/2021";
 const color = date => date.month === dateStrToObj(displayedMonth).month ?
   "var(--white)" : "var(--lightgray)";
 
-const htmlDay = date => "<div class='calendarDay'>" + date.day + "</div>";
+const htmlDay = date => "<div class='calendarDayNum'>" + date.day + "</div>";
 
 const isEventDate = (Event, dateObj) => Event.date === dateObjToStr(dateObj);
 
@@ -44,12 +44,12 @@ const htmlEvents = dateObj => events
   .join("");
 
 const htmlCalendarDay = dateObj =>
-  "<td style='background-color:" + color(dateObj) + ";'>" + 
+  "<div class='calendarDay' style='background-color:" + color(dateObj) + ";'>" + 
     htmlDay(dateObj) +
     htmlEvents(dateObj) +
-  "</td>";
+  "</div>";
 
 const renderCalendar = () => {
   calendar = document.getElementById("calendar");
-  calendar.innerHTML = "<tr>" + htmlCalendarDay(dateStrToObj("3/10/2021")) + "</tr>";
+  calendar.innerHTML = htmlCalendarDay(dateStrToObj("3/10/2021"));
 }

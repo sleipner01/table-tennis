@@ -283,3 +283,13 @@ nav img {
 .display-none {
     display: none;
 }
+
+.calendarDay {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+}
+
+.calendarEvent {
+    margin: 3px;
+}
