@@ -212,6 +212,7 @@ table th {
 table th, table td {
     padding: .6em;
     text-align: left;
+    cursor: default;
     /* border: 1px solid var(--black); */
 }
 
