@@ -215,6 +215,10 @@ table th, table td {
     /* border: 1px solid var(--black); */
 }
 
+#scoreboard tbody tr:hover {
+    background-color: rgba(1, 1, 1, 0.2);
+}
+
 .num {
     text-align: right;
 }
