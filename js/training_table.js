@@ -1,13 +1,10 @@
+const dateObj = (day,month,year) => ({day: day, month: month, year: year});
+
 const events = [
-  {name: "Training", date: "1/10/2021", color: "green"},
-  {name: "Training", date: "8/10/2021", color: "green"},
-  {name: "Match", date: "5/10/2021", color: "orange"},
-  {name: "Training", date: "15/10/2021", color: "green"},
-  {name: "Match", date: "5/20/2021", color: "orange"},
-  {name: "Training", date: "22/10/2021", color: "green"},
-  {name: "Training", date: "29/10/2021", color: "green"},
-  {name: "Tournament", date: "30/10/2021", color: "purple"},
-  {name: "Training", date: "5/11/2021", color: "green"},
+  {name: "Training", date: dateObj(1,10,2021), color: "green"},
+  {name: "Training", date: dateObj(8,10,2021), color: "green"},
+  {name: "Match", date: dateObj(8,10,2021), color: "orange"},
+  {name: "Match", date: dateObj(5,10,2021), color: "orange"},
 ];
 
 const months = year => [
@@ -36,42 +33,39 @@ const htmlCalendarWeekdays = () => weekdays
   .map(htmlCalendarWeekday)
   .join("");
 
-const dateStrToArr = str => str.split("/",3);
-const dateArrToObj = arr => ({day: arr[0], month: arr[1], year: arr[2]});
-const dateStrToObj = str => dateArrToObj(dateStrToArr(str));
-const dateObjToStr = obj => obj.day + "/" + obj.month + "/" + obj.year;
-
-let displayedMonth = "/10/2021";
-
-const color = date => date.month === dateStrToObj(displayedMonth).month ?
+const color = date => date.month === displayedMonth ?
   "var(--white)" : "var(--lightgray)";
 
 const htmlDay = date => "<div class='calendarDayNum'>" + date.day + "</div>";
 
-const isEventDate = (Event, dateObj) => Event.date === dateObjToStr(dateObj);
+const isEventDate = (Event, date) =>
+  Event.date.day === date.day &&
+  Event.date.month === date.month &&
+  Event.date.year === date.year;
 
 const htmlEvent = Event => 
   "<div class='calendarEvent' style='background-color:" + Event.color + ";'>" +
     Event.name +
   "</div>";
 
-const htmlEvents = dateObj => events
-  .filter(Event => isEventDate(Event, dateObj))
+const htmlEvents = date => events
+  .filter(Event => isEventDate(Event, date))
   .map(htmlEvent)
   .join("");
 
-const htmlCalendarDay = dateObj =>
-  "<div class='calendarDay' style='background-color:" + color(dateObj) + ";'>" + 
-    htmlDay(dateObj) +
-    htmlEvents(dateObj) +
+const htmlCalendarDay = date =>
+  "<div class='calendarDay' style='background-color:" + color(date) + ";'>" + 
+    htmlDay(date) +
+    htmlEvents(date) +
   "</div>";
 
-let firstDisplayedDate = "27/9/2021"
+let firstDisplayedDate = dateObj(27,9,2021);
+let displayedMonth = 10;
 
-const dateAfterDays = (dateObj, days) => {
-  let day = parseInt(dateObj.day); 
-  let month = parseInt(dateObj.month); 
-  let year = parseInt(dateObj.year); 
+const dateAfterDays = (date, days) => {
+  let day = date.day; 
+  let month = date.month; 
+  let year = date.year; 
   for (let i = 0; i < days; i++) {
     day++
     if (day > months(year)[month-1].days) {
@@ -83,7 +77,7 @@ const dateAfterDays = (dateObj, days) => {
       month = 1;
     }
   }
-  return {day: String(day), month: String(month), year: String(year)};
+  return dateObj(day,month,year);
 }
 
 const calendarDatesFrom = (from, days) => {
@@ -100,12 +94,11 @@ const htmlCalendarDays = (from, days) => calendarDatesFrom(from, days)
 
 const renderCalendar = days => {
   calendar = document.getElementById("calendar");
-  const firstDisplayedDateObj = dateStrToObj(firstDisplayedDate);
   calendar.innerHTML = 
     htmlCalendarWeekdays() +
-    htmlCalendarDays(firstDisplayedDateObj, days);
+    htmlCalendarDays(firstDisplayedDate, days);
 
   const month = document.getElementById("month");
-  month.innerHTML = months(2021)[parseInt(dateStrToObj(displayedMonth).month)-1].name;
-  
+  month.innerHTML = months(2021)[displayedMonth - 1].name;
 }
+
