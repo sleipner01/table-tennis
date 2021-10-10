@@ -1,7 +1,13 @@
 const events = [
   {name: "Training", date: "1/10/2021", color: "green"},
-  {name: "Match", date: "3/10/2021", color: "orange"},
-  {name: "Training", date: "3/10/2021", color: "green"},
+  {name: "Training", date: "8/10/2021", color: "green"},
+  {name: "Match", date: "5/10/2021", color: "orange"},
+  {name: "Training", date: "15/10/2021", color: "green"},
+  {name: "Match", date: "5/20/2021", color: "orange"},
+  {name: "Training", date: "22/10/2021", color: "green"},
+  {name: "Training", date: "29/10/2021", color: "green"},
+  {name: "Tournament", date: "30/10/2021", color: "purple"},
+  {name: "Training", date: "5/11/2021", color: "green"},
 ];
 
 const months = year => [
@@ -18,6 +24,17 @@ const isLeapYear = year =>
   year % 100 === 0 ? false :
   year % 4   === 0 ? true  :
                      false;
+
+const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+const htmlCalendarWeekday = weekday =>
+  "<div class='calendarWeekday'>" +
+    weekday +
+  "</div>";
+
+const htmlCalendarWeekdays = () => weekdays
+  .map(htmlCalendarWeekday)
+  .join("");
 
 const dateStrToArr = str => str.split("/",3);
 const dateArrToObj = arr => ({day: arr[0], month: arr[1], year: arr[2]});
@@ -49,7 +66,46 @@ const htmlCalendarDay = dateObj =>
     htmlEvents(dateObj) +
   "</div>";
 
-const renderCalendar = () => {
+let firstDisplayedDate = "27/9/2021"
+
+const dateAfterDays = (dateObj, days) => {
+  let day = parseInt(dateObj.day); 
+  let month = parseInt(dateObj.month); 
+  let year = parseInt(dateObj.year); 
+  for (let i = 0; i < days; i++) {
+    day++
+    if (day > months(year)[month-1].days) {
+      month++;
+      day = 1;
+    }
+    if (month > 12) {
+      year++;
+      month = 1;
+    }
+  }
+  return {day: String(day), month: String(month), year: String(year)};
+}
+
+const calendarDatesFrom = (from, days) => {
+  const result = []
+  for (let i = 0; i < days; i++) {
+    result.push(dateAfterDays(from, i));
+  }
+  return result;
+}
+
+const htmlCalendarDays = (from, days) => calendarDatesFrom(from, days)
+  .map(htmlCalendarDay)
+  .join("");
+
+const renderCalendar = days => {
   calendar = document.getElementById("calendar");
-  calendar.innerHTML = htmlCalendarDay(dateStrToObj("3/10/2021"));
+  const firstDisplayedDateObj = dateStrToObj(firstDisplayedDate);
+  calendar.innerHTML = 
+    htmlCalendarWeekdays() +
+    htmlCalendarDays(firstDisplayedDateObj, days);
+
+  const month = document.getElementById("month");
+  month.innerHTML = months(2021)[parseInt(dateStrToObj(displayedMonth).month)-1].name;
+  
 }
