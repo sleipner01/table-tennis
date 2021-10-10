@@ -33,7 +33,7 @@ const htmlCalendarWeekdays = () => weekdays
   .map(htmlCalendarWeekday)
   .join("");
 
-const color = date => date.month === displayedMonth ?
+const color = date => date.month === displayedMonth() ?
   "var(--white)" : "var(--lightgray)";
 
 const htmlDay = date => "<div class='calendarDayNum'>" + date.day + "</div>";
@@ -60,21 +60,30 @@ const htmlCalendarDay = date =>
   "</div>";
 
 let firstDisplayedDate = dateObj(27,9,2021);
-let displayedMonth = 10;
+const displayedMonth = () => dateAfterDays(firstDisplayedDate, 6).month;
 
 const dateAfterDays = (date, days) => {
   let day = date.day; 
   let month = date.month; 
   let year = date.year; 
-  for (let i = 0; i < days; i++) {
-    day++
+  const inc = days < 0 ? -1 : 1;
+  for (let i = 0; i < days*inc; i++) {
+    day += inc;
     if (day > months(year)[month-1].days) {
       month++;
       day = 1;
+      if (month > 12) {
+        year++;
+        month = 1;
+      }
     }
-    if (month > 12) {
-      year++;
-      month = 1;
+    else if (day < 1) {
+      month--;
+      if (month < 1) {
+        year--;
+        month = 12;
+      }
+      day = months(year)[month-1].days;
     }
   }
   return dateObj(day,month,year);
@@ -99,6 +108,21 @@ const renderCalendar = days => {
     htmlCalendarDays(firstDisplayedDate, days);
 
   const month = document.getElementById("month");
-  month.innerHTML = months(2021)[displayedMonth - 1].name;
+  month.innerHTML = months(2021)[displayedMonth() - 1].name;
 }
+
+const increaseWeeks = (weeks = 1, render = false) => {
+  firstDisplayedDate = dateAfterDays(firstDisplayedDate, 7 * weeks);
+  if (render) renderCalendar(7);
+}
+
+const nextMonth = (inc = 1, render = false) => {
+  const oldMonth = displayedMonth();
+  while (oldMonth === displayedMonth()) increaseWeeks(inc);
+  if (render) {
+    daysRendered = dateAfterDays(firstDisplayedDate, 35).month === displayedMonth() ? 42 : 35;
+    renderCalendar(daysRendered);
+  }
+}
+
 

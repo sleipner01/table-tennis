@@ -33,10 +33,13 @@
             <div class="width">
                 <h1>Regular training</h1>
                 <h1 id="month"></h1>
+                <button onclick="nextMonth(1,true)">Next</button>
+                <button onclick="nextMonth(-1,true)">Previous</button>
             </div>
             <div id="calendar">
                 <!-- dynamic (training_table.js) -->
             </div>
+            <script>renderCalendar(35)</script>
         </main>
         <footer>
             <div class="split">
