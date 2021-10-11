@@ -1,5 +1,7 @@
 const dateObj = (day,month,year) => ({day: day, month: month, year: year});
 
+let firstDisplayedDate = dateObj(27,9,2021);
+
 const events = [
   {name: "Training", date: dateObj(1,10,2021), color: "green"},
   {name: "Training", date: dateObj(8,10,2021), color: "green"},
@@ -23,46 +25,6 @@ const isLeapYear = year =>
   year % 100 === 0 ? false :
   year % 4   === 0 ? true  :
                      false;
-
-const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-
-const htmlCalendarWeekday = weekday =>
-  "<div class='calendarWeekday'>" +
-    weekday +
-  "</div>";
-
-const htmlCalendarWeekdays = () => weekdays
-  .map(htmlCalendarWeekday)
-  .join("");
-
-const color = date => date.month === displayedMonth() ?
-  "var(--white)" : "var(--lightgray)";
-
-const htmlDay = date => "<div class='calendarDayNum'>" + date.day + "</div>";
-
-const isEventDate = (Event, date) =>
-  Event.date.day === date.day &&
-  Event.date.month === date.month &&
-  Event.date.year === date.year;
-
-const htmlEvent = Event =>
-  "<div class='calendarEvent' style='background-color:" + Event.color + ";'>" +
-    Event.name +
-  "</div>";
-
-const htmlEvents = date => events
-  .filter(Event => isEventDate(Event, date))
-  .map(htmlEvent)
-  .join("");
-
-const htmlCalendarDay = (date, i) =>
-  "<div class='calendarDay' " + " style='order: " + (i + 1) + "; background-color:" + color(date) + ";'>" +
-    htmlDay(date) +
-    htmlEvents(date) +
-  "</div>";
-
-let firstDisplayedDate = dateObj(27,9,2021);
-const displayedMonth = () => dateAfterDays(firstDisplayedDate, 6).month;
 
 const dateAfterDays = (date, days) => {
   let day = date.day;
@@ -91,6 +53,47 @@ const dateAfterDays = (date, days) => {
   return dateObj(day,month,year);
 }
 
+const displayedMonth = () => dateAfterDays(firstDisplayedDate, 6).month;
+
+//Weekday elements
+const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+const htmlCalendarWeekday = weekday =>
+  "<div class='calendarWeekday'>" +
+    weekday +
+  "</div>";
+
+const htmlCalendarWeekdays = () => weekdays
+  .map(htmlCalendarWeekday)
+  .join("");
+
+//Date elements
+const color = date => date.month === displayedMonth() ?
+  "var(--white)" : "var(--lightgray)";
+
+const htmlDay = date => "<div class='calendarDayNum'>" + date.day + "</div>";
+
+const isEventDate = (Event, date) =>
+  Event.date.day === date.day &&
+  Event.date.month === date.month &&
+  Event.date.year === date.year;
+
+const htmlEvent = Event =>
+  "<div class='calendarEvent' style='background-color:" + Event.color + ";'>" +
+    Event.name +
+  "</div>";
+
+const htmlEvents = date => events
+  .filter(Event => isEventDate(Event, date))
+  .map(htmlEvent)
+  .join("");
+
+const htmlCalendarDay = (date, i) =>
+  "<div class='calendarDay' " + " style='order: " + (i + 1) + "; background-color:" + color(date) + ";'>" +
+    htmlDay(date) +
+    htmlEvents(date) +
+  "</div>";
+
 const calendarDatesFrom = (from, days) => {
   const result = []
   for (let i = 0; i < days; i++) {
@@ -103,6 +106,16 @@ const htmlCalendarDays = (from, days) => calendarDatesFrom(from, days)
   .map(htmlCalendarDay)
   .join("");
 
+const daysRenderedInMonth = from => {
+  let i = 1;
+  while (dateAfterDays(from, i*7).month === displayedMonth()) {
+    i++;
+  }
+  return i*7;
+}
+
+//renderCalendar(daysRenderedInMonth(firstDisplayedDate) for monthly view
+//renderCalendar(7) for weekly view
 const renderCalendar = days => {
   calendar = document.getElementById("calendar");
   calendar.innerHTML =
@@ -118,14 +131,8 @@ const increaseWeeks = (inc = 1, render = false) => {
   if (render) renderCalendar(7);
 }
 
-const daysRenderedInMonth = from => {
-  let i = 1;
-  while (dateAfterDays(from, i*7).month === displayedMonth()) {
-    i++;
-  }
-  return i*7;
-}
-
+//increaseMonth(positive number) for next month
+//increaseMonth(negative number) for previous month
 const increaseMonth = (inc = 1, render = false) => {
   firstDisplayedDate =
     inc < 0 ? dateAfterDays(firstDisplayedDate, -7 * 7) :
