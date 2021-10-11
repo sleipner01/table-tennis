@@ -8,8 +8,8 @@ const nextYearEl = document.getElementById('nextYear');
     nextYearEl.addEventListener('click', changeYear);
 const currentYearEl = document.getElementById('currentYear');
     currentYearEl.innerText = new Date().getFullYear();
-
 const galleryEl = document.getElementById('social-gatherings-gallery');
+
 
 
 const dateObj = (day,month,year) => ({day: day, month: month, year: year});
@@ -32,54 +32,68 @@ function createCollapsibles() {
             let buttonEl = document.createElement('button');
             buttonEl.classList.add('collapsible');
             buttonEl.innerHTML = social_events[i].name;
-            // Make sure one collapsible is open on page load
             galleryEl.appendChild(buttonEl);
 
-            // Create content element with layout
+
+            // Create content wrapper
             let contentEl = document.createElement('div');
             contentEl.classList.add('module', 'collapsible-content');
-            let splitEl = document.createElement('div');
-            splitEl.classList.add('split');
+                // Create element that devides the content wrapper in two, one left side, one right side
+                let splitEl = document.createElement('div');
+                splitEl.classList.add('split');
             contentEl.appendChild(splitEl);
 
+
+
+
             // Add stored information
+            // Create left side div
             let leftDivEl = document.createElement('div');
 
-            let dateEl = document.createElement('p');
-            dateEl.classList.add('social-gatherings-date');
-            dateEl.innerText = 'Date: ' + social_events[i].date.day + '.' + social_events[i].date.month + '.' + social_events[i].date.year;
+                //Add the date
+                let dateEl = document.createElement('p');
+                dateEl.classList.add('social-gatherings-date');
+                dateEl.innerText = 'Date: ' + social_events[i].date.day + '.' + social_events[i].date.month + '.' + social_events[i].date.year;
 
-            let titleEl = document.createElement('h3');
-            titleEl.innerText = social_events[i].name;
+                // Add a title
+                let titleEl = document.createElement('h3');
+                titleEl.innerText = social_events[i].name;
 
-            let textEl = document.createElement('p');
-            textEl.innerText = social_events[i].text;
+                // Add the description
+                let textEl = document.createElement('p');
+                textEl.innerText = social_events[i].text;
 
+                // Continue with layout if the event is "tournament"
+                if(social_events[i].eventType == 'tournament') {
+                    buttonEl.innerHTML += ' | Tournament'; 
+                }
+
+            // Append them to the left div
             leftDivEl.appendChild(dateEl);
             leftDivEl.appendChild(titleEl);
             leftDivEl.appendChild(textEl);
 
-            // Make another layout if the event is "tournament"
-            if(social_events[i].eventType == 'tournament') {
-                buttonEl.innerHTML += ' | Tournament'; 
-            }
 
 
-            splitEl.appendChild(leftDivEl);
-
-
+            // Create right side div
             let rightDivEl = document.createElement('div');
             rightDivEl.classList.add('img-container');
 
-            let imgEl = document.createElement('img');
-            imgEl.src = '../../bordtennis/media/gathering-images/' + social_events[i].imgName;
-            imgEl.alt = 'Event picture';
+                // Add an image
+                let imgEl = document.createElement('img');
+                imgEl.src = '../../bordtennis/media/gathering-images/' + social_events[i].imgName;
+                imgEl.alt = 'Event picture';
+                rightDivEl.appendChild(imgEl);
 
-            rightDivEl.appendChild(imgEl);
 
+
+            // Add left and right div to divider
+            splitEl.appendChild(leftDivEl);
             splitEl.appendChild(rightDivEl);
 
 
+
+            // Last of all, add all of the content to the page
             galleryEl.appendChild(contentEl);
         }
     }
@@ -88,28 +102,7 @@ function createCollapsibles() {
     }
 }
 
-function openFirstCollapsible() {
-    // As long as there is a collapsible element, rundt click() event
-    if(document.getElementsByClassName('collapsible')[0] != undefined) {
-        document.getElementsByClassName('collapsible')[0].click();
-    }
-}
 
-
-// Browse through the years of events
-function changeYear(e) {
-    if(e.target.id == 'nextYear') {
-        currentYearEl.innerText = Number(currentYearEl.innerText, 10) + 1;
-
-    }
-    else if(e.target.id == 'previousYear') {
-        currentYearEl.innerText = Number(currentYearEl.innerText) - 1;
-    }
-    galleryEl.innerHTML = '';
-    createCollapsibles();
-    addEventListeners();
-    openFirstCollapsible();
-}
 
 function addEventListeners() {
     // Script to animate collapsibles dropdown, as well as giving them eventlisteners
@@ -128,6 +121,35 @@ function addEventListeners() {
         })
     });
 }
+
+
+
+
+function openFirstCollapsible() {
+    // As long as there is a collapsible element, rundt click() event
+    if(document.getElementsByClassName('collapsible')[0] != undefined) {
+        document.getElementsByClassName('collapsible')[0].click();
+    }
+}
+
+
+
+// Browse through the years of events
+function changeYear(e) {
+    if(e.target.id == 'nextYear') {
+        currentYearEl.innerText = Number(currentYearEl.innerText, 10) + 1;
+
+    }
+    else if(e.target.id == 'previousYear') {
+        currentYearEl.innerText = Number(currentYearEl.innerText) - 1;
+    }
+    galleryEl.innerHTML = '';
+    createCollapsibles();
+    addEventListeners();
+    openFirstCollapsible();
+}
+
+
 
 // First time script is run, perform functions
 // Create collapsibles
