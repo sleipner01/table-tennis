@@ -16,7 +16,7 @@ const months = year => [
   {name: "November", days: 30}, {name: "December", days: 31}
 ];
 
-const isLeapYear = year => 
+const isLeapYear = year =>
   year % 400 === 0 ? true  :
   year % 100 === 0 ? false :
   year % 4   === 0 ? true  :
@@ -43,7 +43,7 @@ const isEventDate = (Event, date) =>
   Event.date.month === date.month &&
   Event.date.year === date.year;
 
-const htmlEvent = Event => 
+const htmlEvent = Event =>
   "<div class='calendarEvent' style='background-color:" + Event.color + ";'>" +
     Event.name +
   "</div>";
@@ -53,8 +53,8 @@ const htmlEvents = date => events
   .map(htmlEvent)
   .join("");
 
-const htmlCalendarDay = date =>
-  "<div class='calendarDay' style='background-color:" + color(date) + ";'>" + 
+const htmlCalendarDay = (date, i) =>
+  "<div class='calendarDay' " + " style='order: " + (i + 1) + ";'" + " style='background-color:" + color(date) + ";'>" +
     htmlDay(date) +
     htmlEvents(date) +
   "</div>";
@@ -63,9 +63,9 @@ let firstDisplayedDate = dateObj(27,9,2021);
 const displayedMonth = () => dateAfterDays(firstDisplayedDate, 6).month;
 
 const dateAfterDays = (date, days) => {
-  let day = date.day; 
-  let month = date.month; 
-  let year = date.year; 
+  let day = date.day;
+  let month = date.month;
+  let year = date.year;
   const inc = days < 0 ? -1 : 1;
   for (let i = 0; i < days*inc; i++) {
     day += inc;
@@ -103,7 +103,7 @@ const htmlCalendarDays = (from, days) => calendarDatesFrom(from, days)
 
 const renderCalendar = days => {
   calendar = document.getElementById("calendar");
-  calendar.innerHTML = 
+  calendar.innerHTML =
     htmlCalendarWeekdays() +
     htmlCalendarDays(firstDisplayedDate, days);
 
@@ -125,7 +125,7 @@ const daysRenderedInMonth = from => {
 }
 
 const nextMonth = (inc = 1, render = false) => {
-  firstDisplayedDate = 
+  firstDisplayedDate =
     inc < 0 ? dateAfterDays(firstDisplayedDate, -7 * 7) :
               firstDisplayedDate;
 
@@ -133,5 +133,3 @@ const nextMonth = (inc = 1, render = false) => {
   while (oldMonth === displayedMonth()) increaseWeeks();
   if (render) renderCalendar(daysRenderedInMonth(firstDisplayedDate));
 }
-
-

@@ -327,14 +327,14 @@ nav img {
     	display: flex;
         flex-flow: column nowrap;
     }
+    .calendarWeekday:nth-child(1), .calendarDay:nth-child(1) { order: 1; }
+    .calendarWeekday:nth-child(2), .calendarDay:nth-child(2) { order: 2; }
+    .calendarWeekday:nth-child(3), .calendarDay:nth-child(3) { order: 3; }
+    .calendarWeekday:nth-child(4), .calendarDay:nth-child(4) { order: 4; }
+    .calendarWeekday:nth-child(5), .calendarDay:nth-child(5) { order: 5; }
+    .calendarWeekday:nth-child(6), .calendarDay:nth-child(6) { order: 6; }
+    .calendarWeekday:nth-child(7), .calendarDay:nth-child(7) { order: 7; }
 }
-.calendarWeekday:nth-child(1), div.calendarDay:nth-child(1) { order: 1; }
-.calendarWeekday:nth-child(2), div.calendarDay:nth-child(2) { order: 2; }
-.calendarWeekday:nth-child(3), div.calendarDay:nth-child(3) { order: 3; }
-.calendarWeekday:nth-child(4), div.calendarDay:nth-child(4) { order: 4; }
-.calendarWeekday:nth-child(5), div.calendarDay:nth-child(5) { order: 5; }
-.calendarWeekday:nth-child(6), div.calendarDay:nth-child(6) { order: 6; }
-.calendarWeekday:nth-child(7), div.calendarDay:nth-child(7) { order: 7; }
 
 
 .calendarEvent {
