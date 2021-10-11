@@ -273,11 +273,11 @@ nav img {
     margin-left: 5px;
 }
 
-.active, .collapsible:hover {
+.collapsible-active, .collapsible:hover {
     background-color: #555;
 }
 
-.active:after {
+.collapsible-active:after {
     content: "\2212";
 }
 
