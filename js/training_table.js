@@ -5,6 +5,8 @@ const events = [
   {name: "Training", date: dateObj(8,10,2021), color: "green"},
   {name: "Match", date: dateObj(8,10,2021), color: "orange"},
   {name: "Match", date: dateObj(5,10,2021), color: "orange"},
+  {name: "Tournament", date: dateObj(6,11,2021), color: "purple"},
+  
 ];
 
 const months = year => [
@@ -54,7 +56,7 @@ const htmlEvents = date => events
   .join("");
 
 const htmlCalendarDay = (date, i) =>
-  "<div class='calendarDay' " + " style='order: " + (i + 1) + ";'" + " style='background-color:" + color(date) + ";'>" +
+  "<div class='calendarDay' " + " style='order: " + (i + 1) + "; background-color:" + color(date) + ";'>" +
     htmlDay(date) +
     htmlEvents(date) +
   "</div>";
