@@ -302,7 +302,7 @@ nav img {
     overflow: hidden;
     max-height: 0; 
     box-shadow: 0px 0px 6px gray;
-    transition: 0.1 ease-out;
+    transition: .1 ease-out;
 }
 
 #social-gatherings-gallery img {
