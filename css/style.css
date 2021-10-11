@@ -263,7 +263,7 @@ nav img {
 
 /* Social gatherings */
 
-#social-gatherings-gallery .year-controls {
+#social-gatherings-gallery-container .year-controls {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -271,19 +271,19 @@ nav img {
     margin-bottom: 1em;
 }
 
-#social-gatherings-gallery #currentYear {
+#social-gatherings-gallery-container #currentYear {
     cursor: default;
 }
 
-#social-gatherings-gallery #previousYear, #social-gatherings-gallery #nextYear {
+#social-gatherings-gallery-container #previousYear, #social-gatherings-gallery-container #nextYear {
     cursor: pointer;
 }
 
-#social-gatherings-gallery #previousYear:hover, #social-gatherings-gallery #nextYear:hover {
+#social-gatherings-gallery-container #previousYear:hover, #social-gatherings-gallery-container #nextYear:hover {
     color: var(--red);
 }
 
-#social-gatherings-gallery .collapsible {
+#social-gatherings-gallery-container .collapsible {
     margin: 0 auto;
     background-color: var(--darkgray);
     color: var(--white);
@@ -298,7 +298,7 @@ nav img {
     transition: 0.1s ease-out;
     z-index: 3;
 }
-#social-gatherings-gallery .collapsible:after {
+#social-gatherings-gallery-container .collapsible:after {
     font-family: "Material Icons";
     content: "add";
     color: white;
@@ -306,33 +306,33 @@ nav img {
     margin-left: 5px;
 }
 
-#social-gatherings-gallery .collapsible-active, #social-gatherings-gallery .collapsible:hover {
+#social-gatherings-gallery-container .collapsible-active, #social-gatherings-gallery-container .collapsible:hover {
     background-color: #626367;
 }
 
-#social-gatherings-gallery .collapsible-active:after {
+#social-gatherings-gallery-container .collapsible-active:after {
     font-family: "Material Icons";
     content: "remove";
 }
 
-#social-gatherings-gallery .collapsible-content {
+#social-gatherings-gallery-container .collapsible-content {
     overflow: hidden;
     max-height: 0; 
     box-shadow: 0px 0px 6px #626367;
     transition: all .1s ease-out;
 }
 
-#social-gatherings-gallery img {
+#social-gatherings-gallery-container img {
     width: auto;
     max-width: 350px;
     max-height: 350px;
 }
 
-#social-gatherings-gallery .module {
+#social-gatherings-gallery-container .module {
     margin-bottom: 0;
 }
 
-#social-gatherings-gallery .img-container {
+#social-gatherings-gallery-container .img-container {
     display: flex;
     flex-direction: row;
     justify-content: end;
