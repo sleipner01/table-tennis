@@ -116,6 +116,14 @@ const increaseWeeks = (render = false) => {
   if (render) renderCalendar(7);
 }
 
+const daysRenderedInMonth = from => {
+  let i = 1;
+  while (dateAfterDays(from, i*7).month === displayedMonth()) {
+    i++;
+  }
+  return i*7;
+}
+
 const nextMonth = (inc = 1, render = false) => {
   firstDisplayedDate = 
     inc < 0 ? dateAfterDays(firstDisplayedDate, -7 * 7) :
@@ -123,10 +131,7 @@ const nextMonth = (inc = 1, render = false) => {
 
   const oldMonth = displayedMonth();
   while (oldMonth === displayedMonth()) increaseWeeks();
-  if (render) {
-    daysRendered = dateAfterDays(firstDisplayedDate, 35).month === displayedMonth() ? 42 : 35;
-    renderCalendar(daysRendered);
-  }
+  if (render) renderCalendar(daysRenderedInMonth(firstDisplayedDate));
 }
 
 
