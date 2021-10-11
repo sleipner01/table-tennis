@@ -249,9 +249,8 @@ nav img {
 }
 
 
-
 /* Social gatherings */
-.collapsible {
+#social-gatherings-gallery .collapsible {
     margin: 0 auto;
     background-color: #777;
     color: white;
@@ -265,30 +264,28 @@ nav img {
     transition: 0.2s ease-out;
     z-index: 3;
 }
-.collapsible:after {
-/*    content: '\002B';*/
+#social-gatherings-gallery .collapsible:after {
     content: '+';
     color: white;
     float: right;
     margin-left: 5px;
 }
 
-.collapsible-active, .collapsible:hover {
+#social-gatherings-gallery .collapsible-active, .collapsible:hover {
     background-color: #555;
 }
 
-.collapsible-active:after {
-    content: "\2212";
+#social-gatherings-gallery .collapsible-active:after {
+    content: '\2212';
 }
 
-.collapsible-content {
-    padding: 18px 18px;
+#social-gatherings-gallery .collapsible-content {
     overflow: hidden;
-    box-shadow: 0px 0 6px gray;
+    max-height: 0; 
+    box-shadow: 0px 0px 6px gray;
+    transition: 0.1s ease-out;
 }
-.display-none {
-    display: none;
-}
+
 
 .calendarDiv {
     /* width: 700px; */

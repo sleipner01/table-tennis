@@ -1,17 +1,16 @@
 // Script to animate collapsibles dropdown
 
-// Getting collapsibles
-var collapsibles = document.getElementsByClassName("collapsible");
+document.querySelectorAll('.collapsible').forEach(button => {
+    button.addEventListener('click', () => {
+        const collapsibleContent = button.nextElementSibling;
 
-// Loop trough all and give them eventlisteners
-for(let i = 0; i < collapsibles.length; i++) {
-    collapsibles[i].addEventListener("click", function() {
-        this.classList.toggle("collapsible-active");
-        var content = this.nextElementSibling;
-        if(content.classList.contains('display-none')){
-            content.classList.remove('display-none');
-        } else {
-            content.classList.add('display-none');
-        } 
-    });
-  }
+        button.classList.toggle('collapsible-active');
+
+        if(button.classList.contains('collapsible-active')) {
+            collapsibleContent.style.maxHeight = collapsibleContent.scrollHeight + 'px';
+        }
+        else {
+            collapsibleContent.style.maxHeight = 0;
+        }
+    })
+});
