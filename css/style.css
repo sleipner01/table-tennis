@@ -290,10 +290,11 @@ nav img {
     cursor: pointer;
     padding: 20px;
     width: 100%;
+    font-family: 'Lato';
     border: none;
     text-align: left;
     outline: none;
-    font-size: .95em;
+    font-size: 1.1em;
     transition: 0.1s ease-out;
     z-index: 3;
 }
