@@ -30,6 +30,7 @@ nav {
     /* background-color: rgba(255, 255, 255, 0.2); */
     position: sticky;
     top: 0;
+    z-index: 10;
 }
 
 nav *::selection {
