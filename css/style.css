@@ -300,7 +300,7 @@ nav img {
 }
 #social-gatherings-gallery-container .collapsible:after {
     font-family: "Material Icons";
-    content: "add";
+    content: "keyboard_arrow_down";
     color: white;
     float: right;
     margin-left: 5px;
@@ -312,7 +312,7 @@ nav img {
 
 #social-gatherings-gallery-container .collapsible-active:after {
     font-family: "Material Icons";
-    content: "remove";
+    content: "keyboard_arrow_up";
 }
 
 #social-gatherings-gallery-container .collapsible-content {
