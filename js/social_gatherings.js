@@ -6,22 +6,21 @@ const previousYearEl = document.getElementById('previousYear');
     previousYearEl.addEventListener('click', changeYear);
 const nextYearEl = document.getElementById('nextYear');
     nextYearEl.addEventListener('click', changeYear);
-var currentYearEl = document.getElementById('currentYear');
+const currentYearEl = document.getElementById('currentYear');
     currentYearEl.innerText = new Date().getFullYear();
 
-var galleryEl = document.getElementById('social-gatherings-gallery');
-
-
-// Open first collapsible once the document is loaded
-window.addEventListener('load', openFirstCollapsible);
+const galleryEl = document.getElementById('social-gatherings-gallery');
 
 
 const dateObj = (day,month,year) => ({day: day, month: month, year: year});
 // All social events has to be added here. The imgName attribute should only contain the file name + file type, and not the path
 const social_events = [
-    {eventType: "gathering", date: dateObj(1,10,2021), name: "Field trip to Moskva", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "magnus_domination.jpg"},
-    {eventType: "tournament", date: dateObj(1,10,2021), name: "Kiev", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "equipment.jpg"},
-    {eventType: "gathering", date: dateObj(1,10,2021), name: "Pong n' pizza", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "tabletennis_table.jpg"},
+    {eventType: "gathering", date: dateObj(7,07,2021), name: "Field trip to Moskva", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "magnus_domination.jpg"},
+    {eventType: "tournament", date: dateObj(1,09,2021), name: "Kiev", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "equipment.jpg"},
+    {eventType: "gathering", date: dateObj(20,10,2021), name: "Pong n' pizza", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "tabletennis_table.jpg"},
+    {eventType: "tournament", date: dateObj(20,03,2020), name: "North Korea", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "equipment.jpg"},
+    {eventType: "gathering", date: dateObj(1,12,2020), name: "Pong n' code", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "tabletennis_table.jpg"},
+    {eventType: "gathering", date: dateObj(10,05,2021), name: "Magnus beats all of his project partners", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "magnus_domination.jpg"}
 ];
 
 
@@ -83,9 +82,9 @@ function createCollapsibles() {
 
             galleryEl.appendChild(contentEl);
         }
-        else {
-            galleryEl.innerText = 'There are no posted events from ' + currentYearEl.innerText;
-        }
+    }
+    if(document.getElementsByClassName('collapsible').length < 1) {
+        galleryEl.innerText = 'There are no posted events from ' + currentYearEl.innerText;
     }
 }
 
@@ -101,18 +100,15 @@ function openFirstCollapsible() {
 function changeYear(e) {
     if(e.target.id == 'nextYear') {
         currentYearEl.innerText = Number(currentYearEl.innerText, 10) + 1;
-        galleryEl.innerHTML = '';
-        createCollapsibles();
-        addEventListeners();
-        openFirstCollapsible();
+
     }
     else if(e.target.id == 'previousYear') {
         currentYearEl.innerText = Number(currentYearEl.innerText) - 1;
-        galleryEl.innerHTML = '';
-        createCollapsibles();
-        addEventListeners();
-        openFirstCollapsible();
     }
+    galleryEl.innerHTML = '';
+    createCollapsibles();
+    addEventListeners();
+    openFirstCollapsible();
 }
 
 function addEventListeners() {
@@ -138,3 +134,5 @@ function addEventListeners() {
 createCollapsibles();
 //Add Eventlisteners
 addEventListeners();
+// Open first collapsible once the document is loaded
+window.addEventListener('load', openFirstCollapsible);
