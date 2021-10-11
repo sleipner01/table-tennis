@@ -111,8 +111,8 @@ const renderCalendar = days => {
   month.innerHTML = months(2021)[displayedMonth() - 1].name;
 }
 
-const increaseWeeks = (render = false) => {
-  firstDisplayedDate = dateAfterDays(firstDisplayedDate, 7);
+const increaseWeeks = (inc = 1, render = false) => {
+  firstDisplayedDate = dateAfterDays(firstDisplayedDate, 7*inc);
   if (render) renderCalendar(7);
 }
 
@@ -124,7 +124,7 @@ const daysRenderedInMonth = from => {
   return i*7;
 }
 
-const nextMonth = (inc = 1, render = false) => {
+const increaseMonth = (inc = 1, render = false) => {
   firstDisplayedDate = 
     inc < 0 ? dateAfterDays(firstDisplayedDate, -7 * 7) :
               firstDisplayedDate;
