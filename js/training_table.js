@@ -111,14 +111,18 @@ const renderCalendar = days => {
   month.innerHTML = months(2021)[displayedMonth() - 1].name;
 }
 
-const increaseWeeks = (weeks = 1, render = false) => {
-  firstDisplayedDate = dateAfterDays(firstDisplayedDate, 7 * weeks);
+const increaseWeeks = (render = false) => {
+  firstDisplayedDate = dateAfterDays(firstDisplayedDate, 7);
   if (render) renderCalendar(7);
 }
 
 const nextMonth = (inc = 1, render = false) => {
+  firstDisplayedDate = 
+    inc < 0 ? dateAfterDays(firstDisplayedDate, -7 * 7) :
+              firstDisplayedDate;
+
   const oldMonth = displayedMonth();
-  while (oldMonth === displayedMonth()) increaseWeeks(inc);
+  while (oldMonth === displayedMonth()) increaseWeeks();
   if (render) {
     daysRendered = dateAfterDays(firstDisplayedDate, 35).month === displayedMonth() ? 42 : 35;
     renderCalendar(daysRendered);
