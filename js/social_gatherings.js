@@ -6,6 +6,8 @@ const nextYearEl = document.getElementById('nextYear');
 var currentYearEl = document.getElementById('currentYear');
     currentYearEl.innerText = new Date().getFullYear();
 
+// Open first collapsible once the document is loaded
+window.addEventListener('load', openFirstCollapsible);
 
 
 const dateObj = (day,month,year) => ({day: day, month: month, year: year});
@@ -29,9 +31,6 @@ function createCollapsibles() {
         buttonEl.classList.add('collapsible');
         buttonEl.innerHTML = social_events[i].name;
         // Make sure one collapsible is open on page load
-        if(i == 0) {
-            buttonEl.classList.add('collapsible-active');
-        }
         galleryEl.appendChild(buttonEl);
 
         // Create content element with layout
@@ -60,7 +59,7 @@ function createCollapsibles() {
 
         // Make another layout if the event is "tournament"
         if(social_events[i].eventType == 'tournament') {
-            console.log('hei');
+            buttonEl.innerHTML += ' | Tournament'; 
         }
 
 
@@ -79,16 +78,14 @@ function createCollapsibles() {
         splitEl.appendChild(rightDivEl);
 
 
-
         galleryEl.appendChild(contentEl);
-
-        // Make sure one collapsible is open on page load
-        if(i == 0) {
-            contentEl.style.maxHeight = contentEl.scrollHeight + 'px';
-        }
     }
 }
-createCollapsibles();
+
+// Not yet functional
+function openFirstCollapsible(contentEl) {
+    document.getElementsByClassName('collapsible')[0].click();
+}
 
 
 
@@ -101,10 +98,8 @@ function yearChange(e) {
     }
 }
 
-
-
-
-
+// Create collapsibles
+createCollapsibles();
 
 // Script to animate collapsibles dropdown
 document.querySelectorAll('.collapsible').forEach(button => {
