@@ -270,19 +270,20 @@ nav img {
 #social-gatherings-gallery .collapsible {
     margin: 0 auto;
     background-color: #828387;
-    color: white;
+    color: #FEFEFE;
     cursor: pointer;
-    padding: 18px;
+    padding: 20px;
     width: 100%;
     border: none;
     text-align: left;
     outline: none;
-    font-size: 15px;
+    font-size: .95em;
     transition: 0.1s ease-out;
     z-index: 3;
 }
 #social-gatherings-gallery .collapsible:after {
-    content: '+';
+    font-family: "Material Icons";
+    content: "add";
     color: white;
     float: right;
     margin-left: 5px;
@@ -293,7 +294,8 @@ nav img {
 }
 
 #social-gatherings-gallery .collapsible-active:after {
-    content: '\2212';
+    font-family: "Material Icons";
+    content: "remove";
 }
 
 #social-gatherings-gallery .collapsible-content {
