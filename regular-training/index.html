@@ -32,14 +32,16 @@
         <main>
             <div class="width">
                 <h1>Regular training</h1>
-                <div class="calendarDiv">
-                    <div class="triple">
-                        <button class="material-icons" onclick="nextMonth(-1,true)">keyboard_arrow_left</button>
-                        <h1 id="month"></h1>
-                        <button class="material-icons" onclick="nextMonth(1,true)">keyboard_arrow_right</button>
-                    </div>
-                    <div id="calendar">
-                        <!-- dynamic (training_table.js) -->
+                <div class="aspect-ratio-box">
+                    <div class="calendarDiv">
+                        <div class="triple">
+                            <button class="material-icons" onclick="increaseMonth(-1,true)">keyboard_arrow_left</button>
+                            <h1 id="month"></h1>
+                            <button class="material-icons" onclick="increaseMonth(1,true)">keyboard_arrow_right</button>
+                        </div>
+                        <div id="calendar">
+                            <!-- dynamic (training_table.js) -->
+                        </div>
                     </div>
                 </div>
             </div>
