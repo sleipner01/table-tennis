@@ -23,7 +23,6 @@ galleryEl.style.backgroundImage = 'url(' + path + pictures[0] + ')';
 
 
 function changePicture() {
-
     galleryEl.style.backgroundImage = 'url(' + path + pictures[index] + ')';
 
     if(index == pictures.length - 1) {
