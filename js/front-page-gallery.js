@@ -1,9 +1,34 @@
+const galleryEl = document.getElementById('gallery');
+
+
+
 // Make picture scroll slower than the rest of the screen
 document.getElementsByTagName('body')[0].onscroll = function slowScroll() {  
-    const target = document.getElementById('gallery');
     const factor = 0.5;
     const xValue = 'center';
     var scrollToTop = document.scrollingElement.scrollTop;
     var yValue = scrollToTop * factor;
-    target.style.backgroundPosition = xValue + " " + yValue + "px";
-  }
+    galleryEl.style.backgroundPosition = xValue + " " + yValue + "px";
+}
+
+
+
+// Change home page picture every other second
+const pictures = ['equipment.jpg', 'equipment2.jpg', 'man1.jpg', 'tabletennis_table.jpg'];
+const interval = 5; // Interval in seconds
+var index = 0;
+galleryEl.style.backgroundImage = 'url(../bordtennis/media/home-images/'+ pictures[0] + ')';
+
+
+
+function changePicture() {
+    console.log('hei');
+    galleryEl.style.backgroundImage = 'url(../bordtennis/media/home-images/'+ pictures[index] + ')';
+    index++
+
+    if(index == pictures.length) {
+        index = 0;
+    }
+}
+
+window.onload = setInterval(changePicture, interval * 1000);
