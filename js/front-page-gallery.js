@@ -22,6 +22,9 @@ galleryEl.style.backgroundImage = 'url(../bordtennis/media/home-images/'+ pictur
 
 
 function changePicture() {
+
+    // Need to get the next picture loaded before it is shown
+
     console.log('hei');
     galleryEl.style.backgroundImage = 'url(../bordtennis/media/home-images/'+ pictures[index] + ')';
     index++
