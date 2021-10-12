@@ -8,7 +8,7 @@ const events = [
   {name: "Match", date: dateObj(8,10,2021), color: "orange"},
   {name: "Match", date: dateObj(5,10,2021), color: "orange"},
   {name: "Tournament", date: dateObj(6,11,2021), color: "purple"},
-  
+
 ];
 
 const months = (year = 2021) => [
@@ -111,7 +111,7 @@ const htmlCalendarDays = (from, days) => calendarDatesFrom(from, days)
 
 const daysRenderedInMonth = from => {
   let i = 1;
-  while (dateAfterDays(from, i*7).month === displayedMonth()) 
+  while (dateAfterDays(from, i*7).month === displayedMonth())
     i++;
 
   return i*7;
@@ -128,6 +128,8 @@ const renderCalendar = days => {
   const monthYearEl = document.getElementById("monthYear");
   const monthYear = displayedMonthName() + " " + displayedYear();
   monthYearEl.innerHTML = monthYear;
+
+  updateEventModals()
 }
 
 const increaseWeeks = (inc = 1, render = false) => {
@@ -139,7 +141,7 @@ const increaseWeeks = (inc = 1, render = false) => {
 //Next month:     increaseMonth(positive number)
 //Previous month: increaseMonth(negative number)
 const increaseMonth = (inc = 1, render = false) => {
-  if (inc < 0) 
+  if (inc < 0)
     firstDisplayedDate = dateAfterDays(firstDisplayedDate, -7 * 7);
 
   const oldMonth = displayedMonth();
@@ -149,4 +151,3 @@ const increaseMonth = (inc = 1, render = false) => {
   if (render)
     renderCalendar(daysRenderedInMonth(firstDisplayedDate));
 }
-
