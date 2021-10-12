@@ -2,6 +2,7 @@
   --red: #A8000F;
   --lightgray: #E5E5E5;
   --darkgray: #828387;
+  --darkergray: #626367;
   --white: #FEFEFE;
   --black: #010101;
 }
@@ -30,7 +31,6 @@ nav {
     /* background-color: rgba(255, 255, 255, 0.2); */
     position: sticky;
     top: 0;
-    z-index: 10;
 }
 
 nav *::selection {
@@ -291,9 +291,8 @@ nav img {
     padding: 1.2em 2em;
     width: 100%;
     font-family: 'Lato';
-    border: none;
     text-align: left;
-    outline: none;
+    outline: var(--red);
     font-size: 1.1em;
     transition: 0.1s ease-out;
     z-index: 3;
@@ -307,7 +306,7 @@ nav img {
 }
 
 #social-gatherings-gallery-container .collapsible-active, #social-gatherings-gallery-container .collapsible:hover {
-    background-color: #626367;
+    background-color: var(--darkergray);
 }
 
 #social-gatherings-gallery-container .collapsible-active:after {
@@ -318,7 +317,7 @@ nav img {
 #social-gatherings-gallery-container .collapsible-content {
     overflow: hidden;
     max-height: 0; 
-    box-shadow: 0px 0px 6px #626367;
+    /* box-shadow: 0px 0px 6px #626367; */
     transition: all .1s ease-out;
 }
 
@@ -355,6 +354,11 @@ nav img {
     max-width: 350px;
     max-height: 350px;
 }
+
+#social-gatherings-gallery-container #social-gatherings-gallery {
+    box-shadow: 6px 0 15px -4px var(--darkgray), -6px 0 15px -4px var(--darkgray);
+}
+
 
 
 
