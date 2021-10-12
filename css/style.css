@@ -242,6 +242,10 @@ table th, table td {
     background-color: rgba(1, 1, 1, 0.2);
 }
 
+#scoreboard th {
+    background-color: var(--red);
+}
+
 .num {
     text-align: right;
 }
