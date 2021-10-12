@@ -9,7 +9,7 @@ const galleryEl = document.getElementById('gallery');
 //     var scrollToTop = document.scrollingElement.scrollTop;
 //     var yValue = scrollToTop * factor;
 //     galleryEl.style.backgroundPosition = "center";
-//     // galleryEl.style.backgroundPosition = xValue + " " + yValue + "px";
+//     galleryEl.style.backgroundPosition = xValue + " " + yValue + "px";
 // }
 
 
@@ -36,6 +36,7 @@ function changePicture() {
     preloadNextImage(path + pictures[index]);
 }
 
+// Not sure if this works...
 function preloadNextImage(path) {
     let img=new Image();
     img.src=path;
