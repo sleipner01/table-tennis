@@ -15,23 +15,30 @@ document.getElementsByTagName('body')[0].onscroll = function slowScroll() {
 
 // Change home page picture every other second
 const pictures = ['equipment.jpg', 'equipment2.jpg', 'man1-cropped.jpg', 'tabletennis_table_cropped.jpg'];
+const path = '../bordtennis/media/home-images/';
 const interval = 10; // Interval in seconds
 var index = 0;
-galleryEl.style.backgroundImage = 'url(../bordtennis/media/home-images/'+ pictures[0] + ')';
+galleryEl.style.backgroundImage = 'url(' + path + pictures[0] + ')';
 
 
 
 function changePicture() {
 
-    // Need to get the next picture loaded before it is shown
+    galleryEl.style.backgroundImage = 'url(' + path + pictures[index] + ')';
 
-    console.log('hei');
-    galleryEl.style.backgroundImage = 'url(../bordtennis/media/home-images/'+ pictures[index] + ')';
-    index++
-
-    if(index == pictures.length) {
+    if(index == pictures.length - 1) {
         index = 0;
     }
+    else {
+        index++
+    }
+
+    preloadNextImage(path + pictures[index]);
+}
+
+function preloadNextImage(path) {
+    let img=new Image();
+    img.src=path;
 }
 
 window.onload = setInterval(changePicture, interval * 1000);
