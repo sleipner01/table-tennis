@@ -2,7 +2,7 @@ const galleryEl = document.getElementById('gallery');
 
 
 
-// Make picture scroll slower than the rest of the screen
+// Parallax scrolling effect
 document.getElementsByTagName('body')[0].onscroll = function slowScroll() {  
     const factor = 0.5;
     const xValue = 'center';
