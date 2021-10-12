@@ -3,14 +3,14 @@ const galleryEl = document.getElementById('gallery');
 
 
 // Parallax scrolling effect
-document.getElementsByTagName('body')[0].onscroll = function slowScroll() {
-    const factor = 0.5;
-    const xValue = 'center';
-    var scrollToTop = document.scrollingElement.scrollTop;
-    var yValue = scrollToTop * factor;
-    galleryEl.style.backgroundPosition = "center";
-    // galleryEl.style.backgroundPosition = xValue + " " + yValue + "px";
-}
+// document.getElementsByTagName('body')[0].onscroll = function slowScroll() {
+//     const factor = 0.5;
+//     const xValue = 'center';
+//     var scrollToTop = document.scrollingElement.scrollTop;
+//     var yValue = scrollToTop * factor;
+//     galleryEl.style.backgroundPosition = "center";
+//     // galleryEl.style.backgroundPosition = xValue + " " + yValue + "px";
+// }
 
 
 
