@@ -41,7 +41,13 @@ nav *::selection {
 nav a {
     color: var(--black);
     text-decoration: none;
+    transition: color .1s;
 }
+
+nav a:hover {
+    color: var(--red);
+}
+
 
 nav a.active {
     text-decoration: underline;
