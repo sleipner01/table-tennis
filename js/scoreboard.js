@@ -8,6 +8,7 @@ function getData(dataTable) {
     for(let i = 0; i < scoreData.rows.length; i++) {
         let data = scoreData.rows[i].cells;
         // names.push({name: data[0].innerText, score: data[1].innerText});
+        // Temporary random scores since we aren't allowed to use databases or other methods of getting data 
         names.push({name: data[0].innerText, score: Math.floor(Math.random() * 100)});
     }
     // Sort the names array
