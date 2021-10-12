@@ -155,6 +155,8 @@ h2 {
     background-size: cover;
     background-blend-mode: darken;
     background-color: var(--lightgray);
+    /* Not fully supported, find other solution */
+    transition: background-image 1s ease-in-out; 
 }
 
 #gallery h1 {
