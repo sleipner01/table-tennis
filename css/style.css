@@ -42,15 +42,31 @@ nav a {
     color: var(--black);
     text-decoration: none;
     transition: color .1s;
+    width: fit-content;
 }
 
-nav a:hover {
-    color: var(--red);
+/* Line that expands on hover */
+nav #dropdown a:after {
+    content: '';
+    display: block;
+    transform: scaleX(0);
+    transform-origin:  0% 50%;
+    transition: transform .1s ease-in;
+    border-bottom: 2px solid var(--red);
+}
+
+nav #dropdown a:hover:after {
+    transform: scaleX(1);
 }
 
 
-nav a.active {
-    text-decoration: underline;
+nav #dropdown a.active:after {
+    border-bottom: 2px solid var(--black);
+    transform: scaleX(1);
+}
+
+nav #dropdown a.active:hover:after {
+    border-color: var(--red);
 }
 
 nav div {
