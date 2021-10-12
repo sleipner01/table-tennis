@@ -153,6 +153,7 @@ h2 {
     align-content: center;
 
     background-image: url("../../bordtennis/media/home-images/man1.jpg");
+    background-attachment: scroll;
     background-position: center;
     background-size: cover;
     background-blend-mode: darken;
