@@ -9,6 +9,7 @@ const nextYearEl = document.getElementById('nextYear');
 const currentYearEl = document.getElementById('currentYear');
     currentYearEl.innerText = new Date().getFullYear();
 const galleryEl = document.getElementById('social-gatherings-gallery');
+const galleryContainerEl = document.getElementById('social-gatherings-gallery-container');
 
 
 
@@ -26,6 +27,11 @@ const social_events = [
 
 
 function createCollapsibles() {
+    // Check if an notice element is in the container
+    if(document.getElementById('notice')) {
+        galleryContainerEl.removeChild(document.getElementById('notice'));
+    }
+    
     for(let i = 0; i < social_events.length; i++) {
         if(social_events[i].date.year == Number(currentYearEl.innerText)) {
             // Create button
@@ -98,7 +104,10 @@ function createCollapsibles() {
         }
     }
     if(document.getElementsByClassName('collapsible').length < 1) {
-        galleryEl.innerText = 'There are no posted events from ' + currentYearEl.innerText;
+        notice = document.createElement('p');
+        notice.id = 'notice';
+        notice.innerText = 'There are no posted events from ' + currentYearEl.innerText;
+        galleryContainerEl.appendChild(notice);
     }
 }
 
