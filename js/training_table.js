@@ -11,7 +11,7 @@ const events = [
   
 ];
 
-const months = year => [
+const months = (year = 2021) => [
   {name: "January", days: 31}, {name: "February", days: isLeapYear(year) ? 29 : 28},
   {name: "March", days: 31}, {name: "April", days: 30},
   {name: "May", days: 31}, {name: "June", days: 30},
@@ -53,7 +53,10 @@ const dateAfterDays = (date, days) => {
   return dateObj(day,month,year);
 }
 
+//Based on the last date on the first row
 const displayedMonth = () => dateAfterDays(firstDisplayedDate, 6).month;
+const displayedMonthName = () => months()[displayedMonth() - 1].name;
+const displayedYear = () => dateAfterDays(firstDisplayedDate, 6).year;
 
 //Weekday elements
 const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -73,18 +76,18 @@ const color = date => date.month === displayedMonth() ?
 
 const htmlDay = date => "<div class='calendarDayNum'>" + date.day + "</div>";
 
-const isEventDate = (Event, date) =>
-  Event.date.day === date.day &&
-  Event.date.month === date.month &&
-  Event.date.year === date.year;
-
 const htmlEvent = Event =>
   "<div class='calendarEvent' style='background-color:" + Event.color + ";'>" +
     Event.name +
   "</div>";
 
+const isSameDate = (Event, date) =>
+  Event.day === date.day &&
+  Event.month === date.month &&
+  Event.year === date.year;
+
 const htmlEvents = date => events
-  .filter(Event => isEventDate(Event, date))
+  .filter(Event => isSameDate(Event.date, date))
   .map(htmlEvent)
   .join("");
 
@@ -96,9 +99,9 @@ const htmlCalendarDay = (date, i) =>
 
 const calendarDatesFrom = (from, days) => {
   const result = []
-  for (let i = 0; i < days; i++) {
+  for (let i = 0; i < days; i++)
     result.push(dateAfterDays(from, i));
-  }
+
   return result;
 }
 
@@ -108,37 +111,42 @@ const htmlCalendarDays = (from, days) => calendarDatesFrom(from, days)
 
 const daysRenderedInMonth = from => {
   let i = 1;
-  while (dateAfterDays(from, i*7).month === displayedMonth()) {
+  while (dateAfterDays(from, i*7).month === displayedMonth()) 
     i++;
-  }
+
   return i*7;
 }
 
-//renderCalendar(daysRenderedInMonth(firstDisplayedDate) for monthly view
-//renderCalendar(7) for weekly view
+//Monthly view: renderCalendar(daysRenderedInMonth(firstDisplayedDate)
+//Weekly view:  renderCalendar(7)
 const renderCalendar = days => {
-  calendar = document.getElementById("calendar");
-  calendar.innerHTML =
+  const calendarEl = document.getElementById("calendar");
+  calendarEl.innerHTML =
     htmlCalendarWeekdays() +
     htmlCalendarDays(firstDisplayedDate, days);
 
-  const month = document.getElementById("month");
-  month.innerHTML = months(2021)[displayedMonth() - 1].name;
+  const monthYearEl = document.getElementById("monthYear");
+  const monthYear = displayedMonthName() + " " + displayedYear();
+  monthYearEl.innerHTML = monthYear;
 }
 
 const increaseWeeks = (inc = 1, render = false) => {
   firstDisplayedDate = dateAfterDays(firstDisplayedDate, 7*inc);
-  if (render) renderCalendar(7);
+  if (render)
+    renderCalendar(7);
 }
 
-//increaseMonth(positive number) for next month
-//increaseMonth(negative number) for previous month
+//Next month:     increaseMonth(positive number)
+//Previous month: increaseMonth(negative number)
 const increaseMonth = (inc = 1, render = false) => {
-  firstDisplayedDate =
-    inc < 0 ? dateAfterDays(firstDisplayedDate, -7 * 7) :
-              firstDisplayedDate;
+  if (inc < 0) 
+    firstDisplayedDate = dateAfterDays(firstDisplayedDate, -7 * 7);
 
   const oldMonth = displayedMonth();
-  while (oldMonth === displayedMonth()) increaseWeeks();
-  if (render) renderCalendar(daysRenderedInMonth(firstDisplayedDate));
+  while (oldMonth === displayedMonth())
+    increaseWeeks();
+
+  if (render)
+    renderCalendar(daysRenderedInMonth(firstDisplayedDate));
 }
+
