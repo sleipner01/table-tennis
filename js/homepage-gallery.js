@@ -17,7 +17,7 @@ document.getElementsByTagName('body')[0].onscroll = function slowScroll() {
 const pictures = ['equipment.jpg', 'equipment2.jpg', 'man1-cropped.jpg', 'tabletennis_table_cropped.jpg'];
 const path = '../bordtennis/media/home-images/';
 const interval = 10; // Interval in seconds
-var index = 0;
+var index = 1; // Has to be 1 so the interval changes to next picture after set time has passed
 galleryEl.style.backgroundImage = 'url(' + path + pictures[0] + ')';
 
 
@@ -26,7 +26,7 @@ function changePicture() {
     galleryEl.style.backgroundImage = 'url(' + path + pictures[index] + ')';
 
     if(index == pictures.length - 1) {
-        index = 0;
+        index = 0; // Loop and start on first picture
     }
     else {
         index++
