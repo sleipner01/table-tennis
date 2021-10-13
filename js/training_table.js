@@ -61,10 +61,10 @@ const displayedYear = () => dateAfterDays(firstDisplayedDate, 6).year;
 //Weekday elements
 const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-const htmlCalendarWeekday = weekday =>
-  "<div class='calendarWeekday'>" +
-    weekday +
-  "</div>";
+const htmlCalendarWeekday = weekday => `
+  <div class="calendarWeekday">
+    ${weekday}
+  </div>`;
 
 const htmlCalendarWeekdays = () => weekdays
   .map(htmlCalendarWeekday)
@@ -74,12 +74,12 @@ const htmlCalendarWeekdays = () => weekdays
 const color = date => date.month === displayedMonth() ?
   "var(--white)" : "var(--lightgray)";
 
-const htmlDay = date => "<div class='calendarDayNum'>" + date.day + "</div>";
+const htmlDay = date => `<div class="calendarDayNum">${date.day}</div>`;
 
-const htmlEvent = Event =>
-  "<div class='calendarEvent' style='background-color:" + Event.color + ";'>" +
-    Event.name +
-  "</div>";
+const htmlEvent = Event => `
+  <div onclick="renderModalContent('${Event.name}')" class="calendarEvent" style="background-color:${Event.color};">
+    ${Event.name}
+  </div>`;
 
 const isSameDate = (Event, date) =>
   Event.day === date.day &&
@@ -91,11 +91,11 @@ const htmlEvents = date => events
   .map(htmlEvent)
   .join("");
 
-const htmlCalendarDay = (date, i) =>
-  "<div class='calendarDay' " + " style='order: " + (i + 1) + "; background-color:" + color(date) + ";'>" +
-    htmlDay(date) +
-    htmlEvents(date) +
-  "</div>";
+const htmlCalendarDay = (date, i) => `
+  <div class="calendarDay" style="order: ${i + 1}; background-color: ${color(date)};">
+    ${htmlDay(date)}
+    ${htmlEvents(date)}
+  </div>`;
 
 const calendarDatesFrom = (from, days) => {
   const result = []
@@ -128,8 +128,6 @@ const renderCalendar = days => {
   const monthYearEl = document.getElementById("monthYear");
   const monthYear = displayedMonthName() + " " + displayedYear();
   monthYearEl.innerHTML = monthYear;
-
-  updateEventModals()
 }
 
 const increaseWeeks = (inc = 1, render = false) => {
