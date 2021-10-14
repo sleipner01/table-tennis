@@ -97,13 +97,8 @@ const htmlCalendarDay = (date, i) => `
     ${htmlEvents(date)}
   </div>`;
 
-const calendarDatesFrom = (from, days) => {
-  const result = []
-  for (let i = 0; i < days; i++)
-    result.push(dateAfterDays(from, i));
-
-  return result;
-}
+const calendarDatesFrom = (from, days) => 
+  days === 0 ? [from] : [...calendarDatesFrom(from, days-1), dateAfterDays(from, days)];
 
 const htmlCalendarDays = (from, days) => calendarDatesFrom(from, days)
   .map(htmlCalendarDay)
