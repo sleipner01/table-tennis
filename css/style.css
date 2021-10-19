@@ -4,7 +4,9 @@
   --darkgray: #828387;
   --darkergray: #626367;
   --white: #FEFEFE;
+  --black: #111;
   --black: #010101;
+  --logoFilter: "";
 }
 
 * {
@@ -190,7 +192,8 @@ h2 {
 
 #gallery h1 {
     margin-bottom: calc((100vw * (9/16)) * (1/4));
-    color: var(--white)
+    color: var(--white);
+    color: #fefefe;
 }
 
 .module {
@@ -209,6 +212,13 @@ h2 {
     width: 50%;
     /* max-width: calc(50% - 1em); */
     padding: 1em;
+}
+
+/* Veldig optional kode for at intro to table tennis kanskje ser såvidt finere ut */
+.module .split div img {
+    margin: -1em;
+    width: calc(100% + 2em);
+    height: calc(100% + 2em);
 }
 
 @media only screen and (max-width: 600px) {
@@ -295,6 +305,7 @@ table th, table td {
 nav img {
     height: 2em;
     width: auto;
+    filter: var(--logoFilter)
 }
 
 .redbg {
