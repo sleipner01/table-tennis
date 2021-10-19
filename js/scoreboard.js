@@ -1,16 +1,20 @@
 
-function getData(dataTable) {
+function getData() {
     // Retrieving data from "scoreData"- table at the bottom of body element 
-    var scoreData = document.getElementById(dataTable);
+    const scoreData = [
+        'Andreas Ander Li',
+        'Erlend Golten Persen',
+        'Sander Godard',
+        'Ole Andreas Egeland Rørvik',
+        'Magnus Byrkjeland'
+    ];
     var names = [];
 
     // For each row of info, make an object in names
-    for(let i = 0; i < scoreData.rows.length; i++) {
-        let data = scoreData.rows[i].cells;
-        // names.push({name: data[0].innerText, score: data[1].innerText});
-        // Temporary random scores since we aren't allowed to use databases or other methods of getting data 
-        names.push({name: data[0].innerText, score: Math.floor(Math.random() * 100)});
-    }
+    scoreData.forEach( memberName => {
+        names.push({name: memberName, score: Math.floor(Math.random() * 100)});
+    })
+
     // Sort the names array
     names.sort(function (a, b) {
         return b.score - a.score;
@@ -39,4 +43,4 @@ function makeScoreboard(data, scoreboard) {
         scoreboard.appendChild(row);
     })
 }
-makeScoreboard(getData('scoreData'), 'scoreboard'); //Name of the table with data)
+makeScoreboard(getData(), 'scoreboard'); //Name of the table with data)
