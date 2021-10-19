@@ -10,8 +10,9 @@ function getData() {
     ];
     var names = [];
 
-    // For each row of info, make an object in names
+    // Getting names from scoreData array make an object in names
     scoreData.forEach( memberName => {
+        // Since we can't use databases we are currently making a random score to simulate a working scoreboard
         names.push({name: memberName, score: Math.floor(Math.random() * 100)});
     })
 
