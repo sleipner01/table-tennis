@@ -1,6 +1,8 @@
 :root {
   --red: #A8000F;
   --lightgray: #E5E5E5;
+  --lightergray: #F0F0F0;
+  --transparentlightgray: rgba(255, 158, 158, 0.2);
   --darkgray: #828387;
   --darkergray: #626367;
   --white: #FEFEFE;
@@ -251,7 +253,7 @@ p {
 
 table {
     border-collapse: collapse;
-    border: 1px solid var(--black);
+    /* border: 1px solid var(--black); */
     width: 100%;
 }
 
@@ -267,9 +269,14 @@ table th, table td {
     /* border: 1px solid var(--black); */
 }
 
-#scoreboard tbody tr:hover {
-    background-color: rgba(1, 1, 1, 0.2);
+#scoreboard tbody tr:nth-child(2n) {
+    background-color: var(--lightergray);
 }
+
+#scoreboard tbody tr:hover {
+    background-color: var(--transparentlightgray);
+}
+
 
 #scoreboard th {
     background-color: var(--red);
