@@ -3,12 +3,46 @@ const dateObj = (day,month,year) => ({day: day, month: month, year: year});
 let firstDisplayedDate = dateObj(27,9,2021);
 
 const events = [
-  {name: "Training", date: dateObj(1,10,2021), color: "green"},
-  {name: "Training", date: dateObj(8,10,2021), color: "green"},
-  {name: "Match", date: dateObj(8,10,2021), color: "orange"},
-  {name: "Match", date: dateObj(5,10,2021), color: "orange"},
-  {name: "Tournament", date: dateObj(6,11,2021), color: "purple"},
-
+  {
+    id: "1",
+    name: "Training", 
+    date: dateObj(1,10,2021),
+    color: "green",
+    info: "14:00-16:00\nNormal training session", 
+    buttonText: "I'll be there."
+  },
+  {
+    id: "2",
+    name: "Training",
+    date: dateObj(8,10,2021),
+    color: "green",
+    info: "14:00-14:30\nShort session before match.", 
+    buttonText: "I'll be there."
+  },
+  {
+   id: "3",
+   name: "Match",
+   date: dateObj(8,10,2021),
+   color: "orange",
+   info: "14:45-16:00\nMatch: Sander vs Ole.", 
+   buttonText: "Ok"
+  },
+  {
+   id: "4",
+   name: "Match",
+   date: dateObj(5,10,2021),
+   color: "orange",
+   info: "14:00-15:15\nMatch: Magnus vs Li.", 
+   buttonText: "Ok"
+  },
+  {
+   id: "5",
+   name: "Tournament",
+   date: dateObj(6,11,2021),
+   color: "purple",
+   info: "09:00-15:00\nTournament held in ...", 
+   buttonText: "Sign up"
+  },
 ];
 
 const months = (year = 2021) => [
@@ -76,18 +110,18 @@ const color = date => date.month === displayedMonth() ?
 
 const htmlDay = date => `<div class="calendarDayNum">${date.day}</div>`;
 
-const htmlEvent = Event => `
-  <div onclick="renderModalContent('${Event.name}')" class="calendarEvent" style="background-color:${Event.color};">
-    ${Event.name}
+const htmlEvent = evt => `
+  <div onclick="renderModalContent('${evt.id}')" class="calendarEvent" style="background-color:${evt.color};">
+    ${evt.name}
   </div>`;
 
-const isSameDate = (Event, date) =>
-  Event.day === date.day &&
-  Event.month === date.month &&
-  Event.year === date.year;
+const isSameDate = (date1, date2) =>
+  date1.day === date2.day &&
+  date1.month === date2.month &&
+  date1.year === date2.year;
 
 const htmlEvents = date => events
-  .filter(Event => isSameDate(Event.date, date))
+  .filter(evt => isSameDate(evt.date, date))
   .map(htmlEvent)
   .join("");
 
@@ -112,7 +146,7 @@ const daysRenderedInMonth = from => {
   return i*7;
 }
 
-//Monthly view: renderCalendar(daysRenderedInMonth(firstDisplayedDate)
+//Monthly view: renderCalendar(daysRenderedInMonth(firstDisplayedDate))
 //Weekly view:  renderCalendar(7)
 const renderCalendar = days => {
   const calendarEl = document.getElementById("calendar");
@@ -143,4 +177,33 @@ const increaseMonth = (inc = 1, render = false) => {
 
   if (render)
     renderCalendar(daysRenderedInMonth(firstDisplayedDate));
+}
+
+
+//Modal
+const modalbgEl = document.getElementById("modalbg");
+const modalEl = document.getElementById("modal");
+
+let isModalDisplayed = false;
+
+const toggleModalDisplay = () => {
+  isModalDisplayed = !isModalDisplayed;
+  modalbgEl.style.display = isModalDisplayed ? "block" : "none";
+  modalEl.style.display = isModalDisplayed ? "block" : "none"; }
+
+const modalContent = eventModal => `
+  <h1>${eventModal.name}</h1>
+  <p>${eventModal.info}</p>
+  <div class="split">
+    <button onclick="toggleModalDisplay()">
+      ${eventModal.buttonText}
+    </button>
+    <button onclick="toggleModalDisplay()">
+      Back
+    </button>`;
+
+const renderModalContent = id => {
+  toggleModalDisplay();
+  const modalEvent = events.find(evt => evt.id === id);
+  modalEl.innerHTML = modalContent(modalEvent);
 }
