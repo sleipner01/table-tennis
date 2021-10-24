@@ -184,22 +184,13 @@ const increaseMonth = (inc = 1, render = false) => {
     renderCalendar(daysRenderedInMonth(firstDisplayedDate));
 }
 
-const isMonthAfter = (date1, date2) => {
-  if (date1.year === date2.year)
-    return date1.month > date2.month;
-  
-  return date1.year > date2.year;
-}
-
 const isMonthSame = (date1, date2) => 
   date1.year === date2.year &&
   date1.month === date2.month;
 
 const setFirstDisplayedDate = () => {
-  const inc = isMonthAfter(currentDate, displayedMonthYear()) ? 1 : -1;
-
   while (!isMonthSame(currentDate, displayedMonthYear()))
-    increaseMonth(inc);
+    increaseMonth();
 }
 setFirstDisplayedDate();
 
