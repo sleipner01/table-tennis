@@ -3,7 +3,7 @@ const dateObj = (day,month,year) => ({day: day, month: month, year: year});
 const d = new Date();
 const currentDate = dateObj(d.getDate(), d.getMonth()+1, d.getFullYear())
 
-let firstDisplayedDate = dateObj(24,2,2020); //Gets set to current month's first displayed date.
+let firstDisplayedDate = dateObj(27,9,2021); //Gets set to current month's first displayed date.
 
 const events = [
   {
