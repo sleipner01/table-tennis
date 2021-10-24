@@ -9,7 +9,7 @@ const events = [
   {
     id: "1",
     name: "Training", 
-    date: dateObj(1,10,2021),
+    date: dateObj(12,11,2021),
     color: "green",
     info: "14:00-16:00\nNormal training session", 
     buttonText: "I'll be there."
@@ -17,7 +17,7 @@ const events = [
   {
     id: "2",
     name: "Training",
-    date: dateObj(8,10,2021),
+    date: dateObj(19,11,2021),
     color: "green",
     info: "14:00-14:30\nShort session before match.", 
     buttonText: "I'll be there."
@@ -25,7 +25,7 @@ const events = [
   {
    id: "3",
    name: "Match",
-   date: dateObj(8,10,2021),
+   date: dateObj(19,11,2021),
    color: "orange",
    info: "14:45-16:00\nMatch: Sander vs Ole.", 
    buttonText: "Ok"
@@ -33,7 +33,7 @@ const events = [
   {
    id: "4",
    name: "Match",
-   date: dateObj(5,10,2021),
+   date: dateObj(23,11,2021),
    color: "orange",
    info: "14:00-15:15\nMatch: Magnus vs Li.", 
    buttonText: "Ok"
@@ -41,9 +41,9 @@ const events = [
   {
    id: "5",
    name: "Tournament",
-   date: dateObj(6,11,2021),
+   date: dateObj(4,12,2021),
    color: "purple",
-   info: "09:00-15:00\nTournament held in ...", 
+   info: "09:00-15:00\nWinner gets 10kr", 
    buttonText: "Sign up"
   },
 ];
