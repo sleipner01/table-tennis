@@ -3,7 +3,7 @@ const dateObj = (day,month,year) => ({day: day, month: month, year: year});
 const d = new Date();
 const currentDate = dateObj(d.getDate(), d.getMonth()+1, d.getFullYear())
 
-let firstDisplayedDate = dateObj(27,9,2021);
+let firstDisplayedDate = dateObj(24,2,2020); //Gets set to current month's first displayed date.
 
 const events = [
   {
@@ -94,6 +94,7 @@ const dateAfterDays = (date, days) => {
 const displayedMonth = () => dateAfterDays(firstDisplayedDate, 6).month;
 const displayedMonthName = () => months()[displayedMonth() - 1].name;
 const displayedYear = () => dateAfterDays(firstDisplayedDate, 6).year;
+const displayedMonthYear = () => ({month: displayedMonth(), year: displayedYear()});
 
 //Weekday elements
 const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -162,6 +163,7 @@ const renderCalendar = days => {
   monthYearEl.innerHTML = monthYear;
 }
 
+
 const increaseWeeks = (inc = 1, render = false) => {
   firstDisplayedDate = dateAfterDays(firstDisplayedDate, 7*inc);
   if (render)
@@ -182,6 +184,24 @@ const increaseMonth = (inc = 1, render = false) => {
     renderCalendar(daysRenderedInMonth(firstDisplayedDate));
 }
 
+const isMonthAfter = (date1, date2) => {
+  if (date1.year === date2.year)
+    return date1.month > date2.month;
+  
+  return date1.year > date2.year;
+}
+
+const isMonthSame = (date1, date2) => 
+  date1.year === date2.year &&
+  date1.month === date2.month;
+
+const setFirstDisplayedDate = () => {
+  const inc = isMonthAfter(currentDate, displayedMonthYear()) ? 1 : -1;
+
+  while (!isMonthSame(currentDate, displayedMonthYear()))
+    increaseMonth(inc);
+}
+setFirstDisplayedDate();
 
 //Modal
 const modalbgEl = document.getElementById("modalbg");
@@ -210,3 +230,5 @@ const renderModalContent = id => {
   const modalEvent = events.find(evt => evt.id === id);
   modalEl.innerHTML = modalContent(modalEvent);
 }
+
+
