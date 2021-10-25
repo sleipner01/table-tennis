@@ -483,6 +483,10 @@ nav img {
 
 }
 
+.calendarEvent {
+    text-align: center;
+}
+
 .calendarDay {
     border: 1px solid var(--black);
     height: 100px;
