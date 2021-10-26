@@ -234,6 +234,28 @@ h2 {
     }
 }
 
+.module .split  .flyer .racket {
+    width: 30px; 
+    height: 30px; 
+    filter: none; 
+    background-color: transparent; 
+    box-shadow: none;
+}
+
+.module .split .flyer .p-left {
+    margin-bottom: .5em;
+    font-size: 1.5em;
+    color: var(--red);
+}
+
+.module .split .flyer .p-right {
+    margin-bottom: .5em;
+
+    font-size: 1.5em;
+    text-align: right;
+    color: var(--black);
+}
+
 button {
     background-color: var(--red);
     padding: .8em 2em;
