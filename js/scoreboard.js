@@ -1,6 +1,6 @@
 
 function getData() {
-    // Retrieving data from "scoreData"- table at the bottom of body element 
+    // Since we can't use a database to store values, we use a temporary list to store som example-names
     const scoreData = [
         'Andreas Ander Li',
         'Erlend Golten Persen',
