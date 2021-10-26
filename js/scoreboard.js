@@ -8,28 +8,28 @@ function getData() {
         'Ole Andreas Egeland Rørvik',
         'Magnus Byrkjeland'
     ];
-    var names = [];
+    var scores = [];
 
-    // Getting names from scoreData array make an object in names
+    // Getting *scores* and names from scoreData array make an object in scores
     scoreData.forEach( memberName => {
-        // Since we can't use databases we are currently making a random score to simulate a working scoreboard
-        names.push({name: memberName, score: Math.floor(Math.random() * 100)});
+        // Since we can't use databases we are currently making a random score to simulate a working scoreboardEl
+        scores.push({name: memberName, score: Math.floor(Math.random() * 100)});
     })
 
-    // Sort the names array
-    names.sort(function (a, b) {
+    // Sort the scores array
+    scores.sort(function (a, b) {
         return b.score - a.score;
     });
 
-    return names;
+    return scores;
 }
 
 
 
-function makeScoreboard(data, scoreboard) {
-    // Retrieve the scoreboard element
-    var scoreboard = document.getElementById(scoreboard).children[1];
-    // For each object in "names", create a row in the scoreboard and add the values
+function makeScoreboard(data, scoreboardEl) {
+    // Retrieve the scoreboardEl element
+    var scoreboardEl = document.getElementById(scoreboardEl).children[1];
+    // For each object in "scores", create a row in the scoreboardEl and add the values
     data.forEach (function (item) {
         let row = document.createElement('tr');
         let name = document.createElement('td');
@@ -41,7 +41,7 @@ function makeScoreboard(data, scoreboard) {
         row.appendChild(name);
         row.appendChild(score);
 
-        scoreboard.appendChild(row);
+        scoreboardEl.appendChild(row);
     })
 }
 makeScoreboard(getData(), 'scoreboard'); //Name of the table with data)
