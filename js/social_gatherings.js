@@ -17,9 +17,9 @@ const dateObj = (day,month,year) => ({day: day, month: month, year: year});
 // All social events has to be added here. The imgName attribute should only contain the file name + file type, and not the path
 const social_events = [
     {eventType: "gathering", date: dateObj(7,07,2021), name: "Field trip to Moskva", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "magnus_domination.jpg"},
-    {eventType: "tournament", date: dateObj(1,09,2021), name: "Kiev", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "equipment.jpg"},
+    {eventType: "tournament", date: dateObj(1,09,2021), name: "Kiev", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "equipment.jpg", opposingTeam: 'Kiev Table Tennis', score: '11,11'},
     {eventType: "gathering", date: dateObj(20,10,2021), name: "Pong n' pizza", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "tabletennis_table.jpg"},
-    {eventType: "tournament", date: dateObj(20,03,2020), name: "North Korea", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "equipment.jpg"},
+    {eventType: "tournament", date: dateObj(20,03,2020), name: "North Korea", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "equipment.jpg", opposingTeam: 'NK PlingPong', score: '11,0'},
     {eventType: "gathering", date: dateObj(1,12,2020), name: "Pong n' code", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "tabletennis_table.jpg"},
     {eventType: "gathering", date: dateObj(10,05,2021), name: "Magnus beats all of his project partners", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "magnus_domination.jpg"}
 ];
@@ -69,15 +69,45 @@ function createCollapsibles() {
                 let textEl = document.createElement('p');
                 textEl.innerText = social_events[i].text;
 
-                // Continue with layout if the event is "tournament"
-                if(social_events[i].eventType == 'tournament') {
-                    buttonEl.innerHTML += ' | Tournament'; 
-                }
-
             // Append them to the left div
             leftDivEl.appendChild(dateEl);
             leftDivEl.appendChild(titleEl);
             leftDivEl.appendChild(textEl);
+
+            // Continue with layout if the event is "tournament"
+            if(social_events[i].eventType == 'tournament') {
+                buttonEl.innerHTML += ' | Tournament';
+
+                let teamName = 'NTNUI';
+                
+                let resultContainerEl = document.createElement('table');
+
+                let resultTeamsContainerEl = document.createElement('tr');
+                let teamEl = document.createElement('td');
+                teamEl.innerText = teamName;
+                let opposingTeamEl = document.createElement('td');
+                opposingTeamEl.innerText = social_events[i].opposingTeam;
+
+                let resultScoresContainerEl = document.createElement('tr');
+                let teamResultEl = document.createElement('td');
+                teamResultEl.innerText = 'x';
+                let dividerEl = document.createElement('td');
+                dividerEl.innerHTML = '-';
+                let opposingTeamScoreEl = document.createElement('td');
+                opposingTeamScoreEl.innerText = 'x'; 
+
+                resultTeamsContainerEl.appendChild(teamEl);
+                resultTeamsContainerEl.appendChild(opposingTeamEl);
+
+                resultScoresContainerEl.appendChild(teamResultEl);
+                resultScoresContainerEl.appendChild(dividerEl);
+                resultScoresContainerEl.appendChild(opposingTeamScoreEl);
+
+                resultContainerEl.appendChild(resultTeamsContainerEl);
+                resultContainerEl.appendChild(resultScoresContainerEl);
+
+                leftDivEl.appendChild(resultContainerEl);
+            }
 
 
 
