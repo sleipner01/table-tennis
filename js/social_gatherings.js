@@ -135,7 +135,7 @@ function addEventListeners() {
 
 
 function openFirstCollapsible() {
-    // As long as there is a collapsible element, rundt click() event
+    // As long as there is a collapsible element, run click() event
     if(document.getElementsByClassName('collapsible')[0] != undefined) {
         document.getElementsByClassName('collapsible')[0].click();
     }

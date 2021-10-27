@@ -419,15 +419,15 @@ nav img {
     color: white;
     float: right;
     margin-left: 5px;
+    transition: transform .2s ease-out;
+}
+
+#social-gatherings-gallery-container .collapsible-active:after {
+    transform: rotateX(180deg)
 }
 
 #social-gatherings-gallery-container .collapsible-active, #social-gatherings-gallery-container .collapsible:hover {
     background-color: var(--darkergray);
-}
-
-#social-gatherings-gallery-container .collapsible-active:after {
-    font-family: "Material Icons";
-    content: "keyboard_arrow_up";
 }
 
 #social-gatherings-gallery-container .collapsible-content {
