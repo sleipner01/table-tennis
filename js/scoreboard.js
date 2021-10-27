@@ -4,7 +4,7 @@ function getData() {
     const scoreData = [
         'Andreas Ander Li',
         'Erlend Golten Persen',
-        'Sander Godard',
+        'Sander Maurice Godard',
         'Ole Andreas Egeland Rørvik',
         'Magnus Byrkjeland'
     ];
