@@ -8,43 +8,107 @@ let firstDate = dateObj(27,9,2021); //Gets set to current month's first displaye
 const events = [
   {
     id: "1",
-    name: "Training", 
-    date: dateObj(12,11,2021),
+    name: "Training",
+    date: dateObj(5,11,2021),
     color: "green",
-    info: "14:00-16:00\nNormal training session", 
+    info: "14:00-16:00\nNormal training session",
     buttonText: "I'll be there."
   },
   {
     id: "2",
+    name: "Match",
+    date: dateObj(9,11,2021),
+    color: "orange",
+    info: "14:45-16:00\nMatch: Magnus vs Erlend.",
+    buttonText: "Ok"
+  },
+  {
+    id: "3",
     name: "Training",
-    date: dateObj(19,11,2021),
+    date: dateObj(12,11,2021),
     color: "green",
-    info: "14:00-14:30\nShort session before match.", 
+    info: "14:00-16:00\nNormal training session",
     buttonText: "I'll be there."
   },
   {
-   id: "3",
-   name: "Match",
-   date: dateObj(19,11,2021),
-   color: "orange",
-   info: "14:45-16:00\nMatch: Sander vs Ole.", 
-   buttonText: "Ok"
+    id: "4",
+    name: "Training",
+    date: dateObj(19,11,2021),
+    color: "green",
+    info: "14:00-14:30\nShort session before match.",
+    buttonText: "I'll be there."
   },
   {
-   id: "4",
-   name: "Match",
-   date: dateObj(23,11,2021),
-   color: "orange",
-   info: "14:00-15:15\nMatch: Magnus vs Li.", 
-   buttonText: "Ok"
+    id: "5",
+    name: "Match",
+    date: dateObj(19,11,2021),
+    color: "orange",
+    info: "14:45-16:00\nMatch: Sander vs Ole.",
+    buttonText: "Ok"
   },
   {
-   id: "5",
-   name: "Tournament",
-   date: dateObj(4,12,2021),
-   color: "purple",
-   info: "09:00-15:00\nWinner gets 10kr", 
-   buttonText: "Sign up"
+    id: "6",
+    name: "Match",
+    date: dateObj(23,11,2021),
+    color: "orange",
+    info: "14:00-15:15\nMatch: Magnus vs Li.",
+    buttonText: "Ok"
+  },
+  {
+    id: "7",
+    name: "Training",
+    date: dateObj(26,11,2021),
+    color: "green",
+    info: "14:00-14:30\nShort session before match.",
+    buttonText: "I'll be there."
+  },
+  {
+    id: "8",
+    name: "Training",
+    date: dateObj(3,12,2021),
+    color: "green",
+    info: "14:00-14:30\nShort session before match.",
+    buttonText: "I'll be there."
+  },
+  {
+    id: "9",
+    name: "Tournament",
+    date: dateObj(4,12,2021),
+    color: "purple",
+    info: "09:00-15:00\nWinner gets 10kr",
+    buttonText: "Sign up"
+  },
+  {
+    id: "10",
+    name: "Training",
+    date: dateObj(10,12,2021),
+    color: "green",
+    info: "14:00-14:30\nShort session before match.",
+    buttonText: "I'll be there."
+  },
+  {
+    id: "11",
+    name: "Training",
+    date: dateObj(17,12,2021),
+    color: "green",
+    info: "14:00-14:30\nShort session before match.",
+    buttonText: "I'll be there."
+  },
+  {
+    id: "12",
+    name: "Training",
+    date: dateObj(24,12,2021),
+    color: "green",
+    info: "14:00-14:30\nShort session before match.",
+    buttonText: "I'll be there."
+  },
+  {
+    id: "13",
+    name: "Training",
+    date: dateObj(31,12,2021),
+    color: "green",
+    info: "14:00-14:30\nShort session before match.",
+    buttonText: "I'll be there."
   },
 ];
 
@@ -135,7 +199,7 @@ const htmlCalendarDay = (date, i) => `
     ${htmlEvents(date)}
   </div>`;
 
-const calendarDatesFrom = (from, days) => 
+const calendarDatesFrom = (from, days) =>
   days === 1 ? [from] : [...calendarDatesFrom(from, days-1), dateAfterDays(from, days-1)];
 
 const htmlCalendarDays = (from, days) => calendarDatesFrom(from, days)
@@ -198,7 +262,7 @@ const increase = inc => {
     increaseWeeks(inc, true);
 }
 
-const isMonthSame = (date1, date2) => 
+const isMonthSame = (date1, date2) =>
   date1.year === date2.year &&
   date1.month === date2.month;
 
@@ -236,7 +300,7 @@ const renderModalContent = id => {
 }
 
 //main function
-let calendarView 
+let calendarView
 const renderCalendar = view => {
   calendarView = view;
   setFirstDisplayedDate();
