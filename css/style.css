@@ -382,6 +382,10 @@ nav img {
     background-color: rgba(0, 0, 0, 0.6)
 }
 
+#modalbg.darken {
+    position: fixed;
+}
+
 
 #modal {
     position: fixed;
