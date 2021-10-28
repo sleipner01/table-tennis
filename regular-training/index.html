@@ -35,21 +35,34 @@
         <main>
             <div class="width">
                 <h1>Regular training</h1>
-                <div class="aspect-ratio-box">
-                    <div class="calendarDiv">
-                        <div class="triple">
-                            <button class="material-icons" onclick="increaseMonth(-1,true)">keyboard_arrow_left</button>
-                            <h1 id="monthYear"></h1>
-                            <button class="material-icons" onclick="increaseMonth(1,true)">keyboard_arrow_right</button>
+                <div class="module">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+                <div class="module">
+                    <div class="aspect-ratio-box">
+                        <div class="calendarDiv">
+                            <div class="triple">
+                                <button class="material-icons" onclick="increase(-1)">keyboard_arrow_left</button>
+                                <h1 id="monthYear"></h1>
+                                <button class="material-icons" onclick="increase(1)">keyboard_arrow_right</button>
+                            </div>
+                            <div id="calendar">
+                                <!-- dynamic (training_table.js) -->
+                            </div>
                         </div>
-                        <div id="calendar">
-                            <!-- dynamic (training_table.js) -->
-                        </div>
+                        <div id="calendar"></div>
+                        <script src="../../bordtennis/js/training_table.js"></script>
+                        <script>renderCalendar("month")</script>
                     </div>
                 </div>
+                <div class="module">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
             </div>
-            <script src="../../bordtennis/js/training_table.js"></script>
-            <script>renderCalendar(daysRenderedInMonth(firstDisplayedDate))</script>
         </main>
         <footer>
             <div class="width">

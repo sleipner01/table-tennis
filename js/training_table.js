@@ -3,7 +3,7 @@ const dateObj = (day,month,year) => ({day: day, month: month, year: year});
 const d = new Date();
 const currentDate = dateObj(d.getDate(), d.getMonth()+1, d.getFullYear())
 
-let firstDisplayedDate = dateObj(27,9,2021); //Gets set to current month's first displayed date.
+let firstDate = dateObj(27,9,2021); //Gets set to current month's first displayed date.
 
 const events = [
   {
@@ -91,9 +91,9 @@ const dateAfterDays = (date, days) => {
 }
 
 //Based on the last date on the first row
-const displayedMonth = () => dateAfterDays(firstDisplayedDate, 6).month;
+const displayedMonth = () => dateAfterDays(firstDate, 6).month;
 const displayedMonthName = () => months()[displayedMonth() - 1].name;
-const displayedYear = () => dateAfterDays(firstDisplayedDate, 6).year;
+const displayedYear = () => dateAfterDays(firstDate, 6).year;
 const displayedMonthYear = () => ({month: displayedMonth(), year: displayedYear()});
 
 //Weekday elements
@@ -150,38 +150,50 @@ const daysRenderedInMonth = from => {
   return i*7;
 }
 
-//Monthly view: renderCalendar(daysRenderedInMonth(firstDisplayedDate))
-//Weekly view:  renderCalendar(7)
-const renderCalendar = days => {
+const daysRendered = () =>
+  calendarView === "month" ? daysRenderedInMonth(firstDate) :
+  calendarView === "week"  ? 7 : 0;
+
+const updateText = () => {
+  const calendarTextEl = document.getElementById("calendarText");
+  const monthYear = displayedMonthName() + " " + displayedYear();
+  calendarTextEl.innerHTML = monthYear;
+}
+
+const updateCalendar = () => {
   const calendarEl = document.getElementById("calendar");
   calendarEl.innerHTML =
     htmlCalendarWeekdays() +
-    htmlCalendarDays(firstDisplayedDate, days);
-
-  const monthYearEl = document.getElementById("monthYear");
-  const monthYear = displayedMonthName() + " " + displayedYear();
-  monthYearEl.innerHTML = monthYear;
+    htmlCalendarDays(firstDate, daysRendered());
+  updateText();
 }
 
 
 const increaseWeeks = (inc = 1, render = false) => {
-  firstDisplayedDate = dateAfterDays(firstDisplayedDate, 7*inc);
+  firstDate = dateAfterDays(firstDate, 7*inc);
   if (render)
-    renderCalendar(7);
+    updateCalendar(7);
 }
 
 //Next month:     increaseMonth(positive number)
 //Previous month: increaseMonth(negative number)
 const increaseMonth = (inc = 1, render = false) => {
   if (inc < 0)
-    firstDisplayedDate = dateAfterDays(firstDisplayedDate, -7 * 7);
+    firstDate = dateAfterDays(firstDate, -7 * 7);
 
   const oldMonth = displayedMonth();
   while (oldMonth === displayedMonth())
     increaseWeeks();
 
   if (render)
-    renderCalendar(daysRenderedInMonth(firstDisplayedDate));
+    updateCalendar();
+}
+
+const increase = inc => {
+  if (calendarView == "month")
+    increaseMonth(inc, true);
+  else if (calendarView == "week")
+    increaseWeeks(inc, true);
 }
 
 const isMonthSame = (date1, date2) => 
@@ -192,7 +204,6 @@ const setFirstDisplayedDate = () => {
   while (!isMonthSame(currentDate, displayedMonthYear()))
     increaseMonth();
 }
-setFirstDisplayedDate();
 
 //Modal
 const modalbgEl = document.getElementById("modalbg");
@@ -222,4 +233,10 @@ const renderModalContent = id => {
   modalEl.innerHTML = modalContent(modalEvent);
 }
 
-
+//main function
+let calendarView 
+const renderCalendar = view => {
+  calendarView = view;
+  setFirstDisplayedDate();
+  updateCalendar();
+}
