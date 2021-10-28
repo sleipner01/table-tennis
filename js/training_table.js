@@ -156,6 +156,7 @@ const daysRendered = () =>
 
 const updateText = () => {
   const calendarTextEl = document.getElementById("calendarText");
+  if (calendarTextEl == null) return
   const monthYear = displayedMonthName() + " " + displayedYear();
   calendarTextEl.innerHTML = monthYear;
 }
@@ -166,6 +167,7 @@ const updateCalendar = () => {
     htmlCalendarWeekdays() +
     htmlCalendarDays(firstDate, daysRendered());
   updateText();
+
 }
 
 
