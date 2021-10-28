@@ -1,19 +1,6 @@
 const galleryEl = document.getElementById('gallery');
 
 
-
-// Parallax scrolling effect
-// document.getElementsByTagName('body')[0].onscroll = function slowScroll() {
-//     const factor = 0.5;
-//     const xValue = 'center';
-//     var scrollToTop = document.scrollingElement.scrollTop;
-//     var yValue = scrollToTop * factor;
-//     galleryEl.style.backgroundPosition = "center";
-//     galleryEl.style.backgroundPosition = xValue + " " + yValue + "px";
-// }
-
-
-
 // Change home page picture every other second
 const pictures = ['equipment.jpg', 'equipment2.jpg', 'man1-cropped.jpg', 'tabletennis_table_cropped.jpg'];
 const path = '../bordtennis/media/home-images/';
@@ -22,7 +9,7 @@ var index = 1; // Has to be 1 so the interval changes to next picture after set 
 galleryEl.style.backgroundImage = 'url(' + path + pictures[0] + ')';
 
 
-// Hidden din to preload images
+// Hidden div to preload images
 var hiddenDiv = document.createElement("div");
 hiddenDiv.style.display = "none";
 document.body.appendChild(hiddenDiv);
