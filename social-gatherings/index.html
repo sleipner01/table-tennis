@@ -32,16 +32,20 @@
             </div>
         </nav>
         <main>
-            <section class="width" id="social-gatherings-gallery-container">
-                <h1>Social Gatherings</h1>
-                <div class="year-controls">
-                    <div id="previousYear" class="material-icons no-select">keyboard_arrow_left</div>
-                    <div id="currentYear"></div>
-                    <div id="nextYear" class="material-icons no-select">keyboard_arrow_right</div>
+            <section id="social-gatherings-gallery-container">
+                <div id="prev" class="adjacentYears"></div>
+                <div class="width">
+                    <h1>Social Gatherings</h1>
+                    <div class="year-controls">
+                        <div id="previousYear" class="material-icons no-select">keyboard_arrow_left</div>
+                        <div id="currentYear"></div>
+                        <div id="nextYear" class="material-icons no-select">keyboard_arrow_right</div>
+                    </div>
+                    <!-- Collapsibles are inspired from W3Schools: https://www.w3schools.com/howto/howto_js_collapsible.asp -->
+                    <!-- Information loaded with JS -->
+                    <div id="social-gatherings-gallery"></div>
                 </div>
-                <!-- Collapsibles are inspired from W3Schools: https://www.w3schools.com/howto/howto_js_collapsible.asp -->
-                <!-- Information loaded with JS -->
-                <div id="social-gatherings-gallery"></div>
+                <div id="next" class="adjacentYears"></div>
             </section>
         </main>
         <footer>
