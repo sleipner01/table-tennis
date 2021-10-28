@@ -177,7 +177,7 @@ function openFirstCollapsible() {
 function changeYear(e) {
     if(e.target.id == 'nextYear') {
         currentYearEl.innerText = Number(currentYearEl.innerText, 10) + 1;
-
+        
     }
     else if(e.target.id == 'previousYear') {
         currentYearEl.innerText = Number(currentYearEl.innerText) - 1;
