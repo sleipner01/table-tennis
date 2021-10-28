@@ -40,6 +40,8 @@
                 <div class="module">
                     <div class="split">
                         <div>
+                            <h3>Scoreboard</h3>
+                            <p>Number of mathes won</p>
                             <table id="scoreboard">
                                 <thead>
                                     <tr>
@@ -64,19 +66,17 @@
                     <div class="width">
                         <div class="aspect-ratio-box">
                             <div class="calendarDiv">
-                                <div class="triple" style="display: none;">
-                                    <button class="material-icons" onclick="increaseMonth(-1,true)">keyboard_arrow_left</button>
-                                    <h1 id="monthYear"></h1>
-                                    <button class="material-icons" onclick="increaseMonth(1,true)">keyboard_arrow_right</button>
+                                <div class="triple">
+                                    <button class="material-icons" onclick="increase(-1)">keyboard_arrow_left</button>
+                                    <h1 id="calendarText"></h1>
+                                    <button class="material-icons" onclick="increase(1)">keyboard_arrow_right</button>
                                 </div>
-                                <div id="calendar">
-                                    <!-- dynamic (training_table.js) -->
-                                </div>
+                                <div id="calendar"></div>
+                                <script src="../bordtennis/js/training_table.js"></script>
+                                <script>renderCalendar("week")</script>
                             </div>
                         </div>
                     </div>
-                    <script src="../bordtennis/js/training_table.js"></script>
-                    <script>renderCalendar(daysRenderedInMonth(firstDisplayedDate))</script>
                 </div>
                 <div class="module">
                     <div class="flyer">
