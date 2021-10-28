@@ -234,26 +234,51 @@ h2 {
     }
 }
 
-.module .split  .flyer .racket {
-    width: 30px; 
-    height: 30px; 
-    filter: none; 
-    background-color: transparent; 
-    box-shadow: none;
+.flyer {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
 }
 
-.module .split .flyer .p-left {
+.flyer p {
     margin-bottom: .5em;
     font-size: 1.5em;
+    position: relative;
+}
+
+.flyer p::before, .flyer p::after{
+    content: " ";
+    width: 30px;
+    height: 30px;
+    filter: none;
+    background-color: transparent;
+    box-shadow: none;
+    background-size: contain;
+    margin-top: -5px;
+    position: absolute;
+    top: -13px;
+    display: inline-block;
+}
+
+.flyer .p-left {
     color: var(--red);
 }
 
-.module .split .flyer .p-right {
-    margin-bottom: .5em;
+.flyer .p-left::before {
+    background-image: url("../../bordtennis/media/favicon.png");
+    left: -22px;
+}
 
-    font-size: 1.5em;
-    text-align: right;
+.flyer .p-right {
     color: var(--black);
+    text-align: right;
+}
+
+.flyer .p-right::after {
+    background-image: url("../../bordtennis/media/favicon.png");
+    filter: grayscale(1);
+    transform: scaleX(-1);
+    right: -22px;
 }
 
 button {
@@ -372,6 +397,9 @@ nav img {
 }
 
 .calendarEvent {
+    text-align: center;
+    margin: 3px;
+    padding: 2px 0;
     cursor: pointer;
     user-select: none;
 }
@@ -505,13 +533,10 @@ nav img {
 
 }
 
-.calendarEvent {
-    text-align: center;
-}
-
 .calendarDay {
     border: 1px solid var(--black);
     height: 100px;
+    overflow-y: auto;
 }
 
 
@@ -529,11 +554,6 @@ nav img {
     .calendarWeekday:nth-child(7), .calendarDay:nth-child(7) { order: 7; }
     /* This hides any excess days that might be showing */
     .calendarDay:nth-child(n+15) { display: none; }
-}
-
-
-.calendarEvent {
-    margin: 3px;
 }
 
 .triple {
