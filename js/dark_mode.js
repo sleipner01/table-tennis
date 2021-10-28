@@ -26,4 +26,6 @@ let isDarkMode = false;
 const toggleDarkMode = () => {
   isDarkMode = !isDarkMode;
   isDarkMode ? setColors("darkMode") : setColors("lightMode");
+  darkModeBtnEl = document.getElementById("darkModeBtn");
+  darkModeBtnEl.innerHTML = isDarkMode ? "dark" : "light";
 }
