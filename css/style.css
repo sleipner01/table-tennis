@@ -409,6 +409,17 @@ nav img {
 }
 
 
+#darkModeBtn {
+    background-color: rgba(0, 0, 0, 0);
+    width: auto;
+    height: auto;
+    /* margin: 0 auto 2em auto; */
+    font-size: 3em;
+    padding: 0;
+}
+
+
+
 /* Social gatherings */
 
 .carouselFeelFlex {
@@ -416,7 +427,10 @@ nav img {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: stretch;
+}
 
+.carouselFeelFlex div.width {
+    margin: 0 1em;
 }
 .adjacentYears {
     /* height: calc(100% - ((2.4em * 1.5) + 2.5em + (1.5em * 1.5) + 1em)); */
@@ -452,6 +466,7 @@ nav img {
     font-size: 1.5em;
     /* margin-bottom: 1em; */
 }
+
 
 #social-gatherings-gallery-container #currentYear {
     cursor: default;
@@ -541,6 +556,18 @@ nav img {
     box-shadow: 6px 0 15px -4px var(--darkgray), -6px 0 15px -4px var(--darkgray);
 }
 
+
+@media only screen and (max-width: 600px) {
+    #social-gatherings-gallery-container .year-controls .material-icons {
+        font-size: 3em;
+    }
+
+    #social-gatherings-gallery-container img {
+        max-width: 100%;
+        max-height: 100vh;
+        margin: 0;
+    }
+}
 
 
 
