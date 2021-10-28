@@ -92,13 +92,15 @@ function createCollapsibles() {
 
                 let resultScoresContainerEl = document.createElement('tr');
                 let teamResultEl = document.createElement('td');
-                teamResultEl.innerText = 'x';
+                let result = social_events[i].score.split(',');
+                teamResultEl.innerText = result[0];
                 let dividerEl = document.createElement('td');
                 dividerEl.innerHTML = '-';
                 let opposingTeamScoreEl = document.createElement('td');
-                opposingTeamScoreEl.innerText = 'x'; 
+                opposingTeamScoreEl.innerText = result[1]; 
 
                 resultTeamsContainerEl.appendChild(teamEl);
+                resultTeamsContainerEl.append(document.createElement('td')); // Empty td element to structure the table correctly
                 resultTeamsContainerEl.appendChild(opposingTeamEl);
 
                 resultScoresContainerEl.appendChild(teamResultEl);
