@@ -22,6 +22,12 @@ var index = 1; // Has to be 1 so the interval changes to next picture after set 
 galleryEl.style.backgroundImage = 'url(' + path + pictures[0] + ')';
 
 
+// Hidden din to preload images
+var hiddenDiv = document.createElement("div");
+hiddenDiv.style.display = "none";
+document.body.appendChild(hiddenDiv);
+
+var img = new Image();
 
 function changePicture() {
     galleryEl.style.backgroundImage = 'url(' + path + pictures[index] + ')';
@@ -33,13 +39,15 @@ function changePicture() {
         index++
     }
 
-    preloadNextImage(path + pictures[index]);
+    img = preloadNextImage(path + pictures[index]);
 }
 
-// Not sure if this works...
+// Preloads next image by putting it in a hidden div, this will make for smooth gallery transitions on the first pass of the array
 function preloadNextImage(path) {
+    hiddenDiv.innerHTML = "";
     let img=new Image();
     img.src=path;
+    hiddenDiv.appendChild(img);
 }
 
 window.onload = setInterval(changePicture, interval * 1000);
