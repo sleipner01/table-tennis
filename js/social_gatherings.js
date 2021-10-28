@@ -21,7 +21,9 @@ const social_events = [
     {eventType: "gathering", date: dateObj(20,10,2021), name: "Pong n' pizza", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "tabletennis_table.jpg"},
     {eventType: "tournament", date: dateObj(20,03,2020), name: "North Korea", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "equipment.jpg", opposingTeam: 'NK PlingPong', score: '11,0'},
     {eventType: "gathering", date: dateObj(1,12,2020), name: "Pong n' code", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "tabletennis_table.jpg"},
-    {eventType: "gathering", date: dateObj(10,05,2021), name: "Magnus beats all of his project partners", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "magnus_domination.jpg"}
+    {eventType: "gathering", date: dateObj(10,05,2021), name: "Magnus beats all of his project partners", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "magnus_domination.jpg"},
+    {eventType: "gathering", date: dateObj(10,05,2018), name: "Magnus beats all of his project partners", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "magnus_domination.jpg"},
+    {eventType: "gathering", date: dateObj(10,05,2023), name: "Magnus beats all of his project partners", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "magnus_domination.jpg"}
 ];
 
 
@@ -175,11 +177,22 @@ function openFirstCollapsible() {
 
 // Browse through the years of events
 function changeYear(e) {
+    let yearRef = Number(currentYearEl.innerText);
+
     if(e.target.id == 'nextYear') {
+        // Dont do anything if you want to display a coming year (since no events have happened)
+        social_events.forEach(event => { if(event.date.year > yearRef) yearRef = event.date.year;})
+        if(Number(currentYearEl.innerText) == yearRef) {
+            return;
+        }
         currentYearEl.innerText = Number(currentYearEl.innerText, 10) + 1;
-        
     }
     else if(e.target.id == 'previousYear') {
+        // Dont do anything if there are no events from previous year with respect of the displayed year
+        social_events.forEach(event => { if(event.date.year < yearRef) yearRef = event.date.year;})
+        if(Number(currentYearEl.innerText) == yearRef) {
+            return;
+        }
         currentYearEl.innerText = Number(currentYearEl.innerText) - 1;
     }
     galleryEl.innerHTML = '';
