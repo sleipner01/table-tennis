@@ -410,15 +410,21 @@ nav img {
 
 
 /* Social gatherings */
+
+.carouselFeelFlex {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+
+}
 .adjacentYears {
     /* height: calc(100% - ((2.4em * 1.5) + 2.5em + (1.5em * 1.5) + 1em)); */
     height: auto;
-    flex-grow: 1;
+    /* flex-grow: 1; */
     /* top: ((2.4em * 1.5) + 2.5em + (1.5em * 1.5) + 1em); */
     width: 5%;
-    position: absolute;
-    /* bottom: 2em; */
-    bottom: 1.3em;
+    margin: 2em 0;
     background-color: var(--darkgray);
     box-shadow: 6px 0 15px -4px var(--darkgray), -6px 0 15px -4px var(--darkgray);
 }
@@ -431,12 +437,20 @@ nav img {
     left: 0;
 }
 
+.width#notice {
+    box-shadow: none;
+}
+
+.width#notice p {
+    margin: 0;
+}
+
 #social-gatherings-gallery-container .year-controls {
     display: flex;
     flex-direction: row;
     align-items: center;
     font-size: 1.5em;
-    margin-bottom: 1em;
+    /* margin-bottom: 1em; */
 }
 
 #social-gatherings-gallery-container #currentYear {

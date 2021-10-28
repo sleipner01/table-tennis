@@ -30,10 +30,11 @@ const social_events = [
 
 function createCollapsibles() {
     // Check if an notice element is in the container
+
     if(document.getElementById('notice')) {
-        galleryContainerEl.removeChild(document.getElementById('notice'));
+        galleryEl.removeChild(document.getElementById('notice'));
     }
-    
+
     for(let i = 0; i < social_events.length; i++) {
         if(social_events[i].date.year == Number(currentYearEl.innerText)) {
             // Create button
@@ -81,7 +82,7 @@ function createCollapsibles() {
                 buttonEl.innerHTML += ' | Tournament';
 
                 let teamName = 'NTNUI';
-                
+
                 let resultContainerEl = document.createElement('table');
 
                 let resultTeamsContainerEl = document.createElement('tr');
@@ -97,7 +98,7 @@ function createCollapsibles() {
                 let dividerEl = document.createElement('td');
                 dividerEl.innerHTML = '-';
                 let opposingTeamScoreEl = document.createElement('td');
-                opposingTeamScoreEl.innerText = result[1]; 
+                opposingTeamScoreEl.innerText = result[1];
 
                 resultTeamsContainerEl.appendChild(teamEl);
                 resultTeamsContainerEl.append(document.createElement('td')); // Empty td element to structure the table correctly
@@ -138,10 +139,58 @@ function createCollapsibles() {
         }
     }
     if(document.getElementsByClassName('collapsible').length < 1) {
+        noticed = document.createElement('div');
+        noticed.classList = "width";
+        noticed.id = 'notice';
+        galleryEl.appendChild(noticed);
         notice = document.createElement('p');
-        notice.id = 'notice';
         notice.innerText = 'There are no posted events from ' + currentYearEl.innerText;
-        galleryContainerEl.appendChild(notice);
+        notice.style.textAlign = "center";
+        noticed.appendChild(notice);
+    }
+
+    // Count previous and nex year's number of events
+    var countL = 0;
+    var countR = 0;
+    var minYr = Number(currentYearEl.innerText)
+    var maxYr = minYr
+
+    for(let i = 0; i < social_events.length; i++) {
+        if (social_events[i].date.year == Number(currentYearEl.innerText) - 1) {
+            countL++;
+        } else if (social_events[i].date.year == Number(currentYearEl.innerText) + 1) {
+            countR++;
+        }
+        if (social_events[i].date.year < minYr) {
+            minYr = social_events[i].date.year;
+        } else if (social_events[i].date.year > maxYr) {
+            maxYr = social_events[i].date.year;
+        }
+    }
+
+    // Edit right and left "carousel" things
+    let leftCarousel = document.getElementById("prev");
+    let rightCarousel = document.getElementById("next");
+
+    leftCarousel.style.backgroundColor = "var(--darkgray)";
+    rightCarousel.style.backgroundColor = "var(--darkgray)";
+    leftCarousel.style.boxShadow = "6px 0 15px -4px var(--darkgray), -6px 0 15px -4px var(--darkgray)";
+    rightCarousel.style.boxShadow = "6px 0 15px -4px var(--darkgray), -6px 0 15px -4px var(--darkgray)";
+
+
+    if (countL == 0) {
+        leftCarousel.style.backgroundColor = "var(--white)";
+    }
+    if (countR == 0) {
+        rightCarousel.style.backgroundColor = "var(--white)";
+    }
+
+
+    if(Number(currentYearEl.innerText) == minYr) {
+        leftCarousel.style.boxShadow = "none";
+    }
+    if(Number(currentYearEl.innerText) == maxYr) {
+        rightCarousel.style.boxShadow = "none";
     }
 }
 
@@ -152,9 +201,9 @@ function addEventListeners() {
     document.querySelectorAll('.collapsible').forEach(button => {
         button.addEventListener('click', () => {
             const collapsibleContent = button.nextElementSibling;
-    
+
             button.classList.toggle('collapsible-active');
-    
+
             if(button.classList.contains('collapsible-active')) {
                 collapsibleContent.style.maxHeight = collapsibleContent.scrollHeight + 'px';
             }
@@ -196,7 +245,7 @@ function changeYear(e) {
         if(Number(currentYearEl.innerText) == yearRef) {
             return;
         }
-        
+
         currentYearEl.innerText = Number(currentYearEl.innerText) - 1;
     }
     galleryEl.innerHTML = '';
