@@ -175,11 +175,32 @@ function openFirstCollapsible() {
 
 // Browse through the years of events
 function changeYear(e) {
+    let yearRef = Number(currentYearEl.innerText);
+
     if(e.target.id == 'nextYear') {
-        currentYearEl.innerText = Number(currentYearEl.innerText, 10) + 1;
         
+        // Dont do anything if you want to display a coming year (since no events have happened)
+        for(let i = 0; i < social_events.length; i++) {
+            if(social_events[i].date.year > yearRef) {
+                yearRef = social_events[i].date.year;
+            }
+        }
+        if(Number(currentYearEl.innerText) == yearRef) {
+            return;
+        }
+        currentYearEl.innerText = Number(currentYearEl.innerText, 10) + 1;
     }
     else if(e.target.id == 'previousYear') {
+
+        // Dont do anything if there are no events from previous year with respect of the displayed year
+        for(let i = 0; i < social_events.length; i++) {
+            if(social_events[i].date.year < yearRef) {
+                yearRef = social_events[i].date.year;
+            }
+        }
+        if(Number(currentYearEl.innerText) == yearRef) {
+            return;
+        }
         currentYearEl.innerText = Number(currentYearEl.innerText) - 1;
     }
     galleryEl.innerHTML = '';
