@@ -185,6 +185,7 @@ function changeYear(e) {
         if(Number(currentYearEl.innerText) == yearRef) {
             return;
         }
+
         currentYearEl.innerText = Number(currentYearEl.innerText, 10) + 1;
     }
     else if(e.target.id == 'previousYear') {
@@ -193,6 +194,7 @@ function changeYear(e) {
         if(Number(currentYearEl.innerText) == yearRef) {
             return;
         }
+        
         currentYearEl.innerText = Number(currentYearEl.innerText) - 1;
     }
     galleryEl.innerHTML = '';
