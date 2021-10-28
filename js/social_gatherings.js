@@ -22,8 +22,7 @@ const social_events = [
     {eventType: "tournament", date: dateObj(20,03,2020), name: "North Korea", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "equipment.jpg", opposingTeam: 'NK PlingPong', score: '11,0'},
     {eventType: "gathering", date: dateObj(1,12,2020), name: "Pong n' code", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "tabletennis_table.jpg"},
     {eventType: "gathering", date: dateObj(10,05,2021), name: "Magnus beats all of his project partners", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "magnus_domination.jpg"},
-    {eventType: "gathering", date: dateObj(10,05,2018), name: "Magnus beats all of his project partners", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "magnus_domination.jpg"},
-    {eventType: "gathering", date: dateObj(10,05,2023), name: "Magnus beats all of his project partners", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "magnus_domination.jpg"}
+    {eventType: "gathering", date: dateObj(10,05,2018), name: "Magnus beats all of his project partners", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "magnus_domination.jpg"}
 ];
 
 
@@ -35,12 +34,12 @@ function createCollapsibles() {
         galleryEl.removeChild(document.getElementById('notice'));
     }
 
-    for(let i = 0; i < social_events.length; i++) {
-        if(social_events[i].date.year == Number(currentYearEl.innerText)) {
+    social_events.forEach(event =>  {
+        if(event.date.year == Number(currentYearEl.innerText)) {
             // Create button
             let buttonEl = document.createElement('button');
             buttonEl.classList.add('collapsible');
-            buttonEl.innerHTML = social_events[i].name;
+            buttonEl.innerHTML = event.name;
             galleryEl.appendChild(buttonEl);
 
 
@@ -62,15 +61,15 @@ function createCollapsibles() {
                 //Add the date
                 let dateEl = document.createElement('p');
                 dateEl.classList.add('social-gatherings-date');
-                dateEl.innerText = 'Date: ' + social_events[i].date.day + '.' + social_events[i].date.month + '.' + social_events[i].date.year;
+                dateEl.innerText = 'Date: ' + event.date.day + '.' + event.date.month + '.' + event.date.year;
 
                 // Add a title
                 let titleEl = document.createElement('h3');
-                titleEl.innerText = social_events[i].name;
+                titleEl.innerText = event.name;
 
                 // Add the description
                 let textEl = document.createElement('p');
-                textEl.innerText = social_events[i].text;
+                textEl.innerText = event.text;
 
             // Append them to the left div
             leftDivEl.appendChild(dateEl);
@@ -78,7 +77,7 @@ function createCollapsibles() {
             leftDivEl.appendChild(textEl);
 
             // Continue with layout if the event is "tournament"
-            if(social_events[i].eventType == 'tournament') {
+            if(event.eventType == 'tournament') {
                 buttonEl.innerHTML += ' | Tournament';
 
                 let teamName = 'NTNUI';
@@ -89,11 +88,11 @@ function createCollapsibles() {
                 let teamEl = document.createElement('td');
                 teamEl.innerText = teamName;
                 let opposingTeamEl = document.createElement('td');
-                opposingTeamEl.innerText = social_events[i].opposingTeam;
+                opposingTeamEl.innerText = event.opposingTeam;
 
                 let resultScoresContainerEl = document.createElement('tr');
                 let teamResultEl = document.createElement('td');
-                let result = social_events[i].score.split(',');
+                let result = event.score.split(',');
                 teamResultEl.innerText = result[0];
                 let dividerEl = document.createElement('td');
                 dividerEl.innerHTML = '-';
@@ -122,7 +121,7 @@ function createCollapsibles() {
 
                 // Add an image
                 let imgEl = document.createElement('img');
-                imgEl.src = '../../bordtennis/media/gathering-images/' + social_events[i].imgName;
+                imgEl.src = '../../bordtennis/media/gathering-images/' + event.imgName;
                 imgEl.alt = 'Event picture';
                 rightDivEl.appendChild(imgEl);
 
@@ -137,7 +136,9 @@ function createCollapsibles() {
             // Last of all, add all of the content to the page
             galleryEl.appendChild(contentEl);
         }
-    }
+    })
+
+
     if(document.getElementsByClassName('collapsible').length < 1) {
         noticed = document.createElement('div');
         noticed.classList = "width";
@@ -149,26 +150,30 @@ function createCollapsibles() {
         noticed.appendChild(notice);
     }
 
+    createCarousel();
+}
+
+function createCarousel() {
     // Count previous and nex year's number of events
     var countL = 0;
     var countR = 0;
     var minYr = Number(currentYearEl.innerText)
     var maxYr = minYr
 
-    for(let i = 0; i < social_events.length; i++) {
-        if (social_events[i].date.year == Number(currentYearEl.innerText) - 1) {
+    social_events.forEach(event => {
+        if (event.date.year == Number(currentYearEl.innerText) - 1) {
             countL++;
-        } else if (social_events[i].date.year == Number(currentYearEl.innerText) + 1) {
+        } else if (event.date.year == Number(currentYearEl.innerText) + 1) {
             countR++;
         }
-        if (social_events[i].date.year < minYr) {
-            minYr = social_events[i].date.year;
-        } else if (social_events[i].date.year > maxYr) {
-            maxYr = social_events[i].date.year;
+        if (event.date.year < minYr) {
+            minYr = event.date.year;
+        } else if (event.date.year > maxYr) {
+            maxYr = event.date.year;
         }
-    }
+    })
 
-    // Edit right and left "carousel" things
+    // Edit right and left "carousel"
     let leftCarousel = document.getElementById("prev");
     let rightCarousel = document.getElementById("next");
 
