@@ -371,7 +371,7 @@ nav img {
 
 /* Filter div for darkening the background */
 .darken {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
