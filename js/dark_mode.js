@@ -14,7 +14,7 @@ const colors = [
 
 const root = document.querySelector(":root");
 
-const setColor = (color, mode) => root
+const setColor = (color, mode) => root
   .style
   .setProperty(color.property, color[mode]);
 
@@ -23,7 +23,7 @@ const setColors = mode => colors
 
 let isDarkMode = false;
 
-const toggleDarkMode = () => {
+const toggleDarkMode = () => {
   isDarkMode = !isDarkMode;
   isDarkMode ? setColors("darkMode") : setColors("lightMode");
   darkModeBtnEl = document.getElementById("darkModeBtn");

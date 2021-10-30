@@ -134,7 +134,7 @@ const dateAfterDays = (date, days) => {
   const inc = days < 0 ? -1 : 1;
   for (let i = 0; i < days*inc; i++) {
     day += inc;
-    if (day > months(year)[month-1].days) {
+    if (day > months(year)[month-1].days) {
       month++;
       day = 1;
       if (month > 12) {
@@ -142,7 +142,7 @@ const dateAfterDays = (date, days) => {
         month = 1;
       }
     }
-    else if (day < 1) {
+    else if (day < 1) {
       month--;
       if (month < 1) {
         year--;
@@ -156,9 +156,9 @@ const dateAfterDays = (date, days) => {
 
 //Based on the last date on the first row
 const displayedMonth = () => dateAfterDays(firstDate, 6).month;
-const displayedMonthName = () => months()[displayedMonth() - 1].name;
-const displayedYear = () => dateAfterDays(firstDate, 6).year;
-const displayedMonthYear = () => ({month: displayedMonth(), year: displayedYear()});
+const displayedMonthName = () => months()[displayedMonth() - 1].name;
+const displayedYear = () => dateAfterDays(firstDate, 6).year;
+const displayedMonthYear = () => ({month: displayedMonth(), year: displayedYear()});
 
 //Weekday elements
 const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -176,7 +176,7 @@ const htmlCalendarWeekdays = () => weekdays
 const color = date => date.month === displayedMonth() ?
   "var(--white)" : "var(--lightgray)";
 
-const htmlDay = date => `<div class="calendarDayNum">${date.day}</div>`;
+const htmlDay = date => `<div class="calendarDayNum">${date.day}</div>`;
 
 const htmlEvent = evt => `
   <div onclick="renderModalContent('${evt.id}')" class="calendarEvent" style="background-color:${evt.color};">
@@ -199,7 +199,7 @@ const htmlCalendarDay = (date, i) => `
     ${htmlEvents(date)}
   </div>`;
 
-const calendarDatesFrom = (from, days) =>
+const calendarDatesFrom = (from, days) =>
   days === 1 ? [from] : [...calendarDatesFrom(from, days-1), dateAfterDays(from, days-1)];
 
 const htmlCalendarDays = (from, days) => calendarDatesFrom(from, days)
@@ -273,7 +273,7 @@ const daysBetween = (date1, date2) => { //date1 has to be before date2
   return days;
 }
 
-const setFirstDisplayedDate = () => {
+const setFirstDisplayedDate = () => {
   while (!isMonthSame(currentDate, displayedMonthYear()))
     increaseMonth();
 
@@ -293,7 +293,7 @@ const toggleModalDisplay = () => {
   modalbgEl.style.display = isModalDisplayed ? "block" : "none";
   modalEl.style.display = isModalDisplayed ? "block" : "none"; }
 
-const modalContent = eventModal => `
+const modalContent = eventModal => `
   <h1>${eventModal.name}</h1>
   <p>${eventModal.info}</p>
   <div class="split">
