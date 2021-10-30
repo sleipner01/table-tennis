@@ -1,9 +1,19 @@
+//Usage:
+//renderCalendar("week") or renderCalendar("month")
+//to render the calendar in <div id="calendar"></div>.
+//
+//increase(1) or increase(-1) to scroll through weeks/months.
+//
+//<h1 id="calendarText"></h1> can display the current month and year.
+
 const dateObj = (day,month,year) => ({day: day, month: month, year: year});
 
 const d = new Date();
 const currentDate = dateObj(d.getDate(), d.getMonth()+1, d.getFullYear());
 
-let firstDate = dateObj(27,9,2021); //Gets set to current month/weeks's first displayed date.
+//Gets set to current month/weeks's first displayed date.
+//It can only get set to a date after 27/9/2021.
+let firstDate = dateObj(27,9,2021); 
 
 const events = [
   {
@@ -234,15 +244,12 @@ const updateCalendar = () => {
 
 }
 
-
 const increaseWeeks = (inc = 1, render = false) => {
   firstDate = dateAfterDays(firstDate, 7*inc);
   if (render)
     updateCalendar(7);
 }
 
-//Next month:     increaseMonth(positive number)
-//Previous month: increaseMonth(negative number)
 const increaseMonth = (inc = 1, render = false) => {
   if (inc < 0)
     firstDate = dateAfterDays(firstDate, -7 * 7);
@@ -310,7 +317,7 @@ const renderModalContent = id => {
   modalEl.innerHTML = modalContent(modalEvent);
 }
 
-//main function
+//main
 let calendarView
 const renderCalendar = view => { //views: "week", "month"
   calendarView = view;
