@@ -59,7 +59,7 @@ const events = [
     name: "Training",
     date: dateObj(26,11,2021),
     color: "green",
-    info: "14:00-14:30\nShort session before match.",
+    info: "14:00-14:30\nNormal training session",
     buttonText: "I'll be there."
   },
   {
@@ -67,7 +67,7 @@ const events = [
     name: "Training",
     date: dateObj(3,12,2021),
     color: "green",
-    info: "14:00-14:30\nShort session before match.",
+    info: "14:00-14:30\nNormal training session",
     buttonText: "I'll be there."
   },
   {
@@ -83,7 +83,7 @@ const events = [
     name: "Training",
     date: dateObj(10,12,2021),
     color: "green",
-    info: "14:00-14:30\nShort session before match.",
+    info: "14:00-14:30\nNormal training session",
     buttonText: "I'll be there."
   },
   {
@@ -91,7 +91,7 @@ const events = [
     name: "Training",
     date: dateObj(17,12,2021),
     color: "green",
-    info: "14:00-14:30\nShort session before match.",
+    info: "14:00-14:30\nNormal training session",
     buttonText: "I'll be there."
   },
   {
@@ -99,7 +99,7 @@ const events = [
     name: "Training",
     date: dateObj(24,12,2021),
     color: "green",
-    info: "14:00-14:30\nShort session before match.",
+    info: "14:00-14:30\nNormal training session",
     buttonText: "I'll be there."
   },
   {
@@ -107,7 +107,7 @@ const events = [
     name: "Training",
     date: dateObj(31,12,2021),
     color: "green",
-    info: "14:00-14:30\nShort session before match.",
+    info: "14:00-14:30\nNormal training session",
     buttonText: "I'll be there."
   },
 ];
@@ -301,7 +301,7 @@ const renderModalContent = id => {
 
 //main function
 let calendarView
-const renderCalendar = view => {
+const renderCalendar = view => { //views: "week", "month"
   calendarView = view;
   setFirstDisplayedDate();
   updateCalendar();
