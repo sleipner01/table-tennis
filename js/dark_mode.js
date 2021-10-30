@@ -23,9 +23,20 @@ const setColors = mode => colors
 
 let isDarkMode = false;
 
+const localStorage = window.localStorage;
+
 const toggleDarkMode = () => {
   isDarkMode = !isDarkMode;
+  localStorage.setItem('mode', isDarkMode ? "dark" : "light");
+
   isDarkMode ? setColors("darkMode") : setColors("lightMode");
+
   darkModeBtnEl = document.getElementById("darkModeBtn");
   darkModeBtnEl.innerHTML = isDarkMode ? "light_mode" : "dark_mode";
 }
+
+const checkLocalStorage = () => {
+  if (localStorage.getItem('mode') === "dark")
+    toggleDarkMode();
+}
+checkLocalStorage();
