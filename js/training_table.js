@@ -1,9 +1,9 @@
 const dateObj = (day,month,year) => ({day: day, month: month, year: year});
 
 const d = new Date();
-const currentDate = dateObj(d.getDate(), d.getMonth()+1, d.getFullYear())
+const currentDate = dateObj(d.getDate(), d.getMonth()+1, d.getFullYear());
 
-let firstDate = dateObj(27,9,2021); //Gets set to current month's first displayed date.
+let firstDate = dateObj(27,9,2021); //Gets set to current month/weeks's first displayed date.
 
 const events = [
   {
@@ -266,9 +266,20 @@ const isMonthSame = (date1, date2) =>
   date1.year === date2.year &&
   date1.month === date2.month;
 
+const daysBetween = (date1, date2) => { //date1 has to be before date2
+  let days = 0;
+  while (!isSameDate(dateAfterDays(date1,days),date2))
+    days++;
+  return days;
+}
+
 const setFirstDisplayedDate = () => {
   while (!isMonthSame(currentDate, displayedMonthYear()))
     increaseMonth();
+
+  if (calendarView === "week")
+    while (daysBetween(firstDate, currentDate) > 6)
+      increaseWeeks();
 }
 
 //Modal
