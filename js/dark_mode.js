@@ -1,5 +1,6 @@
-//To use:
-//<button onclick="toggleDarkMode()"></button>
+//Usage:
+//toggleDarkMode() to toggle mode.
+//A button with id="darkModeBtn" can display current mode.
 
 const colors = [
   {property: "--red",       lightMode: "#A8000F", darkMode: "#A8000F"},
@@ -25,7 +26,7 @@ let isDarkMode = false;
 
 const localStorage = window.localStorage;
 
-const toggleDarkMode = () => {
+function toggleDarkMode() {
   isDarkMode = !isDarkMode;
   localStorage.setItem('mode', isDarkMode ? "dark" : "light");
 
@@ -35,7 +36,7 @@ const toggleDarkMode = () => {
   darkModeBtnEl.innerHTML = isDarkMode ? "light_mode" : "dark_mode";
 }
 
-const checkLocalStorage = () => {
+function checkLocalStorage() {
   if (localStorage.getItem('mode') === "dark")
     toggleDarkMode();
 }
