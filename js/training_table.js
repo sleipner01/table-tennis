@@ -228,29 +228,28 @@ const daysRendered = () =>
   calendarView === "month" ? daysRenderedInMonth(firstDate) :
   calendarView === "week"  ? 7 : 0;
 
-const updateText = () => {
+function updateText() {
   const calendarTextEl = document.getElementById("calendarText");
-  if (calendarTextEl == null) return
+  if (!calendarTextEl) return;
   const monthYear = displayedMonthName() + " " + displayedYear();
   calendarTextEl.innerHTML = monthYear;
 }
 
-const updateCalendar = () => {
+function updateCalendar() {
   const calendarEl = document.getElementById("calendar");
   calendarEl.innerHTML =
     htmlCalendarWeekdays() +
     htmlCalendarDays(firstDate, daysRendered());
   updateText();
-
 }
 
-const increaseWeeks = (inc = 1, render = false) => {
+function increaseWeeks(inc=1, render=false) {
   firstDate = dateAfterDays(firstDate, 7*inc);
   if (render)
     updateCalendar(7);
 }
 
-const increaseMonth = (inc = 1, render = false) => {
+function increaseMonth(inc=1, render=false) {
   if (inc < 0)
     firstDate = dateAfterDays(firstDate, -7 * 7);
 
@@ -262,7 +261,7 @@ const increaseMonth = (inc = 1, render = false) => {
     updateCalendar();
 }
 
-const increase = inc => {
+function increase(inc) {
   if (calendarView == "month")
     increaseMonth(inc, true);
   else if (calendarView == "week")
@@ -280,7 +279,7 @@ const daysBetween = (date1, date2) => { //date1 has to be before date2
   return days;
 }
 
-const setFirstDisplayedDate = () => {
+function setFirstDisplayedDate() {
   while (!isMonthSame(currentDate, displayedMonthYear()))
     increaseMonth();
 
@@ -295,10 +294,11 @@ const modalEl = document.getElementById("modal");
 
 let isModalDisplayed = false;
 
-const toggleModalDisplay = () => {
+function toggleModalDisplay() {
   isModalDisplayed = !isModalDisplayed;
   modalbgEl.style.display = isModalDisplayed ? "block" : "none";
-  modalEl.style.display = isModalDisplayed ? "block" : "none"; }
+  modalEl.style.display = isModalDisplayed ? "block" : "none";
+}
 
 const modalContent = eventModal => `
   <h1>${eventModal.name}</h1>
@@ -311,7 +311,7 @@ const modalContent = eventModal => `
       Back
     </button>`;
 
-const renderModalContent = id => {
+function renderModalContent(id) {
   toggleModalDisplay();
   const modalEvent = events.find(evt => evt.id === id);
   modalEl.innerHTML = modalContent(modalEvent);
@@ -319,7 +319,8 @@ const renderModalContent = id => {
 
 //main
 let calendarView
-const renderCalendar = view => { //views: "week", "month"
+//views: "week", "month"
+function renderCalendar(view) { 
   calendarView = view;
   setFirstDisplayedDate();
   updateCalendar();
