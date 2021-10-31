@@ -186,24 +186,24 @@ const htmlCalendarWeekdays = () => weekdays
 const color = date => date.month === displayedMonth() ?
   "var(--white)" : "var(--lightgray)";
 
-const htmlDay = date => `<div class="calendarDayNum">${date.day}</div>`;
+const isSameDate = (date1, date2) =>
+  date1.day === date2.day &&
+  date1.month === date2.month &&
+  date1.year === date2.year;
 
 const htmlEvent = evt => `
   <div onclick="renderModalContent('${evt.id}')" class="calendarEvent" style="background-color:${evt.color};">
     ${evt.name}
   </div>`;
 
-const isSameDate = (date1, date2) =>
-  date1.day === date2.day &&
-  date1.month === date2.month &&
-  date1.year === date2.year;
-
 const htmlEvents = date => events
   .filter(evt => isSameDate(evt.date, date))
   .map(htmlEvent)
   .join("");
 
-const htmlCalendarDay = (date, i) => `
+const htmlDay = date => `<div class="calendarDayNum">${date.day}</div>`;
+
+const htmlCalendarDate = (date, i) => `
   <div class="calendarDay" style="order: ${i + 1}; background-color: ${color(date)};">
     ${htmlDay(date)}
     ${htmlEvents(date)}
@@ -212,8 +212,8 @@ const htmlCalendarDay = (date, i) => `
 const calendarDatesFrom = (from, days) =>
   days === 1 ? [from] : [...calendarDatesFrom(from, days-1), dateAfterDays(from, days-1)];
 
-const htmlCalendarDays = (from, days) => calendarDatesFrom(from, days)
-  .map(htmlCalendarDay)
+const htmlCalendarDates = (from, days) => calendarDatesFrom(from, days)
+  .map(htmlCalendarDate)
   .join("");
 
 const daysRenderedInMonth = from => {
@@ -239,7 +239,7 @@ function updateCalendar() {
   const calendarEl = document.getElementById("calendar");
   calendarEl.innerHTML =
     htmlCalendarWeekdays() +
-    htmlCalendarDays(firstDate, daysRendered());
+    htmlCalendarDates(firstDate, daysRendered());
   updateText();
 }
 
@@ -252,11 +252,9 @@ function increaseWeeks(inc=1, render=false) {
 function increaseMonth(inc=1, render=false) {
   if (inc < 0)
     firstDate = dateAfterDays(firstDate, -7 * 7);
-
   const oldMonth = displayedMonth();
   while (oldMonth === displayedMonth())
     increaseWeeks();
-
   if (render)
     updateCalendar();
 }
@@ -268,11 +266,12 @@ function increase(inc) {
     increaseWeeks(inc, true);
 }
 
-const isMonthSame = (date1, date2) =>
+const isSameMonth = (date1, date2) =>
   date1.year === date2.year &&
   date1.month === date2.month;
 
-const daysBetween = (date1, date2) => { //date1 has to be before date2
+//date1 has to be before date2
+const daysBetween = (date1, date2) => { 
   let days = 0;
   while (!isSameDate(dateAfterDays(date1,days),date2))
     days++;
@@ -280,7 +279,7 @@ const daysBetween = (date1, date2) => { //date1 has to be before date2
 }
 
 function setFirstDisplayedDate() {
-  while (!isMonthSame(currentDate, displayedMonthYear()))
+  while (!isSameMonth(currentDate, displayedMonthYear()))
     increaseMonth();
 
   if (calendarView === "week")
