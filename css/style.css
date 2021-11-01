@@ -585,8 +585,9 @@ nav img {
 }
 
 #calendar {
-	display: grid;
-	grid-template-columns: repeat(7, 1fr);
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border: 1px solid var(--black);
 }
 
 #calendar * {
