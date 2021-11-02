@@ -560,20 +560,19 @@ nav img {
     background-color: var(--red);
     color: var(--white);
     text-align: center;
-    height: 20px;
-    width: 100px;
 }
 
 #calendar td {
+    vertical-align: top;
     border: 1px solid var(--black);
-    width: 100px;
-    height: 100px;
+    padding: 0;
 }
 
 .calendarEvent {
     text-align: center;
     cursor: pointer;
     user-select: none;
+    margin: 5px;
 }
 
 #modalbg.darken {
