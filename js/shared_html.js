@@ -1,13 +1,5 @@
 //The relative paths differ for each html file
 
-//file:///home/ole/cs/bordtennis/index.html
-
-const relativePath = url => {
-  const urlArr = url.split('/');
-  const dirs = urlArr.length - urlArr.indexOf("bordtennis") - 1;
-  return "../".repeat(dirs);
-}
-
 const nav = relativePath => `
   <div>
     <a href="${relativePath}bordtennis/">
@@ -18,10 +10,10 @@ const nav = relativePath => `
     <span class="material-icons">menu</span>
   </div>
   <div id="dropdown" style="display: none;">
-    <a href="${relativePath}bordtennis/intro-to-table-tennis/">Intro to table tennis</a>
-    <a href="${relativePath}bordtennis/regular-training/">Regular training</a>
-    <a href="${relativePath}bordtennis/social-gatherings/">Social gatherings</a>
-    <a href="${relativePath}bordtennis/contact/">Contact</a>
+    <a id="intro-to-table-tennis" href="${relativePath}bordtennis/intro-to-table-tennis/">Intro to table tennis</a>
+    <a id="regular-training" href="${relativePath}bordtennis/regular-training/">Regular training</a>
+    <a id="social-gatherings" href="${relativePath}bordtennis/social-gatherings/">Social gatherings</a>
+    <a id="contact" href="${relativePath}bordtennis/contact/">Contact</a>
   </div>`;
 
 const footer = relativePath => `
@@ -45,7 +37,20 @@ const footer = relativePath => `
     </div>
   </div>`;
 
+const relativePath = url => {
+  const urlArr = url.split('/');
+  const dirs = urlArr.length - urlArr.indexOf("bordtennis") - 1;
+  return "../".repeat(dirs);
+}
+
+const directoryName = url => {
+  const urlArr = url.split('/');
+  return urlArr[urlArr.length - 2];
+}
+
 function renderElements() {
+  //file:///home/ole/cs/bordtennis/index.html
+
   const url = window.location.href;
 
   const navEl = document.getElementById("nav");
@@ -53,5 +58,8 @@ function renderElements() {
 
   const footerEl = document.getElementById("footer");
   footerEl.innerHTML = footer(relativePath(url));
+
+  const active = document.getElementById(directoryName(url));
+  if (active) active.className = "active";
 }
 renderElements();
