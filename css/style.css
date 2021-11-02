@@ -381,32 +381,6 @@ nav img {
     background-color: rgba(0, 0, 0, 0.6)
 }
 
-#modalbg.darken {
-    position: fixed;
-}
-
-
-#modal {
-    position: fixed;
-    margin: auto;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 2em;
-    background-color: var(--white);
-    border-radius: 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    z-index: 5;
-}
-
-.calendarEvent {
-    text-align: center;
-    margin: 3px;
-    padding: 2px 0;
-    cursor: pointer;
-    user-select: none;
-}
-
 
 #darkModeBtn {
     background-color: rgba(0, 0, 0, 0);
@@ -572,57 +546,51 @@ nav img {
     }
 }
 
-
-
 .calendarDiv {
-    width: 700px;
-    max-width: 100%;
-    /* height: 0; */
     margin: auto;
-    /* position: relative; */
-    /* overflow: hidden;
-    padding-top: calc(100% - 1em); */
 }
 
 #calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
     border: 1px solid var(--black);
+    padding: 3px;
 }
 
-#calendar * {
-    overflow: hidden;
-}
-
-.calendarWeekday {
+#calendar th {
     border: 1px solid var(--black);
     background-color: var(--red);
     color: var(--white);
     text-align: center;
-
+    height: 20px;
+    width: 100px;
 }
 
-.calendarDay {
+#calendar td {
     border: 1px solid var(--black);
+    width: 100px;
     height: 100px;
-    overflow-y: auto;
 }
 
+.calendarEvent {
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
 
-@media only screen and (max-width: 600px) {
-    #calendar {
-    	display: flex;
-        flex-flow: column nowrap;
-    }
-    .calendarWeekday:nth-child(1), .calendarDay:nth-child(1) { order: 1; }
-    .calendarWeekday:nth-child(2), .calendarDay:nth-child(2) { order: 2; }
-    .calendarWeekday:nth-child(3), .calendarDay:nth-child(3) { order: 3; }
-    .calendarWeekday:nth-child(4), .calendarDay:nth-child(4) { order: 4; }
-    .calendarWeekday:nth-child(5), .calendarDay:nth-child(5) { order: 5; }
-    .calendarWeekday:nth-child(6), .calendarDay:nth-child(6) { order: 6; }
-    .calendarWeekday:nth-child(7), .calendarDay:nth-child(7) { order: 7; }
-    /* This hides any excess days that might be showing */
-    .calendarDay:nth-child(n+15) { display: none; }
+#modalbg.darken {
+    position: fixed;
+}
+
+#modal {
+    position: fixed;
+    margin: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2em;
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    z-index: 5;
 }
 
 .triple {
