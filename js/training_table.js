@@ -13,6 +13,7 @@ const currentDate = dateObj(d.getDate(), d.getMonth()+1, d.getFullYear());
 
 //Gets set to current month/weeks's first displayed date.
 //It can only get set to a date after 27/9/2021.
+//This has to be a monday.
 let firstDate = dateObj(27,9,2021); 
 
 const events = [
@@ -174,9 +175,9 @@ const displayedMonthYear = () => ({month: displayedMonth(), year: displayedYear
 const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 const htmlCalendarWeekday = weekday => `
-  <div class="calendarWeekday">
+  <th>
     ${weekday}
-  </div>`;
+  </th>`;
 
 const htmlCalendarWeekdays = () => weekdays
   .map(htmlCalendarWeekday)
@@ -201,21 +202,33 @@ const htmlEvents = date => events
   .map(htmlEvent)
   .join("");
 
-const htmlDay = date => `<div class="calendarDayNum">${date.day}</div>`;
-
 const htmlCalendarDate = (date, i) => `
-  <div class="calendarDay" style="order: ${i + 1}; background-color: ${color(date)};">
-    ${htmlDay(date)}
+  <td class="calendarDate" background-color: ${color(date)};">
+    ${date.day}
     ${htmlEvents(date)}
-  </div>`;
+  </td>`;
 
-const calendarDatesFrom = (from, days) =>
-  days === 1 ? [from] : [...calendarDatesFrom(from, days-1), dateAfterDays(from, days-1)];
+const dateRange = (from, days, step=1) => {
+  const result = []
+  for (let i = 0; i < days; i += step)
+    result.push(dateAfterDays(from, i));
 
-const htmlCalendarDates = (from, days) => calendarDatesFrom(from, days)
+  return result;
+}
+
+const htmlCalendarDates = (from, days) => dateRange(from, days)
   .map(htmlCalendarDate)
   .join("");
 
+const htmlCalendarWeek = mondayDate => `
+  <tr>
+    ${htmlCalendarDates(mondayDate, 7)}
+  </tr>`;
+
+const htmlCalendarWeeks = (from, days) => dateRange(from,days,7)
+  .map(htmlCalendarWeek)
+  .join("");
+  
 const daysRenderedInMonth = from => {
   let i = 1;
   while (dateAfterDays(from, i*7).month === displayedMonth())
@@ -237,9 +250,9 @@ function updateText() {
 
 function updateCalendar() {
   const calendarEl = document.getElementById("calendar");
-  calendarEl.innerHTML =
-    htmlCalendarWeekdays() +
-    htmlCalendarDates(firstDate, daysRendered());
+  calendarEl.innerHTML = `
+    <tr>${htmlCalendarWeekdays()}</tr>
+    ${htmlCalendarWeeks(firstDate, daysRendered())}`;
   updateText();
 }
 
