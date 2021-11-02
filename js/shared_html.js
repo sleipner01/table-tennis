@@ -1,5 +1,4 @@
 //The relative paths differ for each html file
-
 const nav = relativePath => `
   <div>
     <a href="${relativePath}bordtennis/">
@@ -49,8 +48,6 @@ const directoryName = url => {
 }
 
 function renderElements() {
-  //file:///home/ole/cs/bordtennis/index.html
-
   const url = window.location.href;
 
   const navEl = document.getElementById("nav");
@@ -59,6 +56,7 @@ function renderElements() {
   const footerEl = document.getElementById("footer");
   footerEl.innerHTML = footer(relativePath(url));
 
+  //Sets the active page in drop down menu.
   const active = document.getElementById(directoryName(url));
   if (active) active.className = "active";
 }
