@@ -1,4 +1,13 @@
 //The relative paths differ for each html file
+
+//file:///home/ole/cs/bordtennis/index.html
+
+const relativePath = url => {
+  const urlArr = url.split('/');
+  const dirs = urlArr.length - urlArr.indexOf("bordtennis") - 1;
+  return "../".repeat(dirs);
+}
+
 const nav = relativePath => `
   <div>
     <a href="${relativePath}bordtennis/">
@@ -36,10 +45,13 @@ const footer = relativePath => `
     </div>
   </div>`;
 
-function renderElements(relativePath) {
+function renderElements() {
+  const url = window.location.href;
+
   const navEl = document.getElementById("nav");
-  navEl.innerHTML = nav(relativePath);
+  navEl.innerHTML = nav(relativePath(url));
 
   const footerEl = document.getElementById("footer");
-  footerEl.innerHTML = footer(relativePath);
+  footerEl.innerHTML = footer(relativePath(url));
 }
+renderElements();
