@@ -7,27 +7,9 @@
         <link rel="stylesheet" href="../bordtennis/css/style.css">
         <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script async src="../bordtennis/js/hamburger_navbar.js"></script>
-        <script async src="../bordtennis/js/scoreboard.js"></script>
-        <script async src="../bordtennis/js/homepage-gallery.js"></script>
     </head>
     <body>
-        <nav>
-            <div>
-                <a href="../bordtennis/">
-                    <img src="../bordtennis/media/logo.png" alt="Table-tennis logo">
-                </a>
-            </div>
-            <div id="dd-menu">
-                <span class="material-icons">menu</span>
-            </div>
-            <div id="dropdown" style="display: none;">
-                <a href="../bordtennis/intro-to-table-tennis/">Intro to table tennis</a>
-                <a href="../bordtennis/regular-training/">Regular training</a>
-                <a href="../bordtennis/social-gatherings/">Social gatherings</a>
-                <a href="../bordtennis/contact/">Contact</a>
-            </div>
-        </nav>
+        <nav id="nav"></nav>
         <div id="gallery">
             <div class="darken"></div>
             <h1>NTNUI Table Tennis</h1>
@@ -61,14 +43,10 @@
                     </div>
                 </div>
                 <div class="module">
-                    <h2>This weeks program</h2>
+                    <h2>This week's program</h2>
                     <div class="width">
-                        <div class="aspect-ratio-box">
-                            <div class="calendarDiv">
-                                <div id="calendar"></div>
-                                <script src="../bordtennis/js/training_table.js"></script>
-                                <script>renderCalendar("week")</script>
-                            </div>
+                        <div class="calendarDiv">
+                            <table id="calendar"></table>
                         </div>
                     </div>
                 </div>
@@ -102,27 +80,13 @@
                 </div>
             </div>
         </main>
-        <footer>
-            <div class="width">
-                <div class="split">
-                    <div>
-                        <a href="../bordtennis/intro-to-table-tennis/">Intro to table tennis</a>
-                        <a href="../bordtennis/regular-training/">Regular training</a>
-                        <a href="../bordtennis/social-gatherings/">Social gatherings</a>
-                        <p>
-                            &copy; NTNUI Table-tennis gang
-                        </p>
-                    </div>
-                    <button onclick="toggleDarkMode()" id="darkModeBtn" class="material-icons">dark_mode</button>
-                    <script src="../bordtennis/js/dark_mode.js"></script>
-                    <div>
-                        <a href="../bordtennis/contact/">Contact</a>
-                        <a href="mailto:bordtennis@ntnui.no">E-mail: NTNUI Table tennis</a>
-                        <a href="mailto:magnueb@stud.ntnu.no">E-mail: Magnus (website host)</a>
-                        <a href="tel:+47116123">Phone nr.: 116 123</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <footer id="footer"></footer>
+        <script src="../bordtennis/js/shared_html.js"></script>
+        <script src="../bordtennis/js/training_table.js"></script>
+        <script>renderCalendar("week")</script>
+        <script src="../bordtennis/js/hamburger_navbar.js"></script>
+        <script src="../bordtennis/js/scoreboard.js"></script>
+        <script src="../bordtennis/js/homepage_gallery.js"></script>
+        <script src="../bordtennis/js/dark_mode.js"></script>
     </body>
 </html>

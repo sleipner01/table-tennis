@@ -8,29 +8,11 @@
         <link rel="shortcut icon" href="../../bordtennis/media/favicon.png" type="image/png">
         <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script async src="../../bordtennis/js/hamburger_navbar.js"></script>
     </head>
     <body>
         <div id="modalbg" class="darken" style="display: none;" onclick="toggleModalDisplay()"></div>
         <div id="modal" style="display: none;"></div>
-
-        <nav>
-            <div>
-                <a href="../../bordtennis/">
-
-                    <img src="../../bordtennis/media/logo.png" alt="Table-tennis logo">
-                </a>
-            </div>
-            <div id="dd-menu">
-                <span class="material-icons">menu</span>
-            </div>
-            <div id="dropdown" style="display: none;">
-                <a href="../../bordtennis/intro-to-table-tennis/">Intro to table tennis</a>
-                <a href="../../bordtennis/regular-training/" class="active">Regular training</a>
-                <a href="../../bordtennis/social-gatherings/">Social gatherings</a>
-                <a href="../../bordtennis/contact/">Contact</a>
-            </div>
-        </nav>
+        <nav id="nav"></nav>
         <main>
             <div class="width">
                 <h1>Regular training</h1>
@@ -40,17 +22,13 @@
                     </p>
                 </div>
                 <div class="module">
-                    <div class="aspect-ratio-box">
-                        <div class="calendarDiv">
-                            <div class="triple">
-                                <button class="material-icons" onclick="increase(-1)">keyboard_arrow_left</button>
-                                <h1 id="calendarText"></h1>
-                                <button class="material-icons" onclick="increase(1)">keyboard_arrow_right</button>
-                            </div>
-                            <div id="calendar"></div>
+                    <div class="calendarDiv">
+                        <div class="triple">
+                            <button class="material-icons" onclick="increase(-1)">keyboard_arrow_left</button>
+                            <h1 id="calendarText"></h1>
+                            <button class="material-icons" onclick="increase(1)">keyboard_arrow_right</button>
                         </div>
-                        <script src="../../bordtennis/js/training_table.js"></script>
-                        <script>renderCalendar("month")</script>
+                        <table id="calendar"></table>
                     </div>
                 </div>
                 <div class="module">
@@ -60,27 +38,11 @@
                 </div>
             </div>
         </main>
-        <footer>
-            <div class="width">
-                <div class="split">
-                    <div>
-                        <a href="../../bordtennis/intro-to-table-tennis/">Intro to table tennis</a>
-                        <a href="../../bordtennis/regular-training/">Regular training</a>
-                        <a href="../../bordtennis/social-gatherings/">Social gatherings</a>
-                        <p>
-                            &copy; NTNUI Table-tennis gang
-                        </p>
-                    </div>
-                    <button onclick="toggleDarkMode()" id="darkModeBtn" class="material-icons">dark_mode</button>
-                    <script src="../../bordtennis/js/dark_mode.js"></script>
-                    <div>
-                        <a href="../../bordtennis/contact/">Contact</a>
-                        <a href="mailto:bordtennis@ntnui.no">E-mail: NTNUI Table tennis</a>
-                        <a href="mailto:magnueb@stud.ntnu.no">E-mail: Magnus (website host)</a>
-                        <a href="tel:+47116123">Phone nr.: 116 123</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <footer id="footer"></footer>
+        <script src="../../bordtennis/js/shared_html.js"></script>
+        <script src="../../bordtennis/js/hamburger_navbar.js"></script>
+        <script src="../../bordtennis/js/training_table.js"></script>
+        <script>renderCalendar("month");</script>
+        <script src="../../bordtennis/js/dark_mode.js"></script>
     </body>
 </html>

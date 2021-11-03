@@ -27,13 +27,11 @@ function toggleDD() {
 // Ensures you can click anything other than the navbar, to close the nav dropdown
 for (i=0; i<bod.length; i++) {
     if (bod[i] == na) {
-        // console.log("foudnNav")
         continue;
     }
     bod[i].addEventListener("click", function () {
         hide();
     });
-    // console.log(bod[i])
 }
 
 menu.addEventListener("click", e => {
@@ -48,16 +46,13 @@ function menuBlink() {
     menu.style.backgroundColor = "var(--white)";
 
     setTimeout(function() {
-        //your code to be executed after 1 second
         na.style.backgroundColor = "";
     }, 2000);
     setTimeout(function() {
-        //your code to be executed after 1 second
         menu.style.backgroundColor = "";
         na.style.transition = "";
     }, 3000);
     setTimeout(function() {
-        //your code to be executed after 1 second
         menu.style.transition = "";
     }, 4000);
 }
