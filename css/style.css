@@ -104,6 +104,9 @@ main {
     .width {
         width: calc(100vw - 2em);
     }
+    #calendar td {
+        height: calc((100vw - 2em)/7);
+    }
 }
 
 footer {
@@ -590,15 +593,7 @@ nav img {
     vertical-align: top;
     border: 1px solid var(--black);
     padding: 0;
-    height: 100px;
-    min-height: 60px;
-    max-height: 100px;
-}
-
-@@media only screen and (max-width: 600px) {
-    #calendar td {
-        height: 60px;
-    }
+    height: calc((100vw - 6em)/7);
 }
 
 .calendarEvent {
