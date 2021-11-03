@@ -7,8 +7,9 @@ const colors = [
   {property: "--lightgray", lightMode: "#E5E5E5", darkMode: "#121212"},
   {property: "--lightergray", lightMode: "#F0F0F0", darkMode: "#121212"},
   {property: "--transparentlightgray", lightMode: "rgba(255, 158, 158, 0.2)", darkMode: "rgba(255, 255, 255, 0.2)"},
-  {property: "--darkgray",  lightMode: "#828387", darkMode: "#000000"},
-  {property: "--darkergray",  lightMode: "#626367", darkMode: "#828387"},
+  {property: "--darkgray",  lightMode: "#828387", darkMode: "#111111"},
+  {property: "--darkergray",  lightMode: "#626367", darkMode: "#010101"},
+  // {property: "--darkergray",  lightMode: "#626367", darkMode: "#828387"},
   {property: "--white",     lightMode: "#FEFEFE", darkMode: "#181818"},
   {property: "--black",     lightMode: "#111", darkMode: "#FEFEFE"},
   {property: "--logoFilter",lightMode: "", darkMode: "grayscale(1) invert(1)"}

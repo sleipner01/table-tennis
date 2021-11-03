@@ -100,6 +100,12 @@ main {
     margin: auto;
 }
 
+@media only screen and (max-width: 600px;) {
+    .width {
+        width: calc(100vw - 2em);
+    }
+}
+
 footer {
     width: 100%;
     background-color: var(--black);
@@ -162,6 +168,13 @@ h2 {
     margin-bottom: 1.5em;
 }
 
+a {
+    color: var(--red);
+}
+/* a:hover {
+    color: var(--black);
+} */
+
 #gallery {
     /* max-width: 800px;
     width: calc(100vw - 6em); */
@@ -220,6 +233,7 @@ h2 {
     margin: -1em;
     width: calc(100% + 2em);
     height: calc(100% + 2em);
+    object-fit: cover;
 }
 
 @media only screen and (max-width: 600px) {
@@ -363,7 +377,8 @@ nav img {
 
 .redbg {
     background-color: var(--red);
-    color: var(--white);
+    /* color: var(--white); */
+    color: white;
     padding: 1em;
     box-shadow: 0px 1px 3px rgb(0, 0, 0, 0.3);
 }
@@ -440,7 +455,7 @@ nav img {
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 1.5em;
+    font-size: 2em;
     /* margin-bottom: 1em; */
 }
 
@@ -460,7 +475,8 @@ nav img {
 #social-gatherings-gallery-container .collapsible {
     margin: 0 auto;
     background-color: var(--darkgray);
-    color: var(--white);
+    /* color: var(--white); */
+    color: white;
     cursor: pointer;
     padding: 1.2em 2em;
     width: 100%;
@@ -504,7 +520,9 @@ nav img {
 }
 
 #social-gatherings-gallery-container .social-gatherings-date {
-    color: var(--darkgray);
+    /* color: var(--darkgray); */
+    /* color: var(--white); */
+    opacity: 0.5;
     font-size: 1em;
 }
 
@@ -521,6 +539,8 @@ nav img {
     display: flex;
     flex-direction: row;
     justify-content: end;
+    object-fit: cover;
+    overflow-x: auto;
 }
 
 #social-gatherings-gallery-container img {
@@ -551,11 +571,13 @@ nav img {
 }
 
 #calendar {
+    table-layout: fixed;
     border: 1px solid var(--black);
     padding: 3px;
 }
 
 #calendar th {
+    overflow: hidden;
     border: 1px solid var(--black);
     background-color: var(--red);
     color: var(--white);
@@ -564,9 +586,19 @@ nav img {
 }
 
 #calendar td {
+    overflow: hidden;
     vertical-align: top;
     border: 1px solid var(--black);
     padding: 0;
+    height: 100px;
+    min-height: 60px;
+    max-height: 100px;
+}
+
+@@media only screen and (max-width: 600px) {
+    #calendar td {
+        height: 60px;
+    }
 }
 
 .calendarEvent {
@@ -574,6 +606,7 @@ nav img {
     cursor: pointer;
     user-select: none;
     margin: 5px;
+    overflow: hidden;
 }
 
 #modalbg.darken {
@@ -591,6 +624,8 @@ nav img {
     border-radius: 20px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     z-index: 5;
+    /* width: 40%; */
+    max-width: calc(100vw - 4em);
 }
 
 .triple {
