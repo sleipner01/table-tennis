@@ -377,7 +377,7 @@ nav img {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 3;
     background-color: rgba(0, 0, 0, 0.6)
 }
 
@@ -598,6 +598,7 @@ nav img {
     border: 1px solid var(--black);
     background-color: var(--red);
     color: var(--white);
+    color: white;
     text-align: center;
 
 }
@@ -639,11 +640,14 @@ nav img {
 }
 
 .triple h1 {
+    z-index: 1;
     margin: 0;
     width: 50%;
 }
 
 .triple button {
+    z-index: 2;
+    margin: 0;
     color: var(--black);
     background-color: var(--white);
     border-radius: 50%;
