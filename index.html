@@ -7,28 +7,11 @@
         <link rel="stylesheet" href="../bordtennis/css/style.css">
         <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script async src="../bordtennis/js/hamburger_navbar.js"></script>
-        <script async src="../bordtennis/js/scoreboard.js"></script>
-        <script async src="../bordtennis/js/dark_mode.js"></script>
-        <script async src="../bordtennis/js/homepage-gallery.js"></script>
     </head>
     <body>
-        <nav>
-            <div>
-                <a href="../bordtennis/">
-                    <img src="../bordtennis/media/logo.png" alt="Table-tennis logo">
-                </a>
-            </div>
-            <div id="dd-menu">
-                <span class="material-icons">menu</span>
-            </div>
-            <div id="dropdown" style="display: none;">
-                <a href="../bordtennis/intro-to-table-tennis/">Intro to table tennis</a>
-                <a href="../bordtennis/regular-training/">Regular training</a>
-                <a href="../bordtennis/social-gatherings/">Social gatherings</a>
-                <a href="../bordtennis/contact/">Contact</a>
-            </div>
-        </nav>
+        <div id="modalbg" class="darken" style="display: none;" onclick="toggleModalDisplay()"></div>
+        <div id="modal" style="display: none;"></div>
+        <nav id="nav"></nav>
         <div id="gallery">
             <div class="darken"></div>
             <h1>NTNUI Table Tennis</h1>
@@ -36,10 +19,12 @@
         </div>
         <main>
             <div class="width">
+                <h2>Homepage</h2>
                 <div class="module">
-                    <h2>Homepage</h2>
                     <div class="split">
                         <div>
+                            <h3>Scoreboard</h3>
+                            <p>Number of matches won</p>
                             <table id="scoreboard">
                                 <thead>
                                     <tr>
@@ -52,62 +37,58 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="flyer">
-                            <img src="media/favicon.png" width="30" height="30"alt="pingpong" class="racket">
-                            <p class="p-left">No matter who you are,</p>
-                            <p class="p-right">how skilled you are,</p>
-                            <img src="media/favicon.png" width="30" alt="pingpong" class="racket">
-                            <p class="p-left">you are always welcome to</p>
-                            <p class="p-right">NTNUI Table Tennis!</p>
-
-                            <button type="button" name="button" onclick="location.href = 'contact/'">Become a mamber</button>
+                        <div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="module">
-                    <h2>This weeks program</h2>
+                    <h2>This week's program</h2>
                     <div class="width">
-                        <div class="aspect-ratio-box">
-                            <div class="calendarDiv">
-                                <div class="triple" style="display: none;">
-                                    <button class="material-icons" onclick="increaseMonth(-1,true)">keyboard_arrow_left</button>
-                                    <h1 id="monthYear"></h1>
-                                    <button class="material-icons" onclick="increaseMonth(1,true)">keyboard_arrow_right</button>
-                                </div>
-                                <div id="calendar">
-                                    <!-- dynamic (training_table.js) -->
-                                </div>
-                            </div>
+                        <div class="calendarDiv">
+                            <table id="calendar"></table>
                         </div>
                     </div>
-                    <script src="../bordtennis/js/training_table.js"></script>
-                    <script>renderCalendar(daysRenderedInMonth(firstDisplayedDate))</script>
+                </div>
+                <div class="module">
+                    <div class="flyer">
+                        <p class="p-left">No matter who you are,</p>
+                        <p class="p-right">how skilled you are,</p>
+                        <p class="p-left">you are always welcome to</p>
+                        <p class="p-right">NTNUI Table Tennis!</p>
+
+                        <button type="button" name="button" onclick="location.href = 'contact/'">Become a member</button>
+                    </div>
+                </div>
+                <div class="module">
+                    <div class="split">
+                        <div>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                        </div>
+                        <div class="redbg">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div class="module">
                     <h2>Any questions?</h2>
-                    <button type="button" name="button">Get in touch</button>
+                    <button type="button" name="button" onclick="location.href = 'contact/'">Get in touch</button>
                 </div>
             </div>
         </main>
-        <footer>
-            <div class="width">
-                <div class="split">
-                    <div>
-                        <a href="../bordtennis/intro-to-table-tennis/">Intro to table tennis</a>
-                        <a href="../bordtennis/regular-training/">Regular training</a>
-                        <a href="../bordtennis/social-gatherings/">Social gatherings</a>
-                        <p>
-                            &copy; NTNUI Table-tennis gang
-                        </p>
-                    </div>
-                    <div>
-                        <a href="../bordtennis/contact/">Contact</a>
-                        <a href="mailto:bordtennis@ntnui.no">E-mail: NTNUI Table tennis</a>
-                        <a href="mailto:magnueb@stud.ntnu.no">E-mail: Magnus (website host)</a>
-                        <a href="tel:+47116123">Phone nr.: 116 123</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <footer id="footer"></footer>
+        <script src="../bordtennis/js/shared_html.js"></script>
+        <script src="../bordtennis/js/training_table.js"></script>
+        <script>renderCalendar("week")</script>
+        <script src="../bordtennis/js/hamburger_navbar.js"></script>
+        <script src="../bordtennis/js/scoreboard.js"></script>
+        <script src="../bordtennis/js/homepage_gallery.js"></script>
+        <script src="../bordtennis/js/dark_mode.js"></script>
     </body>
 </html>
