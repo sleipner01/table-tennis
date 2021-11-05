@@ -3,97 +3,110 @@
   <head>
     <meta charset="utf-8">
     <title>NTNUI Table-tennis</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, minimum-scale=1"
-   >
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <link rel="stylesheet" href="../../bordtennis/css/style.css">
-    <link
-      rel="shortcut icon"
-      href="../../bordtennis/media/favicon.png"
-      type="image/png"
-   >
-    <link
-      href="http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext"
-      rel="stylesheet"
-      type="text/css"
-   >
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-   >
-    <script async src="../../bordtennis/js/hamburger_navbar.js"></script>
-    <script async src="../../bordtennis/js/dark_mode.js"></script>
+    <link rel="shortcut icon" href="../../bordtennis/media/favicon.png" type="image/png">
+    <link href="http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
-    <nav>
-      <div>
-        <a href="../../bordtennis/">
-          <img src="../../bordtennis/media/logo.png" alt="Table-tennis logo">
-        </a>
-      </div>
-      <div id="dd-menu">
-        <span class="material-icons">menu</span>
-      </div>
-      <div id="dropdown" style="display: none">
-        <a href="../../bordtennis/intro-to-table-tennis/"
-          >Intro to table tennis</a
-        >
-        <a href="../../bordtennis/regular-training/">Regular training</a>
-        <a href="../../bordtennis/social-gatherings/">Social gatherings</a>
-        <a href="../../bordtennis/contact/" class="active">Contact</a>
-      </div>
-    </nav>
+    <nav id="nav"></nav>
     <main>
       <div class="width">
         <h1>Contact</h1>
-        <p>
-          This is the best group to apply if you want to learn from the best or
-          show your mastery, while spending time with fellow students!
-        </p>
-        <img src="../media/contact-images/istockphoto-1192307192-170667a.jpg" alt="Illustrasjon av Ma long som spiller bordtennis">
-        <h2>Become a member!</h2>
-        <p>Fill the form below and join our community</p>
-        <form action="index.html" method="POST">
-            <label for="name">Name:</label><br>
-            <input type="text" name="name" id="name"><br>
-            <label for="email">Email:</label><br>
-            <input type="text" name="email" id="email"><br>
-            <label for="phone_number">Phone number:</label> <br>
-            <input type="text" name="phone_number" id="phone_number"> <br>
-            <label for="study_program">Study program:</label><br>
-            <input type="text" name="study_program" id="study_program"><br>
-            <label for="experience">Experience:</label><br>
-            <input type="text" name="experience" id="experience"><br>
-            <label for="about">Tell us about yourself:</label><br>
-            <input type="text" name="about" id="about">
-            <button>Submit</button>
-        </form>
-        <h3>Have any other questions?</h3>
-        <p>Send us a message!</p>
-      </div>
-    </main>
-    <footer>
-      <div class="width">
-        <div class="split">
-          <div>
-            <a href="../../bordtennis/intro-to-table-tennis/"
-              >Intro to table tennis</a
-            >
-            <a href="../../bordtennis/regular-training/">Regular training</a>
-            <a href="../../bordtennis/social-gatherings/">Social gatherings</a>
-            <p>&copy; NTNUI Table-tennis gang</p>
-          </div>
-          <div>
-            <a href="../../bordtennis/contact/">Contact</a>
-            <a href="mailto:bordtennis@ntnui.no">E-mail: NTNUI Table tennis</a>
-            <a href="mailto:magnueb@stud.ntnu.no"
-              >E-mail: Magnus (website host)</a
-            >
-            <a href="tel:+47116123">Phone nr.: 116 123</a>
-          </div>
+        <div class="module">
+            <!-- <p>
+              This is the best group to apply if you want to learn from the best or
+              show your mastery, while spending time with fellow students!
+            </p> -->
+            <div class="split formsplit">
+                <div>
+                    <img src="../media/contact-images/istockphoto-1192307192-170667a.jpg" alt="Illustrasjon av Ma long som spiller bordtennis">
+                </div>
+                <div>
+                    <form action="../../bordtennis/contact/" method="POST">
+                        <h2>Become a member!</h2>
+                        <p>Fill the form below and join our community</p>
+                        <hr>
+                        <label for="name">
+                            Name
+                            <input type="text" name="name" id="name" placeholder="Ola Nordmann">
+                        </label>
+                        <div class="split">
+                            <div>
+                                <label for="email">
+                                    Email
+                                    <input type="email" name="email" id="email" placeholder="olanord@ntnu.no">
+                                </label>
+                            </div>
+                            <div>
+                                <label for="phone_number">
+                                    Phone number
+                                    <input type="number" min="10000000" max="99999999" name="phone_number" id="phone_number" placeholder="12345678">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="split">
+                            <div>
+                                <label for="study_program">
+                                    Study program
+                                    <input type="text" name="study_program" id="study_program" placeholder="Informatics">
+                                </label>
+                            </div>
+                            <div>
+                                <label for="experience">
+                                    Experience
+                                    <select name="experience" id="experience">
+                                        <option value="-1" style="display: none;">Choose closest</option>
+                                        <option value="0">None</option>
+                                        <option value="1">Beginner level</option>
+                                        <option value="2">Intermediate</option>
+                                        <option value="3">Veteran</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                        <label for="about">
+                            Tell us about yourself
+                            <textarea name="about" id="about" rows="8" cols="80" placeholder="I've played table tennis for about 4 years..."></textarea>
+                        </label>
+                        <button type="submit" name="button">Serve</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="module">
+            <div class="width">
+                <div class="width">
+                    <div>
+                        <h3>Have any other questions?</h3>
+                        <p>Send us a message!</p>
+                    </div>
+                    <hr>
+                    <div class="split">
+                        <div class="person">
+                            <h1>Coach</h1>
+                            <img src="../media/contact-images/istockphoto-1192307192-170667a.jpg" alt="Coach">
+                            <h3>Ola Nordmann</h3>
+                            <p>Email: <a href="mailto:olanord@ntnu.no">olanord@ntnu.no</a></p>
+                            <p>Phone: <a href="callto:+4712345678">+47 123 45 678</a></p>
+                        </div>
+                        <div class="person">
+                            <h1>Team leader</h1>
+                            <img src="../media/contact-images/istockphoto-1192307192-170667a.jpg" alt="Team leader">
+                            <h3>Kari Nordmann</h3>
+                            <p>Email: <a href="mailto:karinor@ntnu.no">karinor@ntnu.no</a></p>
+                            <p>Phone: <a href="callto:+4712345679">+47 123 45 679</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
-    </footer>
+    </main>
+    <footer id="footer"></footer>
+    <script src="../../bordtennis/js/shared_html.js"></script>
+    <script src="../../bordtennis/js/hamburger_navbar.js"></script>
+    <script src="../../bordtennis/js/dark_mode.js"></script>
   </body>
 </html>
