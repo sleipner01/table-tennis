@@ -1,6 +1,3 @@
-// BUG - sometimes, the scrollHeight wont work since the images aren't loaded
-
-
 // Year and information control
 const previousYearEl = document.getElementById('previousYear');
     previousYearEl.addEventListener('click', changeYear);

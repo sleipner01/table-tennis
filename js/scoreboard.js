@@ -30,7 +30,7 @@ function makeScoreboard(data, scoreboardEl) {
     // Retrieve the scoreboardEl element
     var scoreboardEl = document.getElementById(scoreboardEl).children[1];
     // For each object in "scores", create a row in the scoreboardEl and add the values
-    data.forEach (function (item) {
+    data.forEach ( item => {
         let row = document.createElement('tr');
         let name = document.createElement('td');
         name.innerHTML = item.name;
