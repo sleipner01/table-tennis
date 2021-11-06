@@ -107,6 +107,10 @@
     text-align: center;
 }
 
+.subText {
+    opacity: 0.5;
+}
+
 
 
 
@@ -493,6 +497,21 @@ table th, table td {
 
 #scoreboard th {
     background-color: var(--red);
+}
+
+.indexBio {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.indexBio p {
+    color: var(--black);
+    opacity: 0.5;
+}
+
+.indexBio p:first-child {
+    font-size: 1.2em;
+    opacity: 1;
 }
 
 .module img {
