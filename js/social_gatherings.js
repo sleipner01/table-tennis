@@ -174,8 +174,8 @@ function createCarousel() {
     let leftCarousel = document.getElementById("prev");
     let rightCarousel = document.getElementById("next");
 
-    leftCarousel.style.backgroundColor = "var(--darkgray)";
-    rightCarousel.style.backgroundColor = "var(--darkgray)";
+    leftCarousel.style.backgroundColor = "var(--darkred)";
+    rightCarousel.style.backgroundColor = "var(--darkred)";
     leftCarousel.style.boxShadow = "6px 0 15px -4px var(--darkgray), -6px 0 15px -4px var(--darkgray)";
     rightCarousel.style.boxShadow = "6px 0 15px -4px var(--darkgray), -6px 0 15px -4px var(--darkgray)";
 

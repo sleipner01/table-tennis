@@ -1,5 +1,6 @@
 :root {
   --red: #A8000F;
+  --darkred: #8a000e;
   --lightgray: #E5E5E5;
   --lightergray: #F0F0F0;
   --transparentlightgray: rgba(255, 158, 158, 0.2);
@@ -440,7 +441,7 @@ nav img {
     /* top: ((2.4em * 1.5) + 2.5em + (1.5em * 1.5) + 1em); */
     width: 5%;
     margin: 2em 0;
-    background-color: var(--darkgray);
+    background-color: var(--darkred);
     box-shadow: 6px 0 15px -4px var(--darkgray), -6px 0 15px -4px var(--darkgray);
 }
 
@@ -483,7 +484,7 @@ nav img {
 
 #social-gatherings-gallery-container .collapsible {
     margin: 0 auto;
-    background-color: var(--darkgray);
+    background-color: var(--red);
     /* color: var(--white); */
     color: white;
     cursor: pointer;
@@ -491,7 +492,7 @@ nav img {
     width: 100%;
     font-family: 'Lato';
     text-align: left;
-    outline: var(--red);
+    outline: var(--black);
     font-size: 1.1em;
     transition: 0.1s ease-out;
     z-index: 4;
@@ -510,7 +511,7 @@ nav img {
 }
 
 #social-gatherings-gallery-container .collapsible-active, #social-gatherings-gallery-container .collapsible:hover {
-    background-color: var(--darkergray);
+    background-color: var(--darkred);
 }
 
 #social-gatherings-gallery-container .collapsible-content {
