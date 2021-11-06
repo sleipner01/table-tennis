@@ -10,13 +10,9 @@
  * MIXIN
  *
  * COMPONENTS
- * Body.................Default style for body in each page
- * Main.................Default style for main in each page
+ * Elements.............Default styles for HTML elements used in all pages
  * Containers...........Wrapping and constraining elements.
- * Split................Wrapper to easily split elements
- * Nav..................The main page header.
- * Footer...............The main page footer.
- * Buttons..............Button elements.
+ * Misc.................Other spesific stylings used in multiple pages.
  *
  * SITES
  * Index................Spesific styles for said page
@@ -86,7 +82,16 @@
 
 
 
-/**/
+/* Prevent text from being highlighted when users mark it */
+.no-select {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
 
 
 
@@ -476,16 +481,7 @@ table th, table td {
     text-align: center;
 }
 
-/* Prevent text from being highlighted when users mark it */
-.no-select {
-    -webkit-touch-callout: none; /* iOS Safari */
-      -webkit-user-select: none; /* Safari */
-       -khtml-user-select: none; /* Konqueror HTML */
-         -moz-user-select: none; /* Old versions of Firefox */
-          -ms-user-select: none; /* Internet Explorer/Edge */
-              user-select: none; /* Non-prefixed version, currently
-                                    supported by Chrome, Edge, Opera and Firefox */
-}
+
 
 .module img {
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
@@ -535,7 +531,7 @@ nav img {
 
 
 /*------------------------------------*\
-  REGULAR TRAINING
+  Intro to table tennis
 \*------------------------------------*/
 
 .intro-pic {
@@ -545,7 +541,7 @@ nav img {
 
 
 /*------------------------------------*\
-  SOCIAL-GATHERINGS
+  Social Gatherings
 \*------------------------------------*/
 
 .carouselFeelFlex {
@@ -714,7 +710,7 @@ nav img {
 
 
 /*------------------------------------*\
-  REGULAR TRAINING
+  Reglar training
 \*------------------------------------*/
 
 .calendarDiv {
