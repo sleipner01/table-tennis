@@ -544,6 +544,29 @@ nav img {
   Social Gatherings
 \*------------------------------------*/
 
+.year-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 2em;
+    /* margin-bottom: 1em; */
+}
+
+#currentYear {
+    cursor: default;
+}
+
+#previousYear, #nextYear {
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+#previousYear:hover, #nextYear:hover {
+    color: var(--red);
+}
+
+
+
 .carouselFeelFlex {
     display: flex;
     flex-flow: row nowrap;
@@ -551,9 +574,6 @@ nav img {
     align-items: stretch;
 }
 
-.carouselFeelFlex div.width {
-    margin: 0 1em;
-}
 .adjacentYears {
     /* height: calc(100% - ((2.4em * 1.5) + 2.5em + (1.5em * 1.5) + 1em)); */
     height: auto;
@@ -581,29 +601,13 @@ nav img {
     margin: 0;
 }
 
-#social-gatherings-gallery-container .year-controls {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: 2em;
-    /* margin-bottom: 1em; */
+
+
+.carouselFeelFlex div.width {
+    margin: 0 1em;
 }
 
-
-#social-gatherings-gallery-container #currentYear {
-    cursor: default;
-}
-
-#social-gatherings-gallery-container #previousYear, #social-gatherings-gallery-container #nextYear {
-    cursor: pointer;
-    font-size: 1.2em;
-}
-
-#social-gatherings-gallery-container #previousYear:hover, #social-gatherings-gallery-container #nextYear:hover {
-    color: var(--red);
-}
-
-#social-gatherings-gallery-container .collapsible {
+.collapsible {
     margin: 0 auto;
     background-color: var(--red);
     /* color: var(--white); */
@@ -618,7 +622,8 @@ nav img {
     transition: 0.1s ease-out;
     z-index: 4;
 }
-#social-gatherings-gallery-container .collapsible:after {
+
+.collapsible:after {
     font-family: "Material Icons";
     font-size: 1.2em;
     content: "keyboard_arrow_down";
@@ -628,55 +633,55 @@ nav img {
     transition: transform .2s ease-out;
 }
 
-#social-gatherings-gallery-container .collapsible-active:after {
+.collapsible-active:after {
     transform: rotateX(180deg)
 }
 
-#social-gatherings-gallery-container .collapsible-active, #social-gatherings-gallery-container .collapsible:hover {
+.collapsible-active, .collapsible:hover {
     background-color: var(--darkred);
 }
 
-#social-gatherings-gallery-container .collapsible-content {
+.collapsible-content {
     overflow: hidden;
     max-height: 0;
     /* box-shadow: 0px 0px 6px #626367; */
     transition: all .1s ease-out;
 }
 
-#social-gatherings-gallery-container .module {
+.social-gatherings-gallery-container .module {
     margin-bottom: 0;
 }
 
-#social-gatherings-gallery-container .module .split div {
+.social-gatherings-gallery-container .module .split div {
     padding: 2em;
     line-height: 1.5;
 }
 
-#social-gatherings-gallery-container .module .split div table tr td:nth-child(2) {
+.social-gatherings-gallery-container .module .split div table tr td:nth-child(2) {
     text-align: center;
 }
 
-#social-gatherings-gallery-container .module .split div table tr td:last-child {
+.social-gatherings-gallery-container .module .split div table tr td:last-child {
     text-align: right;
 }
 
-#social-gatherings-gallery-container .social-gatherings-date {
+.social-gatherings-gallery-container .social-gatherings-date {
     /* color: var(--darkgray); */
     /* color: var(--white); */
     opacity: 0.5;
     font-size: 1em;
 }
 
-#social-gatherings-gallery-container h3 {
+.social-gatherings-gallery-container h3 {
     font-size: 1.8em;
     padding: .3em 0 .8em 0;
 }
 
-#social-gatherings-gallery-container p {
+.social-gatherings-gallery-container p {
     font-size: 1.1em;
 }
 
-#social-gatherings-gallery-container .img-container {
+.social-gatherings-gallery-container .img-container {
     display: flex;
     flex-direction: row;
     justify-content: end;
@@ -684,23 +689,23 @@ nav img {
     overflow-x: auto;
 }
 
-#social-gatherings-gallery-container img {
+.social-gatherings-gallery-container img {
     width: auto;
     max-width: 350px;
     max-height: 350px;
 }
 
-#social-gatherings-gallery-container #social-gatherings-gallery {
+.social-gatherings-gallery-container .social-gatherings-gallery {
     box-shadow: 6px 0 15px -4px var(--darkgray), -6px 0 15px -4px var(--darkgray);
 }
 
 
 @media only screen and (max-width: 600px) {
-    #social-gatherings-gallery-container .year-controls .material-icons {
+    .year-controls .material-icons {
         font-size: 3em;
     }
 
-    #social-gatherings-gallery-container img {
+    .social-gatherings-gallery-container img {
         max-width: 100%;
         max-height: 100vh;
         margin: 0;
@@ -906,5 +911,4 @@ form button {
     margin: 0;
     width: 100%;
     height: auto;
-
 }
