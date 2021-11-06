@@ -1,3 +1,45 @@
+/**
+ * CONTENTS
+ *
+ * SETTINGS
+ * root.................Globally-available css variables.
+ *
+ * GENERIC
+ * *....................Better default `box-sizing`, margin reset, padding reset.
+ *
+ * MIXIN
+ *
+ * COMPONENTS
+ * Body.................Default style for body in each page
+ * Main.................Default style for main in each page
+ * Containers...........Wrapping and constraining elements.
+ * Split................Wrapper to easily split elements
+ * Nav..................The main page header.
+ * Footer...............The main page footer.
+ * Buttons..............Button elements.
+ *
+ * SITES
+ * Index................Spesific styles for said page
+ * Intro To Table... ...Spesific styles for said page
+ * Regular Training.....Spesific styles for said page
+ * Social Gatherings....Spesific styles for said page
+ * Contact..............Spesific styles for said page
+ */
+
+
+
+
+
+/*------------------------------------*\
+  *
+  * SETIINGS
+  *
+\*------------------------------------*/
+
+
+
+
+
 :root {
   --red: #A8000F;
   --darkred: #8A000E;
@@ -11,11 +53,54 @@
   --logoFilter: "";
 }
 
+
+
+
+
+/*------------------------------------*\
+  *
+  * GENERIC
+  *
+\*------------------------------------*/
+
+
+
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+
+
+
+
+/*------------------------------------*\
+  *
+  * MIXIN
+  *
+\*------------------------------------*/
+
+
+
+
+/**/
+
+
+
+
+
+/*------------------------------------*\
+  *
+  * COMPONENTS
+  *
+\*------------------------------------*/
+
+
+
+
 
 body {
     background-color: var(--white);
@@ -24,6 +109,8 @@ body {
     font-size: 16px;
     color: var(--black);
 }
+
+
 
 nav {
     user-select: none;
@@ -89,54 +176,6 @@ nav div:hover {
     /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); */
 }
 
-main {
-    min-height: calc(100vh - 60px);
-}
-
-.width {
-    padding: 2em 0em;
-    /* max-width: 800px; */
-    max-width: 1000px;
-    width: calc(100% - 6em);
-    margin: auto;
-}
-
-@media only screen and (max-width: 600px) {
-    .width {
-        width: calc(100% - 2em);
-    }
-    #calendar td {
-        height: calc((100% - 2em)/7);
-    }
-    .big-only {
-        display: none;
-    }
-}
-
-footer {
-    width: 100%;
-    background-color: var(--black);
-    color: var(--white);
-    /* height: 6em; */
-    padding: 3em 0 0;
-    line-height: 2.5em;
-    font-size: .9em;
-    /* padding: 1em; */
-    display: flex;
-    justify-content: flex-end;
-    align-content: center;
-    flex-flow: column nowrap;
-}
-
-footer a {
-    color: var(--white);
-    display: block;
-}
-
-footer .split div:last-child {
-    text-align: right;
-}
-
 #dd-menu {
     z-index: 3;
     cursor: pointer;
@@ -163,6 +202,63 @@ footer .split div:last-child {
     width: 100%;
 }
 
+
+
+main {
+    min-height: calc(100vh - 60px);
+}
+
+
+
+
+.width {
+    padding: 2em 0em;
+    /* max-width: 800px; */
+    max-width: 1000px;
+    width: calc(100% - 6em);
+    margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .width {
+        width: calc(100% - 2em);
+    }
+    #calendar td {
+        height: calc((100% - 2em)/7);
+    }
+    .big-only {
+        display: none;
+    }
+}
+
+
+
+footer {
+    width: 100%;
+    background-color: var(--black);
+    color: var(--white);
+    /* height: 6em; */
+    padding: 3em 0 0;
+    line-height: 2.5em;
+    font-size: .9em;
+    /* padding: 1em; */
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    flex-flow: column nowrap;
+}
+
+footer a {
+    color: var(--white);
+    display: block;
+}
+
+footer .split div:last-child {
+    text-align: right;
+}
+
+
+
 h1 {
     font-size: 2.4em;
     text-align: center;
@@ -175,12 +271,32 @@ h2 {
     margin-bottom: 1.5em;
 }
 
+
+
 a {
     color: var(--red);
 }
 /* a:hover {
     color: var(--black);
 } */
+
+
+
+
+
+/*------------------------------------*\
+  *
+  * PAGES
+  *
+\*------------------------------------*/
+
+
+
+
+
+/*------------------------------------*\
+  INDEX
+\*------------------------------------*/
 
 #gallery {
     /* max-width: 800px;
@@ -416,13 +532,21 @@ nav img {
     padding: 0;
 }
 
+
+
+/*------------------------------------*\
+  REGULAR TRAINING
+\*------------------------------------*/
+
 .intro-pic {
     border-radius: 5px;
 }
 
 
 
-/* Social gatherings */
+/*------------------------------------*\
+  SOCIAL-GATHERINGS
+\*------------------------------------*/
 
 .carouselFeelFlex {
     display: flex;
@@ -575,8 +699,6 @@ nav img {
 }
 
 
-
-
 @media only screen and (max-width: 600px) {
     #social-gatherings-gallery-container .year-controls .material-icons {
         font-size: 3em;
@@ -591,7 +713,9 @@ nav img {
 
 
 
-/* Calendar */
+/*------------------------------------*\
+  REGULAR TRAINING
+\*------------------------------------*/
 
 .calendarDiv {
     margin: auto;
@@ -679,7 +803,9 @@ nav img {
 
 
 
-/* Contact page */
+/*------------------------------------*\
+  Contact
+\*------------------------------------*/
 
 form {
     display: flex;
