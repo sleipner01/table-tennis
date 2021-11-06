@@ -4,6 +4,7 @@
 
 const colors = [
   {property: "--red",       lightMode: "#A8000F", darkMode: "#A8000F"},
+  {property: "--darkred",   lightMode: "#8A000E", darkMode: "#8A000E"},
   {property: "--lightgray", lightMode: "#E5E5E5", darkMode: "#121212"},
   {property: "--lightergray", lightMode: "#F0F0F0", darkMode: "#121212"},
   {property: "--transparentlightgray", lightMode: "rgba(255, 158, 158, 0.2)", darkMode: "rgba(255, 255, 255, 0.2)"},
