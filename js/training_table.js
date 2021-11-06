@@ -174,9 +174,11 @@ const displayedMonthYear = () => ({month: displayedMonth(), year: displayedYear
 //Weekday elements
 const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
+const responsiveWeekday = weekday => `${weekday.slice(0,3)}<span class="big-only">${weekday.slice(3)}</span>`;
+
 const htmlCalendarWeekday = weekday => `
   <th>
-    ${weekday}
+    ${responsiveWeekday(weekday)}
   </th>`;
 
 const htmlCalendarWeekdays = () => weekdays
@@ -332,8 +334,11 @@ function renderModalContent(id) {
 //main
 let calendarView
 //views: "week", "month"
-function renderCalendar(view) { 
+//size: "big", "small"
+function renderCalendar(view, size) { 
   calendarView = view;
   setFirstDisplayedDate();
   updateCalendar();
 }
+
+

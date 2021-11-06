@@ -107,6 +107,9 @@ main {
     #calendar td {
         height: calc((100% - 2em)/7);
     }
+    .big-only {
+        display: none;
+    }
 }
 
 footer {
