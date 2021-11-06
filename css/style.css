@@ -94,6 +94,18 @@
 }
 
 
+/* Put get numbers to the right */
+.num {
+    text-align: right;
+}
+
+
+/* Center text */
+.center {
+    text-align: center;
+}
+
+
 
 
 
@@ -113,6 +125,21 @@ body {
     overflow-x: hidden;
     font-size: 16px;
     color: var(--black);
+}
+
+
+
+/* Filter div for darkening the background */
+.darken {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.6)
 }
 
 
@@ -207,6 +234,12 @@ nav div:hover {
     width: 100%;
 }
 
+nav img {
+    height: 2em;
+    width: auto;
+    filter: var(--logoFilter)
+}
+
 
 
 main {
@@ -238,6 +271,40 @@ main {
 
 
 
+.module {
+    width: 100%;
+    margin-bottom: 4em;
+}
+
+
+
+.split {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-content: stretch;
+}
+
+.split > div {
+    width: 50%;
+    /* max-width: calc(50% - 1em); */
+    padding: 1em;
+}
+
+@media only screen and (max-width: 600px) {
+    .split {
+        flex-flow: column nowrap;
+    }
+    .split div {
+        width: 100%;
+        /* max-width: calc(50% - 1em); */
+        padding: 1em;
+    }
+}
+
+
+
 footer {
     width: 100%;
     background-color: var(--black);
@@ -264,6 +331,32 @@ footer .split div:last-child {
 
 
 
+button {
+    background-color: var(--red);
+    padding: .8em 2em;
+    border-radius: 0px;
+    border: 0px solid var(--darkgray);
+    color: var(--white);
+    font-size: 1.2em;
+    margin: auto;
+    display: block;
+    margin-top: 1em;
+    cursor: pointer;
+}
+
+
+
+#darkModeBtn {
+    background-color: rgba(0, 0, 0, 0);
+    width: auto;
+    height: auto;
+    /* margin: 0 auto 2em auto; */
+    font-size: 3em;
+    padding: 0;
+}
+
+
+
 h1 {
     font-size: 2.4em;
     text-align: center;
@@ -278,12 +371,38 @@ h2 {
 
 
 
+p {
+    margin-bottom: 1em;
+}
+
+
+
 a {
     color: var(--red);
 }
 /* a:hover {
     color: var(--black);
 } */
+
+
+
+table {
+    border-collapse: collapse;
+    /* border: 1px solid var(--black); */
+    width: 100%;
+}
+
+table th {
+    background-color: var(--darkgray);
+    color: var(--white);
+}
+
+table th, table td {
+    padding: .6em;
+    text-align: left;
+    cursor: default;
+    /* border: 1px solid var(--black); */
+}
 
 
 
@@ -338,46 +457,6 @@ a {
     color: #fefefe;
 }
 
-.module {
-    width: 100%;
-    margin-bottom: 4em;
-}
-
-.split > div {
-    width: 50%;
-    /* max-width: calc(50% - 1em); */
-    padding: 1em;
-}
-
-
-.split {
-    width: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-content: stretch;
-}
-
-
-/* Veldig optional kode for at intro to table tennis kanskje ser såvidt finere ut */
-.module .split div img {
-    margin: -1em;
-    width: calc(100% + 2em);
-    height: calc(100% + 2em);
-    object-fit: cover;
-}
-
-@media only screen and (max-width: 600px) {
-    .split {
-        flex-flow: column nowrap;
-    }
-    .split div {
-        width: 100%;
-        /* max-width: calc(50% - 1em); */
-        padding: 1em;
-    }
-}
-
 .flyer {
     width: 100%;
     max-width: 700px;
@@ -425,41 +504,6 @@ a {
     right: -22px;
 }
 
-button {
-    background-color: var(--red);
-    padding: .8em 2em;
-    border-radius: 0px;
-    border: 0px solid var(--darkgray);
-    color: var(--white);
-    font-size: 1.2em;
-    margin: auto;
-    display: block;
-    margin-top: 1em;
-    cursor: pointer;
-}
-
-p {
-    margin-bottom: 1em;
-}
-
-table {
-    border-collapse: collapse;
-    /* border: 1px solid var(--black); */
-    width: 100%;
-}
-
-table th {
-    background-color: var(--darkgray);
-    color: var(--white);
-}
-
-table th, table td {
-    padding: .6em;
-    text-align: left;
-    cursor: default;
-    /* border: 1px solid var(--black); */
-}
-
 #scoreboard tbody tr:nth-child(2n) {
     background-color: var(--lightergray);
 }
@@ -473,28 +517,12 @@ table th, table td {
     background-color: var(--red);
 }
 
-.num {
-    text-align: right;
-}
-
-.center {
-    text-align: center;
-}
-
-
-
 .module img {
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
     /* border-radius: 15px; */
     width: 100%;
     background-color: var(--darkgray);
     filter: brightness(0.5);
-}
-
-nav img {
-    height: 2em;
-    width: auto;
-    filter: var(--logoFilter)
 }
 
 .redbg {
@@ -505,28 +533,8 @@ nav img {
     box-shadow: 0px 1px 3px rgb(0, 0, 0, 0.3);
 }
 
-/* Filter div for darkening the background */
-.darken {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 3;
-    background-color: rgba(0, 0, 0, 0.6)
-}
 
 
-#darkModeBtn {
-    background-color: rgba(0, 0, 0, 0);
-    width: auto;
-    height: auto;
-    /* margin: 0 auto 2em auto; */
-    font-size: 3em;
-    padding: 0;
-}
 
 
 
@@ -539,6 +547,14 @@ nav img {
 }
 
 
+
+/* Veldig optional kode for at intro to table tennis kanskje ser såvidt finere ut */
+.module .split div img {
+    margin: -1em;
+    width: calc(100% + 2em);
+    height: calc(100% + 2em);
+    object-fit: cover;
+}
 
 /*------------------------------------*\
   Social Gatherings
