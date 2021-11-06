@@ -20,6 +20,8 @@
  * Regular Training.....Spesific styles for said page
  * Social Gatherings....Spesific styles for said page
  * Contact..............Spesific styles for said page
+ *
+ * Media queries........Mobile optimizing - placed lower for higher priority
  */
 
 
@@ -257,19 +259,6 @@ main {
     margin: auto;
 }
 
-@media only screen and (max-width: 600px) {
-    .width {
-        width: calc(100% - 2em);
-    }
-    #calendar td {
-        height: calc((100% - 2em)/7);
-    }
-    .big-only {
-        display: none;
-    }
-}
-
-
 
 .module {
     width: 100%;
@@ -290,17 +279,6 @@ main {
     width: 50%;
     /* max-width: calc(50% - 1em); */
     padding: 1em;
-}
-
-@media only screen and (max-width: 600px) {
-    .split {
-        flex-flow: column nowrap;
-    }
-    .split div {
-        width: 100%;
-        /* max-width: calc(50% - 1em); */
-        padding: 1em;
-    }
 }
 
 
@@ -716,18 +694,6 @@ table th, table td {
 }
 
 
-@media only screen and (max-width: 600px) {
-    .year-controls .material-icons {
-        font-size: 3em;
-    }
-
-    .social-gatherings-gallery-container img {
-        max-width: 100%;
-        max-height: 100vh;
-        margin: 0;
-    }
-}
-
 
 
 /*------------------------------------*\
@@ -758,7 +724,8 @@ table th, table td {
     vertical-align: top;
     border: 1px solid var(--black);
     padding: 0;
-    height: calc((100vw - 6em)/7);
+    height: 120px;
+    /* height: calc((100vw - 6em)/7); */
 }
 
 .calendarEvent {
@@ -876,6 +843,32 @@ form button {
     align-self: flex-start;
 }
 
+.person {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 370px;
+}
+
+.person h1 {
+    margin: .5em;
+}
+
+.person h3 {
+    margin-top: 1em;
+}
+
+.module .width .split .person img {
+    margin: 0;
+    width: 100%;
+    height: auto;
+}
+
+
+/*------------------------------------*\
+  Media queries
+\*------------------------------------*/
+
+
 @media only screen and (max-width: 800px) {
     .width .width {
         width: calc(100% - 2em);
@@ -888,6 +881,25 @@ form button {
 }
 
 @media only screen and (max-width: 600px) {
+    .width {
+        width: calc(100% - 2em);
+    }
+    #calendar td {
+        height: 80px;
+        /* height: calc((100% - 2em)/7); */
+    }
+    .big-only {
+        display: none;
+    }
+    .split {
+        flex-flow: column nowrap;
+    }
+    .split div {
+        width: 100%;
+        /* max-width: calc(50% - 1em); */
+        padding: 1em;
+    }
+
     .width .width {
         width: 100%;
     }
@@ -907,24 +919,13 @@ form button {
     .split .person {
         max-width: 100%;
     }
-}
+    .year-controls .material-icons {
+        font-size: 3em;
+    }
 
-.person {
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 400px;
-}
-
-.person h1 {
-    margin: .5em;
-}
-
-.person h3 {
-    margin-top: 1em;
-}
-
-.module .width .split .person img {
-    margin: 0;
-    width: 100%;
-    height: auto;
+    .social-gatherings-gallery-container img {
+        max-width: 100%;
+        max-height: 100vh;
+        margin: 0;
+    }
 }

@@ -30,13 +30,13 @@
                         <hr>
                         <label for="name">
                             Name
-                            <input type="text" name="name" id="name" placeholder="Ola Nordmann">
+                            <input required autofocus type="text" name="name" id="name" placeholder="Ola Nordmann">
                         </label>
                         <div class="split">
                             <div>
                                 <label for="email">
                                     Email
-                                    <input type="email" name="email" id="email" placeholder="olanord@ntnu.no">
+                                    <input required type="email" name="email" id="email" placeholder="olanord@ntnu.no">
                                 </label>
                             </div>
                             <div>
@@ -56,7 +56,7 @@
                             <div>
                                 <label for="experience">
                                     Experience
-                                    <select name="experience" id="experience">
+                                    <select required name="experience" id="experience">
                                         <option value="-1" style="display: none;">Choose closest</option>
                                         <option value="0">None</option>
                                         <option value="1">Beginner level</option>
