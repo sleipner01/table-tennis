@@ -888,6 +888,18 @@ form label input, form label textarea, form label select {
     font-family: inherit;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 select[value="-1"] {
     /* Tror ikke denne funker tbh */
     color: var(--lightgray);
