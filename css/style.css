@@ -769,9 +769,18 @@ table th, table td {
     padding: 0;
 }
 
+
+
 .calendarDate {
     height: calc((100vw - 6em)/7);
     max-height: calc(1000px/7);
+    border: 1px solid transparent;
+    transition: border-color .7s ease;
+}
+
+.calendarDate:hover {
+    transition: border-color .3s ease;
+    border: 1px solid var(--black);
 }
 
 .calendarNum {
@@ -786,6 +795,8 @@ table th, table td {
     user-select: none;
     margin: .3em 0;
     padding: .5em 0;
+    width: calc(100% + 2px);
+    margin-left: -1px;
     overflow: hidden;
 }
 
