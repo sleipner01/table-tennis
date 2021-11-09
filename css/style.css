@@ -1008,4 +1008,7 @@ form button {
         max-height: 100vh;
         margin: 0;
     }
+    .flyer {
+        padding: 0 3em;
+    }
 }
