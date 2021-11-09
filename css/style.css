@@ -937,6 +937,7 @@ form button {
     margin: 0;
     width: 100%;
     height: auto;
+    filter: none;
 }
 
 
