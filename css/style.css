@@ -158,7 +158,6 @@ nav {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    /* background-color: rgba(255, 255, 255, 0.2); */
     position: sticky;
     top: 0;
     z-index: 2;
@@ -216,7 +215,6 @@ nav div {
 
 nav div:hover {
     background-color: var(--white);
-    /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); */
 }
 
 #dd-menu {
@@ -235,13 +233,11 @@ nav div:hover {
     flex-flow: column nowrap;
     background-color: var(--white);
     justify-content: flex-start;
-    /* border: 1px solid black; */
 }
 
 #dropdown a {
     display: block;
     line-height: 2em;
-    /* text-align: right; */
     width: 100%;
 }
 
@@ -262,7 +258,6 @@ main {
 
 .width {
     padding: 2em 0em;
-    /* max-width: 800px; */
     max-width: 1000px;
     width: calc(100% - 6em);
     margin: auto;
@@ -286,7 +281,6 @@ main {
 
 .split > div {
     width: 50%;
-    /* max-width: calc(50% - 1em); */
     padding: 1em;
 }
 
@@ -296,11 +290,9 @@ footer {
     width: 100%;
     background-color: var(--black);
     color: var(--white);
-    /* height: 6em; */
     padding: 3em 0 0;
     line-height: 2.5em;
     font-size: .9em;
-    /* padding: 1em; */
     display: flex;
     justify-content: flex-end;
     align-content: center;
@@ -337,7 +329,6 @@ button {
     background-color: rgba(0, 0, 0, 0);
     width: auto;
     height: auto;
-    /* margin: 0 auto 2em auto; */
     font-size: 3em;
     padding: 0;
 }
@@ -367,15 +358,11 @@ p {
 a {
     color: var(--red);
 }
-/* a:hover {
-    color: var(--black);
-} */
 
 
 
 table {
     border-collapse: collapse;
-    /* border: 1px solid var(--black); */
     width: 100%;
 }
 
@@ -388,9 +375,25 @@ table th, table td {
     padding: .6em;
     text-align: left;
     cursor: default;
-    /* border: 1px solid var(--black); */
 }
 
+
+
+.redbg {
+    background-color: var(--red);
+    color: white;
+    padding: 1em;
+    box-shadow: 0px 1px 3px rgb(0, 0, 0, 0.3);
+}
+
+
+
+.module img {
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    background-color: var(--darkgray);
+    filter: brightness(0.5);
+}
 
 
 
@@ -410,13 +413,6 @@ table th, table td {
 \*------------------------------------*/
 
 #gallery {
-    /* max-width: 800px;
-    width: calc(100vw - 6em); */
-    /* width: 100vw; */
-    /* left: ; */
-    /* margin-left: calc(-3em); */
-    /* margin-bottom: 2em; */
-    /* height: calc(100vw * (9/16) - 300px); */
     position: relative;
     padding: calc((100vw * (9/16)) * (1/3)) 0 4em 0;
     margin-top: -60px;
@@ -425,12 +421,8 @@ table th, table td {
     justify-content: space-evenly;
     align-content: center;
     z-index: 1;
-
     background-size: cover;
-    /* background-blend-mode: darken; */
     background-color: var(--lightgray);
-    /* opacity: 0.8; */
-    /* Not fully supported, find other solution */
     transition: background-image 1s ease-in-out;
 }
 
@@ -505,53 +497,6 @@ table th, table td {
     background-color: var(--red);
 }
 
-.indexBio {
-    /* font-size: 1em; */
-    /* font-weight: bold; */
-}
-
-.indexBio p {
-    color: var(--black);
-    /* opacity: 0.5; */
-}
-
-.indexBio p:first-child {
-    font-size: 1.2em;
-    opacity: 1;
-}
-
-.indexPromo {
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.indexPromo p {
-    color: var(--white);
-    opacity: 0.5;
-}
-
-.indexPromo p:last-child {
-    font-size: 1.6em;
-    opacity: 1;
-}
-
-.module img {
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-    /* border-radius: 15px; */
-    width: 100%;
-    background-color: var(--darkgray);
-    filter: brightness(0.5);
-}
-
-.redbg {
-    background-color: var(--red);
-    /* color: var(--white); */
-    color: white;
-    padding: 1em;
-    box-shadow: 0px 1px 3px rgb(0, 0, 0, 0.3);
-}
-
-
 
 
 
@@ -566,7 +511,6 @@ table th, table td {
 
 
 
-/* Veldig optional kode for at intro to table tennis kanskje ser såvidt finere ut */
 .module .split div img {
     margin: -1em;
     width: calc(100% + 2em);
@@ -591,7 +535,6 @@ table th, table td {
     flex-direction: row;
     align-items: center;
     font-size: 2em;
-    /* margin-bottom: 1em; */
 }
 
 #currentYear {
@@ -617,10 +560,7 @@ table th, table td {
 }
 
 .adjacentYears {
-    /* height: calc(100% - ((2.4em * 1.5) + 2.5em + (1.5em * 1.5) + 1em)); */
     height: auto;
-    /* flex-grow: 1; */
-    /* top: ((2.4em * 1.5) + 2.5em + (1.5em * 1.5) + 1em); */
     width: 5%;
     margin: 2em 0;
     background-color: var(--darkred);
@@ -652,7 +592,6 @@ table th, table td {
 .collapsible {
     margin: 0 auto;
     background-color: var(--red);
-    /* color: var(--white); */
     color: white;
     cursor: pointer;
     padding: 1.2em 2em;
@@ -686,7 +625,6 @@ table th, table td {
 .collapsible-content {
     overflow: hidden;
     max-height: 0;
-    /* box-shadow: 0px 0px 6px #626367; */
     transition: all .1s ease-out;
 }
 
@@ -708,8 +646,6 @@ table th, table td {
 }
 
 .social-gatherings-gallery-container .social-gatherings-date {
-    /* color: var(--darkgray); */
-    /* color: var(--white); */
     opacity: 0.5;
     font-size: 1em;
 }
@@ -821,7 +757,6 @@ table th, table td {
     border-radius: 20px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     z-index: 5;
-    /* width: 40%; */
     max-width: calc(100vw - 4em);
 }
 
@@ -910,11 +845,6 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-select[value="-1"] {
-    /* Tror ikke denne funker tbh */
-    color: var(--lightgray);
-}
-
 form .split {
     justify-content: space-between;
 }
@@ -986,7 +916,6 @@ form button {
     }
     .split div {
         width: 100%;
-        /* max-width: calc(50% - 1em); */
         padding: 1em;
     }
 
