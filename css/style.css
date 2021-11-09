@@ -745,8 +745,11 @@ table th, table td {
     vertical-align: top;
     border: 1px solid var(--black);
     padding: 0;
-    height: 120px;
-    /* height: calc((100vw - 6em)/7); */
+}
+
+.calendarDate {
+    height: calc((100vw - 6em)/7);
+    max-height: calc(1000px/7);
 }
 
 .calendarEvent {
@@ -906,8 +909,7 @@ form button {
         width: calc(100% - 2em);
     }
     #calendar td {
-        height: 80px;
-        /* height: calc((100% - 2em)/7); */
+        height: calc((100% - 2em)/7);
     }
     .big-only {
         display: none;
