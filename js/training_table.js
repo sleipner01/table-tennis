@@ -205,9 +205,9 @@ const htmlEvents = date => events
   .join("");
 
 const htmlCalendarDate = (date, i) => `
-  <td background-color: ${color(date)};">
+  <td style="background-color: ${color(date)};">
     <div class="calendarDate">
-      ${date.day}
+      <span class="calendarNum">${date.day}</span>
       ${htmlEvents(date)}
     </div>
   </td>`; //div because td can't have max-height
