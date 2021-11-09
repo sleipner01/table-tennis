@@ -180,6 +180,7 @@ nav a {
 nav #dropdown a:after {
     content: '';
     display: block;
+    width: 100%;
     transform: scaleX(0);
     transform-origin:  0% 50%;
     transition: transform .1s ease-in;
@@ -461,7 +462,8 @@ table th, table td {
     background-size: contain;
     margin-top: -5px;
     position: absolute;
-    top: -13px;
+    top: 16px;
+    z-index: -1;
     display: inline-block;
 }
 
@@ -471,7 +473,7 @@ table th, table td {
 
 .flyer .p-left::before {
     background-image: url("../../bordtennis/media/favicon.png");
-    left: -22px;
+    left: -32px;
 }
 
 .flyer .p-right {
@@ -483,7 +485,7 @@ table th, table td {
     background-image: url("../../bordtennis/media/favicon.png");
     filter: grayscale(1);
     transform: scaleX(-1);
-    right: -22px;
+    right: -32px;
 }
 
 #scoreboard tbody tr:nth-child(2n) {
@@ -500,17 +502,32 @@ table th, table td {
 }
 
 .indexBio {
-    font-size: 1.5em;
-    font-weight: bold;
+    /* font-size: 1em; */
+    /* font-weight: bold; */
 }
 
 .indexBio p {
     color: var(--black);
-    opacity: 0.5;
+    /* opacity: 0.5; */
 }
 
 .indexBio p:first-child {
     font-size: 1.2em;
+    opacity: 1;
+}
+
+.indexPromo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.indexPromo p {
+    color: var(--white);
+    opacity: 0.5;
+}
+
+.indexPromo p:last-child {
+    font-size: 1.6em;
     opacity: 1;
 }
 
@@ -745,8 +762,11 @@ table th, table td {
     vertical-align: top;
     border: 1px solid var(--black);
     padding: 0;
-    height: 120px;
-    /* height: calc((100vw - 6em)/7); */
+}
+
+.calendarDate {
+    height: calc((100vw - 6em)/7);
+    max-height: calc(1000px/7);
 }
 
 .calendarEvent {
@@ -906,8 +926,7 @@ form button {
         width: calc(100% - 2em);
     }
     #calendar td {
-        height: 80px;
-        /* height: calc((100% - 2em)/7); */
+        height: calc((100% - 2em)/7);
     }
     .big-only {
         display: none;
