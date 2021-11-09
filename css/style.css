@@ -201,6 +201,10 @@ nav #dropdown a.active:hover:after {
     border-color: var(--red);
 }
 
+nav #dropdown:hover + #dd-menu {
+    background-color: var(--black)
+}
+
 nav div {
     padding: 1em;
     display: flex;
