@@ -825,6 +825,10 @@ table th, table td {
     max-width: calc(100vw - 4em);
 }
 
+#modal .split button {
+    margin: 2px;
+}
+
 .triple {
     width: 100%;
     display: flex;
