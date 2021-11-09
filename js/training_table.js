@@ -14,7 +14,7 @@ const currentDate = dateObj(d.getDate(), d.getMonth()+1, d.getFullYear());
 //Gets set to current month/weeks's first displayed date.
 //It can only get set to a date after 27/9/2021.
 //This has to be a monday.
-let firstDate = dateObj(27,9,2021); 
+let firstDate = dateObj(27,9,2021);
 
 const events = [
   {
@@ -230,7 +230,7 @@ const htmlCalendarWeek = mondayDate => `
 const htmlCalendarWeeks = (from, days) => dateRange(from,days,7)
   .map(htmlCalendarWeek)
   .join("");
-  
+
 const daysRenderedInMonth = from => {
   let i = 1;
   while (dateAfterDays(from, i*7).month === displayedMonth())
@@ -286,7 +286,7 @@ const isSameMonth = (date1, date2) =>
   date1.month === date2.month;
 
 //date1 has to be before date2
-const daysBetween = (date1, date2) => { 
+const daysBetween = (date1, date2) => {
   let days = 0;
   while (!isSameDate(dateAfterDays(date1,days),date2))
     days++;
@@ -319,10 +319,10 @@ const modalContent = eventModal => `
   <p>${eventModal.info}</p>
   <div class="split">
     <button onclick="toggleModalDisplay()">
-      ${eventModal.buttonText}
+      Back
     </button>
     <button onclick="toggleModalDisplay()">
-      Back
+    ${eventModal.buttonText}
     </button>`;
 
 function renderModalContent(id) {
@@ -335,10 +335,8 @@ function renderModalContent(id) {
 let calendarView
 //views: "week", "month"
 //size: "big", "small"
-function renderCalendar(view, size) { 
+function renderCalendar(view, size) {
   calendarView = view;
   setFirstDisplayedDate();
   updateCalendar();
 }
-
-
