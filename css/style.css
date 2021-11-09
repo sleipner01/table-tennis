@@ -759,6 +759,7 @@ table th, table td {
     color: var(--white);
     color: white;
     text-align: center;
+    padding: 0.2em 0.6em; 
 }
 
 #calendar td {
@@ -777,7 +778,8 @@ table th, table td {
     text-align: center;
     cursor: pointer;
     user-select: none;
-    margin: 5px;
+    margin: 5px 0;
+    padding: 4px;
     overflow: hidden;
 }
 
