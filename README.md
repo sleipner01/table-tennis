@@ -62,3 +62,76 @@ The appearance is very important, but not as important as the content, because m
 Color scheme wise NTNUI uses green, but a combination of red, black and white would suit the table tennis sport well.
 
 Content hierarchy wise should be similar to NTNUI's website
+
+
+## File structure
+```sh
+bordtennis/
+    ├─regular-training/
+    │   └─index.html
+    ├─css/
+    │   └─style.css
+    ├─.gitignore
+    ├─intro-to-table-tennis/
+    │   └─index.html
+    ├─media/
+    │   ├─contact-images/
+    │   │   ├─istockphoto-1192307192-170667a.jpg
+    │   │   ├─teamLeader.jpg
+    │   │   ├─man1.jpg
+    │   │   └─coach.jpg
+    │   ├─intro-images/
+    │   │   └─man1.jpg
+    │   ├─gathering-images/
+    │   │   ├─equipment.jpg
+    │   │   ├─tryout.jpg
+    │   │   └─tabletennis_table.jpg
+    │   ├─home-images/
+    │   │   ├─equipment.jpg
+    │   │   ├─equipment2.jpg
+    │   │   ├─tabletennis_table_cropped.jpg
+    │   │   ├─man1-cropped.jpg
+    │   │   ├─man1.jpg
+    │   │   └─tabletennis_table.jpg
+    │   ├─logo.png
+    │   └─favicon.png
+    ├─README.md
+    ├─social-gatherings/
+    │   └─index.html
+    ├─index.html
+    ├─js/
+    │   ├─scoreboard.js
+    │   ├─shared_html.js
+    │   ├─homepage_gallery.js
+    │   ├─training_table.js
+    │   ├─hamburger_navbar.js
+    │   ├─social_gatherings.js
+    │   └─dark_mode.js
+    ├─contact/
+    │   └─index.html
+    └─Documents/
+        ├─PDFs/
+        │   ├─social-gatherings.pdf
+        │   ├─base_design.pdf
+        │   ├─contact.pdf
+        │   ├─Training.pdf
+        │   ├─Intro.pdf
+        │   ├─index-mockup.pdf
+        │   └─mockups/
+        │       ├─intro-mockup.png
+        │       ├─training-mockup.png
+        │       ├─colorScheme.png
+        │       ├─generic-features.png
+        │       ├─indexCalendar_concept.png
+        │       ├─calendar_concept.png
+        │       ├─index-mockup.png
+        │       ├─social-gatherings-mockup.png
+        │       └─contact-mockup.png
+        ├─css/
+        │   └─style.css
+        ├─P3_changes_11.html
+        ├─meeting_draft.html
+        ├─P1_requirements_11.html
+        ├─P2_design_11.html
+        └─P4_testing_11.html
+```
