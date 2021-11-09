@@ -205,10 +205,12 @@ const htmlEvents = date => events
   .join("");
 
 const htmlCalendarDate = (date, i) => `
-  <td class="calendarDate" background-color: ${color(date)};">
-    ${date.day}
-    ${htmlEvents(date)}
-  </td>`;
+  <td background-color: ${color(date)};">
+    <div class="calendarDate">
+      ${date.day}
+      ${htmlEvents(date)}
+    </div>
+  </td>`; //div because td can't have max-height
 
 const dateRange = (from, days, step=1) => {
   const result = []
