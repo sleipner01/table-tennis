@@ -121,7 +121,7 @@ function createCollapsibles() {
                 imgEl.src = '../../bordtennis/media/gathering-images/' + event.imgName;
                 imgEl.alt = 'Event picture';
                 imgEl.height = '350';
-                imgEl.loading = 'lazy';
+                imgEl.loading = 'lazy'; // Lazy to make the site load faster, and keep the user from loading unnecessary data
                 rightDivEl.appendChild(imgEl);
 
 
