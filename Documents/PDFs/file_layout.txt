@@ -8,8 +8,8 @@ bordtennis/
     │   └─index.html
     ├─media/
     │   ├─contact-images/
-    │   │   ├─istockphoto-1192307192-170667a.jpg
     │   │   ├─teamLeader.jpg
+    │   │   ├─racket.jpg
     │   │   ├─man1.jpg
     │   │   └─coach.jpg
     │   ├─intro-images/
@@ -18,8 +18,13 @@ bordtennis/
     │   │   ├─tryout.jpg
     │   │   └─rules.jpg
     │   ├─gathering-images/
+    │   │   ├─speedrun.jpg
     │   │   ├─equipment.jpg
     │   │   ├─tryout.jpg
+    │   │   ├─skaabu.jpg
+    │   │   ├─kiev.jpg
+    │   │   ├─china.jpg
+    │   │   ├─london.jpg
     │   │   ├─michail.jpg
     │   │   └─tabletennis_table.jpg
     │   ├─home-images/
