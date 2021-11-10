@@ -178,8 +178,8 @@ function createCarousel() {
 
     leftCarousel.style.backgroundColor = "var(--darkred)";
     rightCarousel.style.backgroundColor = "var(--darkred)";
-    leftCarousel.style.boxShadow = "6px 0 15px -4px var(--darkgray), -6px 0 15px -4px var(--darkgray)";
-    rightCarousel.style.boxShadow = "6px 0 15px -4px var(--darkgray), -6px 0 15px -4px var(--darkgray)";
+    leftCarousel.style.boxShadow = "0 2px 6px rgb(0, 0, 0, 0.3)";
+    rightCarousel.style.boxShadow = "0 2px 6px rgb(0, 0, 0, 0.3)";
 
 
     if (countL == 0) {
