@@ -31,3 +31,13 @@ table, td, th {
 img {
     border: 1px solid black;
 }
+
+header a {
+    text-decoration: none;
+    display: block;
+    margin: .5em;
+}
+
+.active {
+    text-decoration: underline;
+}
