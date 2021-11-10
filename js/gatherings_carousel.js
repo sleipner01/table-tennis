@@ -153,8 +153,8 @@ function createCarousel() {
     // Count previous and nex year's number of events
     var countL = 0;
     var countR = 0;
-    var minYr = Number(currentYearEl.innerText)
-    var maxYr = minYr
+    var minYr = Number(currentYearEl.innerText);
+    var maxYr = minYr;
 
     social_events.forEach(event => {
         if (event.date.year == Number(currentYearEl.innerText) - 1) {
