@@ -14,12 +14,11 @@ const dateObj = (day,month,year) => ({day: day, month: month, year: year});
 // All social events has to be added here. The imgName attribute should only contain the file name + file type, and not the path
 const social_events = [
     {eventType: "gathering", date: dateObj(7,07,2021), name: "Field trip to Moskva", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "equipment.jpg"},
-    {eventType: "tournament", date: dateObj(1,09,2021), name: "Kiev", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "tryout.jpg", opposingTeam: 'Kiev Table Tennis', score: '11,11'},
-    {eventType: "gathering", date: dateObj(20,10,2021), name: "Pong n' pizza", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "tabletennis_table.jpg"},
-    {eventType: "tournament", date: dateObj(20,03,2020), name: "North Korea", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "equipment.jpg", opposingTeam: 'NK PlingPong', score: '11,0'},
-    {eventType: "gathering", date: dateObj(1,12,2020), name: "Pong n' code", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "tabletennis_table.jpg"},
-    {eventType: "gathering", date: dateObj(10,05,2021), name: "Magnus beats all of his project partners", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "tryout.jpg"},
-    {eventType: "tournament", date: dateObj(10,05,2018), name: "Michail Giannakos outclassed previous World Champion Ma Long", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "tryout.jpg", opposingTeam: 'Ma Long', score: '11,0'}
+    {eventType: "tournament", date: dateObj(1,09,2021), name: "Kiev", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "tryout.jpg", teamName: 'NTNUI Table Tennis', opposingTeam: 'Kiev Table Tennis', score: '11,11'},
+    {eventType: "gathering", date: dateObj(13,01,2021), name: "Pong n' pizza", text: "Due to the pandemic there were no events in 2020, but finally, this wednesday after class, every member in NTNUI Table Tennis gathered to play table tennis and eat some tasty pizza! It was a lovely evening with good laughter and some sick plays.", imgName: "tabletennis_table.jpg"},
+    {eventType: "tournament", date: dateObj(20,03,2021), name: "North Korea", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "equipment.jpg", teamName: 'NTNUI Table Tennis', opposingTeam: 'NK PlingPong', score: '11,0'},
+    {eventType: "gathering", date: dateObj(1,12,2021), name: "Pong n' code", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus ratione, quisquam ipsum officiis mollitia repellat at sequi, odit magnam, saepe recusandae praesentium repudiandae. Illo nihil et culpa totam consequuntur perferendis.", imgName: "tabletennis_table.jpg"},
+    {eventType: "tournament", date: dateObj(10,05,2019), name: "Michail Giannakos outclassed previous World Champion Ma Long", text: "In the final at the Table Tennis World Championship in Trondheim, Michail Giannakos outclassed previous champion Ma Long in a short and dominant match. We at NTNUI Table Tennis are proud to announce we have a World Champion in our group!", imgName: "michail.jpg", teamName: 'Michail Giannakos', opposingTeam: 'Ma Long', score: '11,0'}
 ];
 
 
@@ -77,13 +76,11 @@ function createCollapsibles() {
             if(event.eventType == 'tournament') {
                 buttonEl.innerHTML += ' | Tournament';
 
-                let teamName = 'NTNUI';
-
                 let resultContainerEl = document.createElement('table');
 
                 let resultTeamsContainerEl = document.createElement('tr');
                 let teamEl = document.createElement('td');
-                teamEl.innerText = teamName;
+                teamEl.innerText = event.teamName;
                 let opposingTeamEl = document.createElement('td');
                 opposingTeamEl.innerText = event.opposingTeam;
 
