@@ -432,6 +432,7 @@ table th, table td {
     background-size: cover;
     background-color: var(--lightgray);
     transition: background-image 1s ease-in-out;
+    /* max-height: 85vh; */
 }
 
 #gallery * {
@@ -682,7 +683,7 @@ table th, table td {
 }
 
 .social-gatherings-gallery-container .social-gatherings-gallery {
-    box-shadow: 6px 0 15px -4px var(--darkgray), -6px 0 15px -4px var(--darkgray);
+    box-shadow: 0 2px 6px rgb(0, 0, 0, 0.3);
 }
 
 
@@ -914,6 +915,7 @@ form button {
     }
     .calendarDate {
         height: auto;
+        min-height: 60px;
         max-height: auto;
     }
     .big-only {
