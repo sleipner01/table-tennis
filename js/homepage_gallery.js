@@ -23,7 +23,7 @@ function changePicture() {
         index = 0; // Loop and start on first picture
     }
     else {
-        index++
+        index++;
     }
 
     img = preloadNextImage(path + pictures[index]);
