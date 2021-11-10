@@ -844,8 +844,12 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type='number'] {
   -moz-appearance: textfield;
+}
+
+input[type='text']:valid, input[type='email']:valid, input[type='tel']:valid, select:valid, textarea:valid {
+    border-color: green;
 }
 
 form .split {
