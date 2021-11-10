@@ -1,7 +1,7 @@
 bod = document.body.children;
 menu = document.getElementById("dd-menu");
 dd = document.getElementById("dropdown");
-na = document.getElementsByTagName("nav")[0]
+na = document.getElementsByTagName("nav")[0];
 
 
 // Hides navbar dropdown
@@ -9,7 +9,7 @@ function hide() {
     dd.style.display = "none";
     menu.children[0].innerHTML = "menu";
     menu.style.backgroundColor = "";
-    return 1
+    return 1;
 }
 
 // Toggles navbar dropdown
@@ -21,7 +21,7 @@ function toggleDD() {
     } else {
         hide();
     }
-    return 1
+    return 1;
 }
 
 // Ensures you can click anything other than the navbar, to close the nav dropdown
