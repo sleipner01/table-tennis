@@ -1,19 +1,20 @@
-//Usage:
-//renderCalendar("week") or renderCalendar("month")
-//to render the calendar in <div id="calendar"></div>.
-//
-//increase(1) or increase(-1) to scroll through weeks/months.
-//
-//<h1 id="calendarText"></h1> can display the current month and year.
+/*
+Usage:
+renderCalendar("week") or renderCalendar("month")
+to render the calendar in <div id="calendar"></div>.
+increase(1) or increase(-1) to scroll through weeks/months.
+<h1 id="calendarText"></h1> can display the current month and year.
+*/
 
-const dateObj = (day,month,year) => ({day: day, month: month, year: year});
+const dateObj = (day, month, year) => ({day: day, month: month, year: year});
 
 const d = new Date();
 const currentDate = dateObj(d.getDate(), d.getMonth()+1, d.getFullYear());
 
-//Gets set to current month/weeks's first displayed date.
-//It can only get set to a date after 27/9/2021.
-//This has to be a monday.
+/*
+firstDate gets set to current month/weeks's first displayed date.
+It has to be before the current date.
+*/
 let firstDate = dateObj(27,9,2021);
 
 const events = [
@@ -139,7 +140,12 @@ const events = [
   },
 ];
 
-const months = (year = 2021) => [
+const isLeapYear = year =>
+  year % 400 === 0 ? true  :
+  year % 100 === 0 ? false :
+  year % 4   === 0 ? true  : false;
+
+const months = (year=2021) => [
   {name: "January", days: 31}, {name: "February", days: isLeapYear(year) ? 29 : 28},
   {name: "March", days: 31}, {name: "April", days: 30},
   {name: "May", days: 31}, {name: "June", days: 30},
@@ -147,12 +153,6 @@ const months = (year = 2021) => [
   {name: "September", days: 30}, {name: "October", days: 31},
   {name: "November", days: 30}, {name: "December", days: 31}
 ];
-
-const isLeapYear = year =>
-  year % 400 === 0 ? true  :
-  year % 100 === 0 ? false :
-  year % 4   === 0 ? true  :
-                     false;
 
 const dateAfterDays = (date, days) => {
   let day = date.day;
@@ -178,13 +178,16 @@ const dateAfterDays = (date, days) => {
       day = months(year)[month-1].days;
     }
   }
-  return dateObj(day,month,year);
+  return dateObj(day, month, year);
 }
 
 //Based on the last date on the first row
 const displayedMonth = () => dateAfterDays(firstDate, 6).month;
+
 const displayedMonthName = () => months()[displayedMonth() - 1].name;
+
 const displayedYear = () => dateAfterDays(firstDate, 6).year;
+
 const displayedMonthYear = () => ({month: displayedMonth(), year: displayedYear()});
 
 //Weekday elements
@@ -220,19 +223,20 @@ const htmlEvents = date => events
   .map(htmlEvent)
   .join("");
 
-const htmlCalendarDate = (date, i) => `
+//div because td can't have max-height
+const htmlCalendarDate = (date) => `
   <td style="background-color: ${color(date)};">
     <div class="calendarDate">
       <span class="calendarNum">${date.day}</span>
       ${htmlEvents(date)}
     </div>
-  </td>`; //div because td can't have max-height
+  </td>`;
 
 const dateRange = (from, days, step=1) => {
-  const result = []
-  for (let i = 0; i < days; i += step)
+  const result = [];
+  for (let i = 0; i < days; i += step) {
     result.push(dateAfterDays(from, i));
-
+  }
   return result;
 }
 
@@ -249,11 +253,10 @@ const htmlCalendarWeeks = (from, days) => dateRange(from,days,7)
   .map(htmlCalendarWeek)
   .join("");
 
+//The amount of weeks in a month differs (4-6). February 2021 is a rare example of a 4 week month.
 const daysRenderedInMonth = from => {
-  let i = 1;
-  while (dateAfterDays(from, i*7).month === displayedMonth())
-    i++;
-
+  let i = 4;
+  while (dateAfterDays(from, i*7).month === displayedMonth()) i++;
   return i*7;
 }
 
@@ -264,8 +267,8 @@ const daysRendered = () =>
 function updateText() {
   const calendarTextEl = document.getElementById("calendarText");
   if (!calendarTextEl) return;
-  const monthYear = displayedMonthName() + " " + displayedYear();
-  calendarTextEl.innerHTML = monthYear;
+  const monthAndYear = displayedMonthName() + " " + displayedYear();
+  calendarTextEl.innerHTML = monthAndYear;
 }
 
 function updateCalendar() {
@@ -273,6 +276,7 @@ function updateCalendar() {
   calendarEl.innerHTML = `
     <tr>${htmlCalendarWeekdays()}</tr>
     ${htmlCalendarWeeks(firstDate, daysRendered())}`;
+
   updateText();
 }
 
@@ -281,40 +285,46 @@ function increaseWeeks(inc) {
 }
 
 function increaseMonth(inc) {
-  if (inc < 0)
+  if (inc < 0) {
     firstDate = dateAfterDays(firstDate, -7 * 7);
+  }
   const oldMonth = displayedMonth();
-  while (oldMonth === displayedMonth())
+  while (oldMonth === displayedMonth()) {
     increaseWeeks(1);
+  }
 }
 
 function increase(inc) {
-  if (calendarView == "month")
+  if (calendarView == "month") {
     increaseMonth(inc);
-  else if (calendarView == "week")
+  }
+  else if (calendarView == "week") {
     increaseWeeks(inc);
+  }
   updateCalendar()
+}
+
+//date1 has to be before date2
+const daysBetween = (date1, date2) => {
+  let days = 0;
+  while (!isSameDate(dateAfterDays(date1, days), date2)) days++;
+  return days;
 }
 
 const isSameMonth = (date1, date2) =>
   date1.year === date2.year &&
   date1.month === date2.month;
 
-//date1 has to be before date2
-const daysBetween = (date1, date2) => {
-  let days = 0;
-  while (!isSameDate(dateAfterDays(date1,days),date2))
-    days++;
-  return days;
-}
-
 function setFirstDisplayedDate() {
-  while (!isSameMonth(currentDate, displayedMonthYear()))
+  while (!isSameMonth(currentDate, displayedMonthYear())) {
     increaseMonth(1);
+  }
 
-  if (calendarView === "week")
-    while (daysBetween(firstDate, currentDate) > 6)
+  if (calendarView === "week") {
+    while (daysBetween(firstDate, currentDate) > 6) {
       increaseWeeks(1);
+    }
+  }
 }
 
 //Modal
@@ -346,10 +356,9 @@ function renderModalContent(id) {
   modalEl.innerHTML = modalContent(modalEvent);
 }
 
-//main
-let calendarView
 //views: "week", "month"
-//size: "big", "small"
+let calendarView
+
 function renderCalendar(view, size) {
   calendarView = view;
   setFirstDisplayedDate();
