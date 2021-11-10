@@ -107,9 +107,17 @@
     text-align: center;
 }
 
+
+
 .subText {
     opacity: 0.5;
 }
+
+
+
+.yScrollable {
+    overflow-y: auto;
+  }
 
 
 

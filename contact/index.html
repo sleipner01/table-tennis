@@ -50,7 +50,16 @@
                             <div>
                                 <label for="study_program">
                                     Study program
-                                    <input type="text" name="study_program" id="study_program" placeholder="Informatics">
+                                    <input list="study_programs" name="study_program" id="study_program" placeholder="Informatics">
+                                    <!-- The datalist can be retrieved and updated through the database, based on what members submit. -->
+                                    <datalist class="yScrollable" id="study_programs"> 
+                                        <option value="Informatics">
+                                        <option value="Biotechnology">
+                                        <option value="Digital Infrastruture and Cyber Security">
+                                        <option value="Industrial Economics and Technology Managment">
+                                        <option value="Information Security">
+                                        <option value="Programming">
+                                    </datalist>
                                 </label>
                             </div>
                             <div>
