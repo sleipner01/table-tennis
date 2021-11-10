@@ -75,6 +75,14 @@ const events = [
   },
   {
     id: "8",
+    name: "Social night",
+    date: dateObj(29,11,2021),
+    color: "cornflowerblue",
+    info: "18:00-22:00\nWe'll meet at Magnus' place, there'll be pizza and James bond on the big screen",
+    buttonText: "I'll be there."
+  },
+  {
+    id: "9",
     name: "Training",
     date: dateObj(3,12,2021),
     color: "green",
@@ -82,7 +90,7 @@ const events = [
     buttonText: "I'll be there."
   },
   {
-    id: "9",
+    id: "10",
     name: "Tournament",
     date: dateObj(4,12,2021),
     color: "purple",
@@ -90,7 +98,7 @@ const events = [
     buttonText: "Sign up"
   },
   {
-    id: "10",
+    id: "11",
     name: "Training",
     date: dateObj(10,12,2021),
     color: "green",
@@ -98,7 +106,7 @@ const events = [
     buttonText: "I'll be there."
   },
   {
-    id: "11",
+    id: "12",
     name: "Training",
     date: dateObj(17,12,2021),
     color: "green",
@@ -106,7 +114,15 @@ const events = [
     buttonText: "I'll be there."
   },
   {
-    id: "12",
+    id: "13",
+    name: "Social night",
+    date: dateObj(19,12,2021),
+    color: "cornflowerblue",
+    info: "18:30-22:00\nWe'll meet at Ole's place, there'll be pizza and we'll watch Jason Bourne",
+    buttonText: "I'll be there."
+  },
+  {
+    id: "14",
     name: "Training",
     date: dateObj(24,12,2021),
     color: "green",
@@ -114,7 +130,7 @@ const events = [
     buttonText: "I'll be there."
   },
   {
-    id: "13",
+    id: "15",
     name: "Training",
     date: dateObj(31,12,2021),
     color: "green",
