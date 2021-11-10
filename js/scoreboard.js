@@ -35,7 +35,7 @@ function makeScoreboard(data, scoreboardEl) {
         let name = document.createElement('td');
         name.innerHTML = item.name;
         let score = document.createElement('td');
-        score.innerHTML = item.score
+        score.innerHTML = item.score;
         score.classList.add('num')
 
         row.appendChild(name);
@@ -44,4 +44,4 @@ function makeScoreboard(data, scoreboardEl) {
         scoreboardEl.appendChild(row);
     })
 }
-makeScoreboard(getData(), 'scoreboard'); //Name of the table with data)
+makeScoreboard(getData(), 'scoreboard'); //Name of the table with data

@@ -524,8 +524,9 @@ table th, table td {
 
 
 
-.intro-paragraph {
+.split .intro-paragraph {
     line-height: 1.5;
+    padding: 1em 1.8em;
 }
 
 
