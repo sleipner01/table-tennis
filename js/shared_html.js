@@ -1,4 +1,4 @@
-//The relative paths differ for each html file
+//The relative paths differ
 const nav = relativePath => `
   <div>
     <a href="${relativePath}bordtennis/">
@@ -29,23 +29,20 @@ const footer = relativePath => `
       <button onclick="toggleDarkMode()" id="darkModeBtn" class="material-icons">dark_mode</button>
       <div>
         <a href="${relativePath}bordtennis/contact/" target="_blank">Contact</a>
-        <a href="mailto:bordtennis@ntnui.no">E-mail: NTNUI Table tennis</a>
-        <a href="mailto:magnueb@stud.ntnu.no">E-mail: Magnus (website host)</a>
-        <a href="tel:+47116123">Phone nr.: 116 123</a>
+        <a href="mailto:bordtennis@ntnui.no" target="_blank">E-mail: NTNUI Table tennis</a>
+        <a href="mailto:magnueb@stud.ntnu.no" target="_blank">E-mail: Magnus (website host)</a>
+        <a href="tel:+47116123" target="_blank">Phone nr.: 116 123</a>
       </div>
     </div>
   </div>`;
 
-const relativePath = url => {
-  const urlArr = url.split('/');
-  const dirs = urlArr.length - urlArr.indexOf("bordtennis") - 1;
-  return "../".repeat(dirs);
-}
+const urlArr = url => url.split('/');
 
-const directoryName = url => {
-  const urlArr = url.split('/');
-  return urlArr[urlArr.length - 2];
-}
+const directoriesAmount = url => urlArr(url).length - urlArr(url).indexOf("bordtennis") - 1;
+
+const relativePath = url => "../".repeat(directoriesAmount(url));
+
+const directoryName = url => urlArr(url)[urlArr(url).length - 2];
 
 function renderElements() {
   const url = window.location.href;
