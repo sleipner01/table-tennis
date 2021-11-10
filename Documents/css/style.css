@@ -41,3 +41,12 @@ header a {
 .active {
     text-decoration: underline;
 }
+
+.new::after {
+    content: "New!";
+    position: absolute;
+    color: orange;
+    font-size: .9em;
+    margin-left: 1em;
+    margin-top: .1em;
+}
