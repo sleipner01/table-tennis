@@ -387,6 +387,7 @@ table th, table td {
     color: white;
     padding: 1em;
     box-shadow: 0px 1px 3px rgb(0, 0, 0, 0.3);
+    border-radius: 5px;
 }
 
 
