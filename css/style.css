@@ -955,6 +955,11 @@ form button {
         max-height: 100vh;
         margin: 0;
     }
+
+    .social-gatherings-gallery .img-container {
+        justify-content: center;
+    }
+
     .flyer {
         padding: 0 3em;
     }
