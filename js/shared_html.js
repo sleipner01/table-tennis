@@ -29,9 +29,9 @@ const footer = relativePath => `
       <button onclick="toggleDarkMode()" id="darkModeBtn" class="material-icons">dark_mode</button>
       <div>
         <a href="${relativePath}bordtennis/contact/" target="_blank">Contact</a>
-        <a href="mailto:bordtennis@ntnui.no">E-mail: NTNUI Table tennis</a>
-        <a href="mailto:magnueb@stud.ntnu.no">E-mail: Magnus (website host)</a>
-        <a href="tel:+47116123">Phone nr.: 116 123</a>
+        <a href="mailto:bordtennis@ntnui.no" target="_blank">E-mail: NTNUI Table tennis</a>
+        <a href="mailto:magnueb@stud.ntnu.no" target="_blank">E-mail: Magnus (website host)</a>
+        <a href="tel:+47116123" target="_blank">Phone nr.: 116 123</a>
       </div>
     </div>
   </div>`;
