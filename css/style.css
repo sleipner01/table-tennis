@@ -200,8 +200,8 @@ nav #dropdown a.active:hover:after {
     border-color: var(--red);
 }
 
-nav #dropdown:hover + #dd-menu {
-    background-color: var(--black)
+nav > * {
+    background-color: var(--white)
 }
 
 nav div {
