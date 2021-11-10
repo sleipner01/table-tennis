@@ -1,4 +1,4 @@
-//The relative paths differ for each html file
+//The relative paths differ
 const nav = relativePath => `
   <div>
     <a href="${relativePath}bordtennis/">
@@ -36,16 +36,13 @@ const footer = relativePath => `
     </div>
   </div>`;
 
-const relativePath = url => {
-  const urlArr = url.split('/');
-  const dirs = urlArr.length - urlArr.indexOf("bordtennis") - 1;
-  return "../".repeat(dirs);
-}
+const urlArr = url => url.split('/');
 
-const directoryName = url => {
-  const urlArr = url.split('/');
-  return urlArr[urlArr.length - 2];
-}
+const directoriesAmount = url => urlArr(url).length - urlArr(url).indexOf("bordtennis") - 1;
+
+const relativePath = url => "../".repeat(directoriesAmount(url));
+
+const directoryName = url => urlArr(url)[urlArr(url).length - 2];
 
 function renderElements() {
   const url = window.location.href;
