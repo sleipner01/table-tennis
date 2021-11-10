@@ -923,7 +923,7 @@ form button {
     .calendarDate {
         height: auto;
         min-height: 60px;
-        max-height: auto;
+        /* max-height: auto; */
     }
     .big-only {
         display: none;

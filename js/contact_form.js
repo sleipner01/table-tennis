@@ -20,7 +20,7 @@ document.getElementById("serveBTN").addEventListener("click", function(event) {
     }
 
 
-    var check = new Array();
+    var check = [];
     var valid = true;
 
     let inps = document.getElementsByTagName("input")
@@ -29,7 +29,7 @@ document.getElementById("serveBTN").addEventListener("click", function(event) {
     }
     // Det er bare en select og så lenge den ikke er -1 er den good
     let sel = document.getElementsByTagName("select")[0]
-    if (sel.value == "-1") {
+    if (sel.value == "") {
         valid = false;
 
         addErr(sel);
