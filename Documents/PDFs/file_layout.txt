@@ -20,6 +20,7 @@ bordtennis/
     │   ├─gathering-images/
     │   │   ├─equipment.jpg
     │   │   ├─tryout.jpg
+    │   │   ├─michail.jpg
     │   │   └─tabletennis_table.jpg
     │   ├─home-images/
     │   │   ├─equipment.jpg
@@ -49,6 +50,7 @@ bordtennis/
     └─Documents/
         ├─PDFs/
         │   ├─social-gatherings.pdf
+        │   ├─file_layout.txt
         │   ├─base_design.pdf
         │   ├─contact.pdf
         │   ├─Training.pdf
