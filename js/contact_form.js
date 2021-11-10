@@ -1,6 +1,16 @@
 document.getElementById("serveBTN").addEventListener("click", function(event) {
     event.preventDefault();
 
+    let err = document.getElementsByClassName("errtext")
+    for (var i = 0; i < err.length; i++) {
+        // console.log(err[i])
+        // err[i].remove()
+        let parent = err[i].parentNode.getElementsByClassName("errtext");
+        for (var i = 0; i < parent.length; i++) {
+            parent[i].removeChild(parent[i])
+        }
+    }
+
     var check = new Array();
     var valid = true
 
@@ -22,6 +32,11 @@ document.getElementById("serveBTN").addEventListener("click", function(event) {
     for (var i = 0; i < check.length; i++) {
         if (check[i].checkValidity() != true && check[i].hasAttribute('required') == true) {
             valid = false
+
+            const elem = document.createElement('p');
+            elem.innerText = 'Invalid input';
+            elem.className = "errtext"
+            check[i].parentNode.parentNode.insertBefore(elem, check[i].parentNode);
         }
         // console.log(check[i])
     }
@@ -30,7 +45,5 @@ document.getElementById("serveBTN").addEventListener("click", function(event) {
         // console.log(check)
         alert('Form has been successfully sent');
         location.reload();
-    } else {
-        alert("Form is not valid")
     }
 });

@@ -887,6 +887,15 @@ form button {
     filter: none;
 }
 
+.errtext {
+    /* position: absolute; */
+    color: var(--red);
+    font-size: .8em;
+    margin-top: 5px;
+    margin-bottom: -4px;
+
+}
+
 
 /*------------------------------------*\
   Media queries
