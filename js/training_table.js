@@ -260,27 +260,24 @@ function updateCalendar() {
   updateText();
 }
 
-function increaseWeeks(inc=1, render=false) {
+function increaseWeeks(inc) {
   firstDate = dateAfterDays(firstDate, 7*inc);
-  if (render)
-    updateCalendar(7);
 }
 
-function increaseMonth(inc=1, render=false) {
+function increaseMonth(inc) {
   if (inc < 0)
     firstDate = dateAfterDays(firstDate, -7 * 7);
   const oldMonth = displayedMonth();
   while (oldMonth === displayedMonth())
-    increaseWeeks();
-  if (render)
-    updateCalendar();
+    increaseWeeks(1);
 }
 
 function increase(inc) {
   if (calendarView == "month")
-    increaseMonth(inc, true);
+    increaseMonth(inc);
   else if (calendarView == "week")
-    increaseWeeks(inc, true);
+    increaseWeeks(inc);
+  updateCalendar()
 }
 
 const isSameMonth = (date1, date2) =>
@@ -297,11 +294,11 @@ const daysBetween = (date1, date2) => {
 
 function setFirstDisplayedDate() {
   while (!isSameMonth(currentDate, displayedMonthYear()))
-    increaseMonth();
+    increaseMonth(1);
 
   if (calendarView === "week")
     while (daysBetween(firstDate, currentDate) > 6)
-      increaseWeeks();
+      increaseWeeks(1);
 }
 
 //Modal
