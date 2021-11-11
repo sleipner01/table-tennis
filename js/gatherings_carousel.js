@@ -45,29 +45,26 @@ function createCollapsibles() {
             let contentEl = document.createElement('div');
             contentEl.classList.add('module', 'collapsible-content');
                 // Create element that devides the content wrapper in two, one left side, one right side
-                let splitEl = document.createElement('div');
-                splitEl.classList.add('split');
+            let splitEl = document.createElement('div');
+            splitEl.classList.add('split');
             contentEl.appendChild(splitEl);
-
-
-
 
             // Add stored information
             // Create left side div
             let leftDivEl = document.createElement('div');
 
-                //Add the date
-                let dateEl = document.createElement('p');
-                dateEl.classList.add('social-gatherings-date');
-                dateEl.innerText = 'Date: ' + event.date.day + '.' + event.date.month + '.' + event.date.year;
+            //Add the date
+            let dateEl = document.createElement('p');
+            dateEl.classList.add('social-gatherings-date');
+            dateEl.innerText = 'Date: ' + event.date.day + '.' + event.date.month + '.' + event.date.year;
 
-                // Add a title
-                let titleEl = document.createElement('h3');
-                titleEl.innerText = event.name;
+            // Add a title
+            let titleEl = document.createElement('h3');
+            titleEl.innerText = event.name;
 
-                // Add the description
-                let textEl = document.createElement('p');
-                textEl.innerText = event.text;
+            // Add the description
+            let textEl = document.createElement('p');
+            textEl.innerText = event.text;
 
             // Append them to the left div
             leftDivEl.appendChild(dateEl);
