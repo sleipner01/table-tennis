@@ -26,8 +26,8 @@ const social_events = [
 
 
 function createCollapsibles() {
-    // Check if an notice element is in the container
 
+    // Check if an notice element is in the container
     if(document.getElementById('notice')) {
         galleryEl.removeChild(document.getElementById('notice'));
     }
@@ -136,7 +136,7 @@ function createCollapsibles() {
         }
     })
 
-
+    // If there are no events from the current year, add a notice
     if(document.getElementsByClassName('collapsible').length < 1) {
         noticed = document.createElement('div');
         noticed.classList = "width";
@@ -152,7 +152,7 @@ function createCollapsibles() {
 }
 
 function createCarousel() {
-    // Count previous and nex year's number of events
+    // Count previous and next year's number of events
     var countL = 0;
     var countR = 0;
     var minYr = Number(currentYearEl.innerText);
