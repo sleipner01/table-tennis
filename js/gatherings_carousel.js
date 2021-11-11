@@ -1,4 +1,4 @@
-// Year and information control
+// Year control, elements to tweak, settings
 const previousYearEl = document.getElementById('previousYear');
     previousYearEl.addEventListener('click', changeYear);
 const nextYearEl = document.getElementById('nextYear');
@@ -7,6 +7,7 @@ const currentYearEl = document.getElementById('currentYear');
     currentYearEl.innerText = new Date().getFullYear();
 const galleryEl = document.getElementById('social-gatherings-gallery');
 const galleryContainerEl = document.getElementById('social-gatherings-gallery-container');
+const imgPath = '../../bordtennis/media/gathering-images/';
 
 
 
@@ -32,6 +33,7 @@ function createCollapsibles() {
         galleryEl.removeChild(document.getElementById('notice'));
     }
 
+    // For every event, create collapsibles
     social_events.forEach(event =>  {
         if(event.date.year == Number(currentYearEl.innerText)) {
             // Create button
@@ -77,12 +79,14 @@ function createCollapsibles() {
 
                 let resultContainerEl = document.createElement('table');
 
+                // Participants
                 let resultTeamsContainerEl = document.createElement('tr');
                 let teamEl = document.createElement('td');
                 teamEl.innerText = event.teamName;
                 let opposingTeamEl = document.createElement('td');
                 opposingTeamEl.innerText = event.opposingTeam;
 
+                //Results
                 let resultScoresContainerEl = document.createElement('tr');
                 let teamResultEl = document.createElement('td');
                 let result = event.score.split(',');
@@ -114,10 +118,10 @@ function createCollapsibles() {
 
                 // Add an image
                 let imgEl = document.createElement('img');
-                imgEl.src = '../../bordtennis/media/gathering-images/' + event.imgName;
+                imgEl.src = imgPath + event.imgName;
                 imgEl.alt = 'Event picture';
                 imgEl.height = '350';
-                imgEl.loading = 'lazy'; // Lazy to make the site load faster, and keep the user from loading unnecessary data
+                imgEl.loading = 'lazy'; // Loading = Lazy, to make the site load faster and keep the user from loading unnecessary data
                 rightDivEl.appendChild(imgEl);
 
 
@@ -259,7 +263,7 @@ function changeYear(e) {
 // First time script is run, perform functions
 // Create collapsibles
 createCollapsibles();
-//Add Eventlisteners
+// Add Eventlisteners
 addEventListeners();
 // Open first collapsible once the document is loaded
 window.addEventListener('load', openFirstCollapsible);

@@ -9,7 +9,8 @@ var index = 1; // Has to be 1 so the interval changes to next picture after set 
 galleryEl.style.backgroundImage = 'url(' + path + pictures[0] + ')';
 
 
-// Hidden div to preload images
+// Hidden div at the bottom of the index page to preload images
+// Needed this to make sure the animation doesm't stutter / blink 
 var hiddenDiv = document.createElement("div");
 hiddenDiv.style.display = "none";
 document.body.appendChild(hiddenDiv);
