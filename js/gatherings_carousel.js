@@ -263,7 +263,7 @@ function changeYear(e) {
 // First time script is run, perform functions
 // Create collapsibles
 createCollapsibles();
-//Add Eventlisteners
+// Add Eventlisteners
 addEventListeners();
 // Open first collapsible once the document is loaded
 window.addEventListener('load', openFirstCollapsible);
